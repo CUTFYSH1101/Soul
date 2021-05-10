@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: efec307606cb37046ac5510948d90117
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: GenYoGothic TW
+  fontNames:
+  - GenYoGothic TW
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ad793c6077ae9004488c659ee3ab137d, type: 3}
+  - {fileID: 12800000, guid: adb3ef12cf9b52a42b6b915ad17e3742, type: 3}
+  - {fileID: 12800000, guid: 9516e384c1b72244d94b790a64c8cd01, type: 3}
+  - {fileID: 12800000, guid: 3bf62825d6ec674468854452f043b50a, type: 3}
+  - {fileID: 12800000, guid: ec2e313dbea613e48be1ccc3b9044e8a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
