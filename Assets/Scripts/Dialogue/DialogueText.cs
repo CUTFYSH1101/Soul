@@ -6,7 +6,7 @@ namespace Dialogue {
     public class DialogueGenerator : ScriptableObject {
         public string DialogueID;
         public string DialogueHeadNPC;
-        public DialogueData[] DialogueDatas;
+        public DialogueData[] DialogueDetail;
         [System.Serializable] public struct DialogueData {
             public string Name;
             public string Text;

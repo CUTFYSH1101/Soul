@@ -606,17 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccaa759e53449f8a946154862389eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLanguage: 1
-  DialogueCount: 3
-  LocalName:
-  - Guru
-  - Wupa
-  - Guru
-  LocalDialogue: DebugMap
-  ImageGUI: {fileID: 0}
-  NameGUI: {fileID: 0}
-  SentencesGUI: {fileID: 0}
-  ErrorNPC: {fileID: 21300000, guid: 72dac24cd8b3f0147832bbb9cf10d6e6, type: 3}
 --- !u!4 &986572031
 Transform:
   m_ObjectHideFlags: 0
@@ -1116,3 +1105,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008357093}
   m_CullTransparentMesh: 0
+--- !u!1 &2070722656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070722658}
+  - component: {fileID: 2070722657}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070722657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070722656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6228c59170734628b8244a38ec52d93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueIn: {fileID: 11400000, guid: f6e0380325bde554a8d21a2f0eedafcd, type: 2}
+--- !u!4 &2070722658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070722656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.272002, y: -1.3165386, z: 124.852615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

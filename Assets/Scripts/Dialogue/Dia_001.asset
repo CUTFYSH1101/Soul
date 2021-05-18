@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Dia_001
   m_EditorClassIdentifier: Assembly-CSharp:Dialogue:DialogueGenerator
-  DialogueID: 
-  DialogueDatas: []
+  DialogueID: 001
+  DialogueHeadNPC: Charaa
+  DialogueDetail: []
