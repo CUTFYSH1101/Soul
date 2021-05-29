@@ -6,10 +6,14 @@ using Extension.Common;
 using Extension.Entity.Controller;
 using Main.Entity.Attr;
 using Main.Util;
+using Test2;
+using Test2.Causes;
+using Test2.Timers;
 using UnityEngine;
 using static System.Reflection.BindingFlags;
 using Type = Main.Entity.Controller.ICreature.AttackAnimator.Type;
 using static Main.Entity.Controller.ICreature.AttackAnimator.Type;
+using static UnityEngine.Object;
 using MyRigidbody2D = Main.Entity.Controller.Rigidbody2D;
 
 namespace Main.Entity.Controller
@@ -30,7 +34,7 @@ namespace Main.Entity.Controller
         private readonly Rigidbody2D rigidbody2D;
         public bool IsFacingRight => flipController.IsFacingRight;
         private FlipController flipController;
-        private readonly Knockback _knockback; //關聯
+        private readonly KnockbackSkill knockbackSkill; //關聯
         private readonly UseAnimator useAnimator;
         private AnimatorStateInfo GetStateInfo() => animator.GetCurrentAnimatorStateInfo(0);
 
@@ -42,7 +46,7 @@ namespace Main.Entity.Controller
             rigidbody2D = transform.GetOrAddComponent<Rigidbody2D>();
             useAnimator = new UseAnimator(animator, creatureAttr);
             flipController = new FlipController(transform);
-            _knockback = new Knockback(transform.GetOrAddComponent<Rigidbody2D>(), HitEnter, HitExit);
+            knockbackSkill = new KnockbackSkill(transform.GetOrAddComponent<Rigidbody2D>(), HitEnter, HitExit);
         }
 
         public ICreatureAttr GetCreatureAttr() => creatureAttr;
@@ -74,7 +78,6 @@ namespace Main.Entity.Controller
         {
             if (GetStateInfo().IsTag("Attack"))
                 return;
-            
         }
 
         public virtual void Move(bool @switch)
@@ -98,7 +101,7 @@ namespace Main.Entity.Controller
         /// 無視任何條件都會被擊退
         public void Hit(Vector2 direction, float force,
             Transform vfx = null, Vector2 position = default) =>
-            _knockback.Use(direction, force, vfx == null ? null : vfx, position);
+            knockbackSkill.Invoke(direction, force, vfx == null ? null : vfx, position);
 
         public void HitEnter() => creatureAttr.MindState = MindState.Knockback;
 
@@ -138,7 +141,6 @@ namespace Main.Entity.Controller
 
             public void DownAttack()
             {
-                
             }
 
             public void Attack(AttackAnimator.Type type) => attackAnimator.Attack(type);
@@ -318,7 +320,7 @@ namespace Main.Entity.Controller
             private readonly Vector2 offset;
             private bool inited;
             private float size;
-            private static readonly int GroundMask = LayerMask.NameToLayer("Ground").GetLayerMask();
+            private static readonly int GroundMask = LayerMask.NameToLayer("Ground").ToLayerMask();
 
             private float Size
             {
@@ -396,20 +398,22 @@ namespace Main.Entity.Controller
             }
         }
 
-        private class Knockback
+        private class KnockbackSkill : AbstractSkill
         {
-            private bool knockbacked;
+            [Tooltip("等待下一次觸發時長")] private const float CdTime = 1;
+            [Tooltip("效果時長")] private const float Duration = 0.5f;
+            [Tooltip("是否被擊退？")] private bool knockbacked;
             private readonly Rigidbody2D rigidbody2D;
-            private readonly MonoBehaviour mono;
-            private readonly Action enter, exit;
-            private const float Duration = .1f;
-            private float timer = Duration + Time.time;
             private readonly KnockbackAnimator animator;
+            private readonly ICause duration;
+            private readonly Action enter, exit;
+            // private Vector2 force;
 
-            public Knockback(Rigidbody2D rigidbody2D, Action enter, Action exit)
+            public KnockbackSkill(MonoBehaviour mono,
+                Action enter, Action exit) : base(mono, CdTime)
             {
-                this.rigidbody2D = rigidbody2D;
-                mono = rigidbody2D.GetComponent<MonoBehaviour>();
+                duration = new CDCause(Duration);
+                rigidbody2D = mono.GetComponent<Rigidbody2D>();
                 this.enter = enter;
                 this.exit = exit;
 
@@ -417,52 +421,47 @@ namespace Main.Entity.Controller
             }
 
             // 使用擊退和特效
-            public void Use(Vector2 direction, float force,
+            public void Invoke(Vector2 direction, float force,
                 Transform vfx = null, Vector2 position = default)
             {
-                timer = Duration + Time.time;
-                enter?.Invoke();
-                Enter();
-                mono.StartCoroutine(Update()); // update
-                direction = direction.normalized;
-                // direction = (direction + Vector2.down * direction.y).normalized; //調整方向
-                // direction = direction.normalized + Vector2.down * direction.y; //調整方向
-                rigidbody2D.AddForce(direction * force, ForceMode2D.Impulse);
-                Use(vfx, direction, position);
+                if (duration.Cause())
+                    duration.Reset();
+                if (state == State.Waiting)
+                {
+                    direction = direction.normalized;
+                    // direction = (direction + Vector2.down * direction.y).normalized; //調整方向
+                    // direction = direction.normalized + Vector2.down * direction.y; //調整方向
+                    rigidbody2D.AddForce(direction * force, ForceMode2D.Impulse);
+                    Invoke(vfx, direction, position);
+                    base.Invoke();
+                }
             }
 
-            // 使用特效
-            private void Use(Transform vfx = null, Vector2 direction = default, Vector2 position = default)
+            // 使用擊退特效
+            private void Invoke(Transform vfx = null, Vector2 direction = default, Vector2 position = default)
             {
                 if (vfx.IsEmpty())
                     return;
-                UnityEngine.Component.Instantiate(vfx, position, Quaternion.LookRotation(direction));
+                Instantiate(vfx, position, Quaternion.LookRotation(direction));
             }
 
-            private void Enter()
+            protected override void Enter()
             {
                 knockbacked = true;
                 enter?.Invoke();
                 animator.Use(true);
             }
 
-            private void Exit()
+            protected override void Update()
+            {
+            }
+
+            protected override void Exit()
             {
                 knockbacked = false;
                 exit?.Invoke();
                 animator.Use(false);
                 rigidbody2D.StopForceX();
-            }
-
-            private IEnumerator Update()
-            {
-                while (knockbacked)
-                {
-                    if (Time.time > timer)
-                        Exit();
-                    // if (rigidbody2D.Instance.velocity.magnitude < .1f) Exit();
-                    yield return null;
-                }
             }
         }
 

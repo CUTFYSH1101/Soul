@@ -9,12 +9,9 @@ namespace Extension.Entity.Controller
 {
     public static class Collision
     {
-        public static int GetLayerMask(this string layerName)
-            => 1 << LayerMask.NameToLayer(layerName);
-        
-        public static int GetLayerMask(this int layerIndex)
+        public static int ToLayerMask(this int layerIndex)
             => 1 << layerIndex;
-        
+
         /// 回傳是否碰撞
         public static bool CircleCast(this Component subject,
             Vector2 point, float radius,

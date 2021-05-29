@@ -67,7 +67,7 @@ namespace Extension.Common
                     // case MindState.Air:
                     //     if (!EnableAirControl)
                     //         return true;
-                    break;
+                    // break;
                 case MindState.Idle:
                     break;
                 case MindState.Aware:

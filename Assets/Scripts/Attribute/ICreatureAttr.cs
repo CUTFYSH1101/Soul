@@ -29,6 +29,7 @@ namespace Main.Entity.Attr
         // * Debug
         // * 命名規範：xxx
         // ======
+        [SerializeField] private string name = "";        
         [SerializeField] private bool alive = true;
         [SerializeField] private bool movable = true;
         [SerializeField] private bool attackable = true;
@@ -51,6 +52,7 @@ namespace Main.Entity.Attr
         // private BoolItem enableAirControlItem;
         // private BoolItem groundedItem;
 
+        public string GetName() => name;
 
         // ======
         // 三、

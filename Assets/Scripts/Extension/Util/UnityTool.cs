@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Main.Entity.Controller;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Main.Util
 {
@@ -254,4 +257,5 @@ namespace Main.Util
             }
         }
     }
+    
 }

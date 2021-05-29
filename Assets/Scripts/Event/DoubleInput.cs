@@ -13,7 +13,7 @@ namespace Event
         private readonly Timer duration = new Timer(.5f);
 
         // 觸發事件與暴露方法
-        public string Key { get; set; }
+        public string Key { get; private set; }
         private bool GetButtonDown() => Input.GetButtonDown(Key);
         public Action SingleEvent { get; }
 

@@ -189,14 +189,14 @@ namespace Main.Entity.Controller
                         if (!messenger.IsKilled() && messenger.IsEnemy(team))
                         {
                             var creature = messenger.GetCreature();
-                            onTrigger?.Invoke(creature);
+                            onTrigger?.Reset(creature);
                             return true;
                         }
                     }
                 }
             }
 
-            // onTrigger?.Invoke(null);
+            // onTrigger?.Reset(null);
             return false;*/
         }
 

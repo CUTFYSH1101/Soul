@@ -765,6 +765,7 @@ MonoBehaviour:
           value: 0
         surroundingState:
           value: 0
+        name: 
         alive: 0
         movable: 0
         attackable: 0
@@ -988,7 +989,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053867961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c28d8f43735a74b886b968774b1f09, type: 3}
+  m_Script: {fileID: 11500000, guid: bbc43b54727542bf972bb5f108948eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1053867963

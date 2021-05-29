@@ -36,7 +36,7 @@ namespace Main.Entity.Controller
             relateVelocityX *= drag;
             moveX *= drag;
 
-            /*var drag = Instance.drag * Time.fixedDeltaTime;
+            /*var drag = Instance.drag * time.fixedDeltaTime;
             if (relateVelocityX != Values.Zero)
                 relateVelocityX.Less(drag * relateVelocityX);
             if (moveX != Values.Zero)
