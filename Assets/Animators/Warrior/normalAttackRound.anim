@@ -51,7 +51,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Normal Attack/Round
+    path: Skill/Normal Attack/Round
     classID: 60
     script: {fileID: 0}
   m_PPtrCurves:
@@ -86,7 +86,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3464254747
+      path: 1893922038
       attribute: 3305885265
       script: {fileID: 0}
       typeID: 60
@@ -164,7 +164,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_Enabled
-    path: Normal Attack/Round
+    path: Skill/Normal Attack/Round
     classID: 60
     script: {fileID: 0}
   m_EulerEditorCurves: []

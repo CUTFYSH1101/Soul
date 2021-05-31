@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Linq;
 using Event;
-using Extension.Common;
-using Extension.Entity.Controller;
+using Main.Common;
+using Main.Entity.Controller;
 using JetBrains.Annotations;
 using Main.Entity.Attr;
 using Main.Util;
@@ -11,7 +11,6 @@ using Test2;
 using Test2.Causes;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using static Main.Util.Timers;
 using Input = UnityEngine.Input;
 using Type = Main.Entity.Controller.ICreature.AttackAnimator.Type;
 
@@ -23,7 +22,7 @@ namespace Main.Entity.Controller
         private readonly ICreature creature;
         private MoveController moveController;
         public bool Switch { get; set; } = true;
-        private DashSkill dashSkill;
+        private DiveAttack diveAttack;
 
 
         public PlayerController(ICreature creature)
@@ -32,7 +31,7 @@ namespace Main.Entity.Controller
             moveController = new MoveController(creature, "Horizontal");
             // moveController.ToString().LogLine();
 
-            dashSkill = new DashSkill(creature, "Horizontal");
+            diveAttack = new DiveAttack(creature, 0.2f);
         }
 
         // TODO:later delete...
@@ -41,10 +40,6 @@ namespace Main.Entity.Controller
 
         public void Update()
         {
-            if (Input.anyKeyDown)
-            {
-                // dashSkill.Invoke(new Vector2(60,0));
-            }
             /*if (!Input.anyKey)
                 return;*/
             if (!Switch)
@@ -57,11 +52,13 @@ namespace Main.Entity.Controller
                 GetCreatureAI().Attack(ICreature.AttackAnimator.Type.Rect);
                 // TODO: mindState=空中時，俯衝
                 // if whereState==Air
-                if (!GetCreatureAttr().Grounded)
+
+                diveAttack.Invoke();
+                /*if (!GetCreatureAttr().Grounded)
                 {
                     var dir = new Vector2(creature.IsFacingRight ? 1 : -1, -1);
                     rb.AddForce(dir * 10, ForceMode2D.Impulse);
-                }
+                }*/
             }
 
             if (Input.GetButtonDown("Fire2"))
@@ -146,116 +143,5 @@ namespace Main.Entity.Controller
         private ICreatureAttr GetCreatureAttr() => creature.GetCreatureAttr();
 
         private ICreatureAI GetCreatureAI() => creature.GetCreatureAI();
-    }
-
-    internal class MoveController
-    {
-        private readonly ICreature creature;
-        private readonly DoubleInput dbClick;
-        private readonly DashSkill dash;
-        private bool Movable => GetCreatureAttr().Movable;
-
-        private bool CanNotControlled => GetCreatureAttr().CanNotControlled();
-
-        private bool EnableAirControl => GetCreatureAttr().EnableAirControl;
-
-        private bool Grounded => GetCreatureAttr().Grounded;
-
-        public MoveController(ICreature creature, string key)
-        {
-            this.creature = creature;
-            // dbClick = new DBClick(key, .5f);
-            this.dbClick = new DoubleInput(key,
-                null, null, creature.GetRigidbody2D());
-
-            dash = new DashSkill(creature, key);
-        }
-
-        public void Update()
-        {
-            if (dbClick.DoubleClick)
-            {
-                Move(false);
-                var moveX = new Vector2(GetCreatureAttr().SprintForce * Input.GetAxisRaw("Horizontal"), 0);
-                dash.Invoke(moveX);
-            }
-            else
-            {
-                // 在衝刺中無法進行其他操作
-                if (state == State.Sprint)
-                {
-                    return;
-                }
-
-                MoveCycle();
-            }
-        }
-
-        private ICreatureAttr GetCreatureAttr()
-        {
-            return creature.GetCreatureAttr();
-        }
-
-        private void MoveCycle()
-        {
-            // 當按下按鍵->確認狀態->移動
-            if (Input.GetAxisRaw("Horizontal") != 0)
-            {
-                if (!Movable || CanNotControlled)
-                {
-                    Move(false);
-                }
-
-                if (!Grounded && !EnableAirControl)
-                    return;
-                Move(true);
-            }
-            // 當鬆開按鍵且在地面上->停下
-            else
-            {
-                if (!Grounded)
-                    return;
-                Move(false);
-            }
-        }
-
-        private void Move(bool value)
-        {
-            if (value)
-            {
-                creature.Move(true);
-                float moveX = Input.GetAxisRaw("Horizontal") * GetCreatureAttr().MoveSpeed;
-                creature.GetRigidbody2D().SetMoveX(moveX);
-                state = State.Move;
-            }
-            else
-            {
-                creature.Move(false);
-                creature.GetRigidbody2D().SetMoveX(0);
-                state = State.Idle;
-            }
-        }
-
-        public override string ToString() => this.GetMembersToString();
-
-
-        private enum State
-        {
-            Idle,
-            Move,
-            Sprint
-        }
-
-        private State state;
-
-        public string GetState() => "狀態:" + state;
-
-        /*
-        /// 獲取衝刺時長(秒)，預設為0.5
-        public float GetSprintTime() => controller.MDuration;
-
-        /// 設定衝刺時長(秒)
-        public void SetSprintTime(float second) => controller.MDuration = second;
-    */
     }
 }

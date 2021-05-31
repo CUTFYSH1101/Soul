@@ -54,7 +54,7 @@ namespace Main.Entity.Controller
         public override string ToString()
         {
             string info = this.GetType().Name;
-            /*foreach (var fieldInfo in this.GetType().GetFields(Instance|NonPublic))
+            /*foreach (var fieldInfo in this.GetType().GetFields(instance|NonPublic))
             {
                 info += "\n" + fieldInfo.Name + "\t" + fieldInfo.GetValue(this);
             }*/

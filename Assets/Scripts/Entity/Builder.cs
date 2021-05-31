@@ -62,7 +62,7 @@ namespace Main.Entity
         public PlayerBuilder(Transform transform)
         {
             player = new Player(
-                new ICreatureAttr(jumpForce: 1200),
+                new ICreatureAttr(jumpForce: 1800),
                 transform);
             creatureAI = new PlayerAI(player);
             SetController();

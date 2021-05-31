@@ -1,112 +1,272 @@
 ﻿using System;
-using Main.Common;
 using Main.Util;
 using UnityEngine;
+using Convert = System.Convert;
+using MyRigidbody2D = Main.Entity.Controller.Rigidbody2D;
 
-/*
- * 繼承/使用順序：
- * CustomRigidbody2D > CreatureController > PlayerController
- * 如有异型種，請覆寫CreatureController(不能動，不能擊退)
- */
 namespace Main.Entity.Controller
 {
     public class Rigidbody2D : MonoBehaviour
     {
-        private float VelocityX => moveX + relateVelocityX + moveToX;
-        private float moveX;
-        private float relateVelocityX;
-        private float moveToX;
+        public Vector2 velocity
+        {
+            get => instance.velocity;
+            set
+            {
+                _moveX.value = value.x; // 更改虛擬速度
+                instance.velocity = value; // 減少SpeedX取值延遲時間
+            }
+        }
 
-        public void SetMoveX(float value) => moveX = value;
-        public float GetMoveX() => moveX;
-        public void StopForceX() => relateVelocityX = 0;
+        private float SpeedX => _moveX.value + _forceX.value + _guideX.value;
+        public UnityEngine.Rigidbody2D instance;
+        public Collider2D collider2D;
 
-        /// 取得Rigidbody元件
-        public UnityEngine.Rigidbody2D Instance { get; private set; }
+        private Vector _moveX, _forceX;
+        private GuildVec _guideX;
+        public void SetMoveX(float value) => _moveX.value = value;
+        public float GetMoveX() => _moveX.value;
+        public float GetForceX() => _forceX.value;
+        public float GetGuideX() => _guideX.value;
 
         private void Awake()
         {
-            Instance = transform.GetOrAddComponent<UnityEngine.Rigidbody2D>();
+            instance = this.GetOrAddComponent<UnityEngine.Rigidbody2D>();
+            collider2D = this.GetOrAddComponent<Collider2D>();
+            gameObject.AddComponent<Collider2D>();
+            var drag = instance.drag;
+            _moveX = new Vector(this, collider2D, drag);
+            _forceX = new Vector(this, collider2D, drag);
+            _guideX = new GuildVec(this, collider2D, drag,
+                () =>
+                {
+                    // 停止移動
+                    velocity = Vector2.zero;
+                    _moveX.value = 0;
+                    _forceX.value = 0;
+                });
         }
 
         private void FixedUpdate()
         {
-            float drag = 1.0f - Instance.drag * Time.fixedDeltaTime;
-            if (drag < 0.0f) drag = 0.0f;
-            relateVelocityX *= drag;
-            moveX *= drag;
-
-            /*var drag = Instance.drag * time.fixedDeltaTime;
-            if (relateVelocityX != Values.Zero)
-                relateVelocityX.Less(drag * relateVelocityX);
-            if (moveX != Values.Zero)
-                moveX.Less(drag * moveX);*/
-            Instance.velocity = new Vector2(VelocityX, Instance.velocity.y);
+            _moveX.Update();
+            _forceX.Update();
+            _guideX.Update();
+            instance.velocity = new Vector2(SpeedX, instance.velocity.y);
         }
 
-        /// 給予一個力，使其前進
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            _moveX.OnCollisionEnter(other);
+            _forceX.OnCollisionEnter(other);
+            _guideX.OnCollisionEnter(other);
+            instance.velocity = new Vector2(SpeedX, instance.velocity.y);
+        }
+
+        public void AddForce(float x, float y, ForceMode2D mode2D = ForceMode2D.Force)
+            => AddForce(new Vector2(x, y), mode2D);
+
         public void AddForce(Vector2 force, ForceMode2D mode2D = ForceMode2D.Force)
+            => this.AddForce(ref _moveX.value, force, mode2D);
+
+        // 移動方向
+        public Vector2 guildDir => _guideX.direction;
+
+        // 搭配guildDir
+        public void MoveTo(Vector2 target, float moveSpeed = 5, float jumpForce = 50)
+            => _guideX.MoveTo(target, moveSpeed, jumpForce);
+
+        public void Jump(float jumpForce)
+            => _guideX.Jump(jumpForce);
+
+        private class Vector
         {
-            if (mode2D == ForceMode2D.Impulse)
+            private readonly float _dragMultiplier;
+            protected readonly Rigidbody2D _rb;
+            protected readonly Collider2D _collider2D;
+            protected readonly Physic2D.BundleData bundle;
+
+            public float value;
+            public void Stop() => value = 0;
+
+
+            public Vector(Rigidbody2D rb, Collider2D collider2D, float drag)
             {
-                relateVelocityX += force.x / Instance.mass;
-                Instance.AddForce(Vector2.up * force.y, mode2D);
+                _dragMultiplier = (1 - drag * Time.fixedTime);
+                if (_dragMultiplier > 1)
+                {
+                    _dragMultiplier = 1;
+                }
+
+                this._rb = rb;
+                _collider2D = collider2D;
+                bundle = new Physic2D.BundleData(rb, collider2D);
             }
-            else if (mode2D == ForceMode2D.Force)
+
+            public void Update()
             {
-                // v = f*t/m
-                relateVelocityX += force.x / Instance.mass * Time.fixedDeltaTime;
-                Instance.AddForce(Vector2.up * force.y, mode2D);
+                if (Math.Abs(value) < .001f)
+                {
+                    value = 0;
+                    return;
+                }
+
+                // 模擬阻力
+                if (0 < _dragMultiplier && _dragMultiplier < 1)
+                    value *= _dragMultiplier;
+                // 模擬摩擦
+                Physic2D.FrictionSimulate(bundle, ref value);
+            }
+
+            public void OnCollisionEnter(Collision2D other)
+                => Physic2D.CollisionSimulate(bundle, ref value, other);
+        }
+
+        private class GuildVec : Vector
+        {
+            public Vector2 direction;
+            private bool isJumping;
+            private bool hasStopMoving;
+
+            public GuildVec(Rigidbody2D rb, Collider2D collider2D, float drag, Action stopMoving) : base(rb, collider2D,
+                drag)
+            {
+                this._stopMoving = stopMoving;
+            }
+
+            public void MoveTo(Vector2 target, float moveSpeed = 5, float jumpForce = 50)
+            {
+                // 停止移動
+                StopMoving();
+
+                var difference = target - (Vector2) _rb.transform.position;
+                var dir = difference.normalized;
+                // 當到達位置則停止移動
+                if (difference.magnitude <= .15f)
+                    return;
+                // 當目標在平台上，試圖往上跳
+                if (Math.Abs(difference.x) <= .15f)
+                    if (difference.y >= .15f)
+                        Jump(jumpForce);
+                // 開始移動
+                value = dir.x * moveSpeed;
+                // 主動移動方向
+                direction = dir;
+            }
+
+            public void Jump(float jumpForce)
+            {
+                if (!isJumping)
+                {
+                    isJumping = true;
+                    _rb.AddForce(0, jumpForce);
+                }
+
+                if (isJumping && Math.Abs(_rb.velocity.y) < .001)
+                {
+                    isJumping = false;
+                }
+            }
+
+            private void StopMoving()
+            {
+                if (hasStopMoving)
+                    return;
+                hasStopMoving = true;
+                _stopMoving?.Invoke();
+            }
+
+            private readonly Action _stopMoving;
+        }
+    }
+
+    public static class Physic2D
+    {
+        public class BundleData
+        {
+            private readonly MyRigidbody2D rb;
+            private readonly Collider2D collider2D;
+            public Vector2 velocity => rb.instance.velocity;
+            public Vector2 position => rb.transform.position;
+            public float gravityScale => rb.instance.gravityScale;
+            public bool useGravity => gravityScale != 0;
+            public PhysicsMaterial2D sharedMaterial => rb.instance.sharedMaterial;
+            public float bounciness => sharedMaterial != null ? sharedMaterial.bounciness : 0.0f;
+            public float friction => sharedMaterial != null ? sharedMaterial.friction : 0.4f;
+
+            public BundleData(Rigidbody2D rb, Collider2D collider2D)
+            {
+                this.rb = rb;
+                this.collider2D = collider2D;
             }
         }
 
-        /// 給予一個速度，相當自定義AddForce但無視質量
-        public void AddVelocity(Vector2 append)
+        public static void AddForce(this MyRigidbody2D rb, ref float subSpeedX, Vector2 force, ForceMode2D mode2D)
         {
-            // => _rigidbody2D.velocity += append;
-            relateVelocityX += append.x;
-            Instance.velocity += Vector2.up * append.y;
+            AddForceX(rb, ref subSpeedX, force.x, mode2D); // x 軸方向
+            rb.instance.AddForce(new Vector2(0, force.y), mode2D); // y 軸方向
         }
 
-        /// 位移到目標點。用Rigidbody2D.MovePosition
-        public void MoveTo(Transform target, float moveSpeed = 5)
+        public static void AddForceX(this MyRigidbody2D rb, ref float subSpeedX, float force,
+            ForceMode2D mode2D)
         {
-            // 計算距離
-            var distance = target.position - transform.position;
-            // 當到達位置則停止移動
-            if (distance.sqrMagnitude < Values.Min) return;
-            // 開始移動
-            var next = transform.position + distance.normalized * moveSpeed * Time.deltaTime;
-            movingRight = distance.x > 0;
-            Instance.MovePosition(next);
+            var mass = rb.instance.mass;
+            switch (mode2D)
+            {
+                case ForceMode2D.Force:
+                    // 加速度a = force / mass
+                    // v = v0 + a * t, t = 0.02, a = force / mass
+                    subSpeedX += force / mass * Time.fixedDeltaTime;
+                    break;
+                case ForceMode2D.Impulse:
+                    // 速度v = force / mass
+                    // v = v0 + a * t, "t = 1", a = force / mass, "t 可以省略"
+                    subSpeedX += force / mass;
+                    break;
+                default:
+                    Debug.LogError("超出範圍");
+                    break;
+            }
         }
 
-        /// 位移到目標點。用transform.position
-        public void MoveTo(float targetTransformX, float moveSpeed = 5)
+        // 還有一點誤差
+        public static void FrictionSimulate(BundleData bundleData, ref float subSpeedX)
         {
-            // 計算距離
-            var distance = targetTransformX - transform.position.x;
-            // 當到達位置則停止移動
-            if (Math.Abs(distance) < Values.Min) return;
-            // 開始移動
-            var append = Math.Sign(distance) * moveSpeed * Time.deltaTime;
-            movingRight = append > 0;
-            transform.position += new Vector3(append, 0, 0);
+            // 確認是否擁有重力因素
+            if (!bundleData.useGravity)
+                return;
+
+            // 避免開跟號錯誤
+            if (Math.Abs(subSpeedX) < .001f)
+            {
+                subSpeedX = 0;
+                return;
+            }
+
+            // 確認是否擁有物理材質球
+            var friction = bundleData.friction;
+
+            // 公式
+            float magnitude = -Physics2D.gravity.magnitude * bundleData.gravityScale *
+                              friction *
+                              Convert.ToSingle(Math.Sqrt(Math.Abs(subSpeedX))) * 0.5f;
+            if (subSpeedX > 0)
+                subSpeedX += magnitude * Time.fixedDeltaTime;
+            else if (subSpeedX < 0)
+                subSpeedX -= magnitude * Time.fixedDeltaTime;
         }
 
-        /// 搭配moveTo判斷角色位置往左或往右移動
-        public bool movingRight;
+        public static void CollisionSimulate(BundleData bundleData, ref float subSpeedX,
+            Collision2D other)
+        {
+            // 確認材質球
+            var bounciness = bundleData.bounciness;
+
+            // 不考慮彈性碰撞、質量差
+            // 末速度 = - 彈性係數 * 初速度 * Cos（速度與法向力夾角）
+            var normal = (Vector2) other.transform.position - bundleData.position;
+            var angle = Vector2.Angle(normal, bundleData.velocity);
+            subSpeedX *= bounciness * Convert.ToSingle(Math.Sin(angle));
+        }
     }
 }
-/*
- * TODO:周一debug完畢之後更改
- * 一共三種控制子分流：moveX,moveTo,addForce
- * 
- * moveTo無法與任一共存，當發生衝突時，採用以下解決方法：
- * 當使用moveTo,則moveX歸零(無法使用角色控制)
- * 當moveX再次有變動(代表玩家操控介入)，則moveTo停止
- * 當使用addForce,則moveTo停止
- * 能夠使用moveTo的時機在addForce之後
- * 
- * addForce與moveX可以共存(代表玩家可以抵禦著攻擊前進、抵禦暴風雪前進)
-*/

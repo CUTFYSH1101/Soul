@@ -155,7 +155,7 @@ namespace Main.Util
                 Debug.Log("container object is " + objectToCheckParent.name);
             }
             else
-                Debug.Log("Instance object has no parents");
+                Debug.Log("instance object has no parents");
         }
 
         /// <summary>

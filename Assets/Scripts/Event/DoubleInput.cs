@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections;
 using Main.Util;
+using Main.Util.Timers;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
-using static Main.Util.Timers;
 
 namespace Event
 {
     /// 偵測是否觸發double click事件
-    public class DoubleInput : Timers.RepeatMethod
+    public class DoubleInput : RepeatMethod
     {
-        private readonly Timer duration = new Timer(.5f);
+        private readonly CDTimer duration = new CDTimer(.5f,Stopwatch.Mode.LocalGame);
 
         // 觸發事件與暴露方法
         public string Key { get; private set; }
@@ -40,11 +40,6 @@ namespace Event
             while (true)
             {
                 DoubleClick = false;
-
-                if (!duration.IsTimeUp)
-                {
-                    duration.Update();
-                }
 
                 if (InSingleClick && !duration.IsTimeUp)
                 {

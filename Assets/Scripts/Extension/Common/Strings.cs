@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Extension.Common
+namespace Main.Common
 {
     public class Strings
     {

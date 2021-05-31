@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Linq;
 using Event;
-using Extension.Common;
-using Extension.Entity.Controller;
+using Main.Common;
+using Main.Entity.Controller;
 using Main.Entity.Attr;
 using Main.Util;
 using Test2;
@@ -14,6 +14,7 @@ using static System.Reflection.BindingFlags;
 using Type = Main.Entity.Controller.ICreature.AttackAnimator.Type;
 using static Main.Entity.Controller.ICreature.AttackAnimator.Type;
 using static UnityEngine.Object;
+using LayerMask = UnityEngine.LayerMask;
 using MyRigidbody2D = Main.Entity.Controller.Rigidbody2D;
 
 namespace Main.Entity.Controller
@@ -371,7 +372,7 @@ namespace Main.Entity.Controller
                     return;
                 if (!GetGrounded())
                 {
-                    var speed = rigidbody2D.Instance.velocity.y;
+                    var speed = rigidbody2D.instance.velocity.y;
                     if (speed > .1)
                         type = Type.Up;
                     else if (speed < .1)
@@ -461,7 +462,7 @@ namespace Main.Entity.Controller
                 knockbacked = false;
                 exit?.Invoke();
                 animator.Use(false);
-                rigidbody2D.StopForceX();
+                // rigidbody2D.StopForceX();
             }
         }
 

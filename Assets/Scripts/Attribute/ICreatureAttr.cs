@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Extension.Common;
+using Main.Common;
 using JetBrains.Annotations;
 using Main.Entity;
 using Main.Util;
@@ -29,7 +29,7 @@ namespace Main.Entity.Attr
         // * Debug
         // * 命名規範：xxx
         // ======
-        [SerializeField] private string name = "";        
+        [SerializeField] private string name = "";
         [SerializeField] private bool alive = true;
         [SerializeField] private bool movable = true;
         [SerializeField] private bool attackable = true;
@@ -37,7 +37,9 @@ namespace Main.Entity.Attr
         [SerializeField] private bool grounded = false;
         [SerializeField] private float jumpForce = 1800;
         [SerializeField] private float moveSpeed = 5;
-        [SerializeField] private float sprintForce = 800;
+        [SerializeField] private float dashForce = 40;
+        [SerializeField] private float diveForce = 60;
+        [SerializeField] private float recoilForce = 40;
 
         // ======
         // 二、
@@ -106,7 +108,8 @@ namespace Main.Entity.Attr
             set
             {
                 grounded = value;
-                surroundingState.SetValue(!value, SurroundingState.Air);// 接地SurroundingState。當不在地面上時為Air，反之為Grounded（預設值）
+                surroundingState.SetValue(!value,
+                    SurroundingState.Air); // 接地SurroundingState。當不在地面上時為Air，反之為Grounded（預設值）
             }
         }
 
@@ -122,17 +125,30 @@ namespace Main.Entity.Attr
             set => moveSpeed = value;
         }
 
-        public float SprintForce
+        public float DashForce
         {
-            get => sprintForce;
-            set => sprintForce = value;
+            get => dashForce;
+            set => dashForce = value;
         }
-        
+
+        public float DiveForce
+        {
+            get => diveForce;
+            set => diveForce = value;
+        }
+
+        public float RecoilForce
+        {
+            get => recoilForce;
+            set => recoilForce = value;
+        }
+
         public MindState MindState
         {
             get => mindState.GetValue();
             set => mindState.SetValue(value);
         }
+
         [NotNull]
         public SurroundingState SurroundingState
         {
@@ -140,22 +156,28 @@ namespace Main.Entity.Attr
             set => surroundingState.SetValue(value);
         }
 
-        public bool CanNotControlled() => mindState.CanNotControlled();
-
         public ICreatureAttr(
-            bool alive = true, bool movable = true, bool attackable = true,
+            bool alive = true,
+            bool movable = true, bool attackable = true,
             bool enableAirControl = false, bool grounded = false,
-            float jumpForce = 600, float moveSpeed = 5)
+            float moveSpeed = 5, float jumpForce = 1800,
+            float dashForce = 20, float diveForce = 50,
+            float recoilForce = 40)
         {
             this.alive = alive;
             this.movable = movable;
             this.attackable = attackable;
             this.enableAirControl = enableAirControl;
             this.grounded = grounded;
-            this.jumpForce = jumpForce;
             this.moveSpeed = moveSpeed;
+            this.jumpForce = jumpForce;
+            this.dashForce = dashForce;
+            this.diveForce = diveForce;
+            this.recoilForce = recoilForce; // 攻擊后座力
             Init();
         }
+
+        public bool CanNotControlled() => mindState.CanNotControlled();
 
 
         // OnValidate Init();

@@ -1,11 +1,11 @@
 ﻿using System;
-using Extension.Entity.Controller;
 using JetBrains.Annotations;
 using Main.Entity.Controller;
 using Main.Util;
 using Test2.Timers;
 using UnityEngine;
 using static Test2.Timers.Stopwatch;
+using Input= Main.Common.Input;
 
 /// 所有的cause一定來自unity
 namespace Test2.Causes

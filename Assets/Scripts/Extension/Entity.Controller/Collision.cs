@@ -5,7 +5,7 @@ using Main.Util;
 using UnityEngine;
 using static UnityEngine.Physics2D;
 
-namespace Extension.Entity.Controller
+namespace Main.Entity.Controller
 {
     public static class Collision
     {

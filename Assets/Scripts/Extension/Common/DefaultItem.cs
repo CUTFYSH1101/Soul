@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Extension.Common
+namespace Main.Common
 {
     /// <code>
     /// 包裹器。可以自定義預設值（default），並在一般情況下設定value為default。泛型的包裹器。

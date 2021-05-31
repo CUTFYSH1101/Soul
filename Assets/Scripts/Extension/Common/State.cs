@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Extension.Common
+namespace Main.Common
 {
     public enum QTEState
     {
@@ -19,7 +19,7 @@ namespace Extension.Common
         Attack, // 攻擊
         Knockback, // 被擊退
         Stun, // 暈眩
-        Sprint, // 衝刺
+        Dash, // 衝刺
         Parry, // 格檔
         Dead, // 死亡
     }
@@ -62,7 +62,7 @@ namespace Extension.Common
                     return true;
                 case MindState.Dead:
                     return true;
-                case MindState.Sprint:
+                case MindState.Dash:
                     return true;
                     // case MindState.Air:
                     //     if (!EnableAirControl)
