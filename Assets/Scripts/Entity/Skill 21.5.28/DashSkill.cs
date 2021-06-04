@@ -3,7 +3,7 @@ using Main.Common;
 using Main.Entity.Controller;
 using Main.Util;
 using Test2.Causes;
-using Test2.Timers;
+using Main.Util.Timers;
 using UnityEngine;
 using Rigidbody2D = Main.Entity.Controller.Rigidbody2D;
 
@@ -30,7 +30,7 @@ namespace Test2
                 return false; // 避免一開始就使條件成立
             }
 
-            return Math.Abs(rigidbody2D.GetMoveX()) <= .1f;
+            return Math.Abs(rigidbody2D.GetActiveX()) <= .1f;
         }
 
         private void SetForce(Vector2 value)
@@ -41,7 +41,7 @@ namespace Test2
 
         // dbClick -> onEnter
         // CauseDuration.IsTimeUp || math.abs rigidbody.velocity.x <= 0.1f -> onExit
-        public DashSkill(ICreature creature, string key, float duration = 0.5f,
+        public DashSkill(ICreature creature, string key, float duration = 0.25f,
             Action onEnter = null, Action onExit = null) :
             base(creature.GetTransform().GetOrAddComponent<MonoClass>(), CdTime)
         {
@@ -62,6 +62,7 @@ namespace Test2
         {
             if (CauseDuration.Cause())
                 CauseDuration.Reset();
+            
             if (state == State.Waiting)
             {
                 SetForce(force);
@@ -72,30 +73,14 @@ namespace Test2
         protected override void Enter()
         {
             inited = false;
-            rigidbody2D.AddForce(force, ForceMode2D.Impulse);
-            // creature.GetRigidbody2D().AddForce(force);
+            rigidbody2D.AddForce_OnActive(force, ForceMode2D.Impulse);
+            // creature.GetRigidbody2D().AddForce_OnActive(force);
             animator.SetBool(Dashing, true);
             // 開啟動畫
-
-
         }
 
         protected override void Update()
         {
-            FlipUpdate();
-            void FlipUpdate()
-            {
-                var dir = Math.Sin(rigidbody2D.GetMoveX());
-                if (dir > 0 && !creature.IsFacingRight)
-                {
-                    creature.Flip();
-                }
-
-                if (dir < 0 && creature.IsFacingRight)
-                {
-                    creature.Flip();
-                }
-            }
         }
 
         protected override void Exit()

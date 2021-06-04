@@ -1,7 +1,7 @@
 ﻿using System;
 using Main.Util;
 using Test2.Causes;
-using Test2.Timers;
+using Main.Util.Timers;
 using UnityEngine;
 
 namespace Test2

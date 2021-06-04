@@ -8,11 +8,11 @@ using Main.Entity.Attr;
 using Main.Util;
 using Test2;
 using Test2.Causes;
-using Test2.Timers;
+using Main.Util.Timers;
 using UnityEngine;
 using static System.Reflection.BindingFlags;
-using Type = Main.Entity.Controller.ICreature.AttackAnimator.Type;
-using static Main.Entity.Controller.ICreature.AttackAnimator.Type;
+using Type = Main.Entity.Controller.ICreature.NormalAttackAnimator.Type;
+using static Main.Entity.Controller.ICreature.NormalAttackAnimator.Type;
 using static UnityEngine.Object;
 using LayerMask = UnityEngine.LayerMask;
 using MyRigidbody2D = Main.Entity.Controller.Rigidbody2D;
@@ -37,7 +37,7 @@ namespace Main.Entity.Controller
         private FlipController flipController;
         private readonly KnockbackSkill knockbackSkill; //關聯
         private readonly UseAnimator useAnimator;
-        private AnimatorStateInfo GetStateInfo() => animator.GetCurrentAnimatorStateInfo(0);
+        private AnimatorStateInfo GetStateInfo() => animator.GetStateInfo();
 
         protected internal ICreature(ICreatureAttr creatureAttr, Transform transform)
         {
@@ -67,7 +67,7 @@ namespace Main.Entity.Controller
 
         public void Revival() => useAnimator.Revival();
 
-        public void Attack(AttackAnimator.Type type = Direct)
+        public void Attack(NormalAttackAnimator.Type type = Direct)
         {
             // 等動畫播放完才可再次攻擊
             if (GetStateInfo().IsTag("Attack"))
@@ -83,18 +83,24 @@ namespace Main.Entity.Controller
 
         public virtual void Move(bool @switch)
         {
-            if (!useAnimator.GetGrounded())
+            if (!useAnimator.GetGrounded() || !creatureAttr.Movable)
                 return;
             useAnimator.Move(@switch);
-            flipController.Update();
+            // flipController.Update();
         }
 
         public virtual void Jump()
         {
-            if (!useAnimator.GetGrounded())
+            if (!useAnimator.GetGrounded() || !creatureAttr.Movable || creatureAttr.CanNotControlled())
                 return;
             creatureAttr.Grounded = false;
-            rigidbody2D.AddForce(new Vector2(0, creatureAttr.JumpForce));
+            rigidbody2D.AddForce_OnActive(new Vector2(0, creatureAttr.JumpForce));
+        }
+
+        public virtual void Update()
+        {
+            GroundedCheckUpdate();
+            flipController.Update();
         }
 
         public virtual void GroundedCheckUpdate() => useAnimator.Update();
@@ -124,7 +130,7 @@ namespace Main.Entity.Controller
         private class UseAnimator
         {
             private readonly Animator animator;
-            private readonly AttackAnimator attackAnimator;
+            private readonly NormalAttackAnimator normalAttackAnimator;
             private static readonly int Alive = Animator.StringToHash("Alive");
             private readonly MoveAnimator moveAnimator;
             private readonly GroundChecker groundChecker;
@@ -135,7 +141,7 @@ namespace Main.Entity.Controller
             {
                 this.animator = animator;
                 this.attr = attr;
-                attackAnimator = new AttackAnimator(animator);
+                normalAttackAnimator = new NormalAttackAnimator(animator);
                 moveAnimator = new MoveAnimator(animator);
                 groundChecker = new GroundChecker(animator);
             }
@@ -144,7 +150,7 @@ namespace Main.Entity.Controller
             {
             }
 
-            public void Attack(AttackAnimator.Type type) => attackAnimator.Attack(type);
+            public void Attack(NormalAttackAnimator.Type type) => normalAttackAnimator.Attack(type);
             public void Move(bool @switch) => moveAnimator.Move(@switch);
             public bool GetGrounded() => groundChecker.GetGrounded();
             public void Killed() => animator.SetBool(Alive, false);
@@ -163,11 +169,11 @@ namespace Main.Entity.Controller
         }
 
         /// 你可以選擇要使用直接攻擊或是攻擊
-        public class AttackAnimator
+        public class NormalAttackAnimator
         {
-            public static AttackAnimator CreateInstance(Animator animator)
+            public static NormalAttackAnimator CreateInstance(Animator animator)
             {
-                return new AttackAnimator(animator);
+                return new NormalAttackAnimator(animator);
             }
 
             private static readonly int ToAttack = Animator.StringToHash("ToAttack");
@@ -180,7 +186,7 @@ namespace Main.Entity.Controller
             private readonly bool hasDirect;
             private readonly bool hasChoice;
 
-            public AttackAnimator(Animator animator)
+            public NormalAttackAnimator(Animator animator)
             {
                 this.animator = animator;
                 hasDirect = HasParameter(ToAttack);
@@ -299,12 +305,12 @@ namespace Main.Entity.Controller
 
             public void Update()
             {
-                if (_rigidbody2D.GetMoveX() > 0 && !IsFacingRight)
+                if (_rigidbody2D.GetActiveX() > 0 && !IsFacingRight)
                 {
                     Filp(); //往左翻
                 }
 
-                if (_rigidbody2D.GetMoveX() < 0 && IsFacingRight)
+                if (_rigidbody2D.GetActiveX() < 0 && IsFacingRight)
                 {
                     Filp(); //往右翻
                 }
@@ -407,6 +413,7 @@ namespace Main.Entity.Controller
             private readonly Rigidbody2D rigidbody2D;
             private readonly KnockbackAnimator animator;
             private readonly ICause duration;
+
             private readonly Action enter, exit;
             // private Vector2 force;
 
@@ -432,7 +439,7 @@ namespace Main.Entity.Controller
                     direction = direction.normalized;
                     // direction = (direction + Vector2.down * direction.y).normalized; //調整方向
                     // direction = direction.normalized + Vector2.down * direction.y; //調整方向
-                    rigidbody2D.AddForce(direction * force, ForceMode2D.Impulse);
+                    rigidbody2D.AddForce_OnPassive(direction * force, ForceMode2D.Impulse);
                     Invoke(vfx, direction, position);
                     base.Invoke();
                 }

@@ -1,7 +1,7 @@
 ﻿using Main.Util;
 using Test2.Causes;
 using UnityEngine;
-using Stopwatch = Test2.Timers.Stopwatch;
+using Stopwatch = Main.Util.Timers.Stopwatch;
 
 namespace Test2
 {

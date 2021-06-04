@@ -9,8 +9,9 @@ using Main.Entity;
 using Main.Util;
 using UnityEngine;
 using Main.Entity.Attr;
-using static Main.Entity.Controller.Player.AttackAnimator.Type;
-using Type = Main.Entity.Controller.Player.AttackAnimator.Type;
+using Main.Util.Timers;
+using static Main.Entity.Controller.Player.NormalAttackAnimator.Type;
+using Type = Main.Entity.Controller.Player.NormalAttackAnimator.Type;
 using static System.Reflection.BindingFlags;
 using static Main.Common.Team;
 using MyRigidbody2D = Main.Entity.Controller.Rigidbody2D;
@@ -26,8 +27,7 @@ namespace Main.Entity.Controller
         private IAIState aiState;
         [SerializeField] private ICreature creature;
         private IAIStrategy aiStrategy;
-        private float attackTimer = AttackCoolDown + Time.time;
-        private const float AttackCoolDown = .2f;
+        private CDTimer attackCdTimer = new CDTimer(.2f, Stopwatch.Mode.LocalGame);
         private float attackRange;
         private float chaseRange;
         [SerializeField] private Team team;
@@ -99,12 +99,12 @@ namespace Main.Entity.Controller
 
         /// 使用Trigger觸發
         /// <param name="type">傷害類型:直接/選擇</param>
-        public void Attack(ICreature.AttackAnimator.Type type = Direct)
+        public void Attack(ICreature.NormalAttackAnimator.Type type = Direct)
         {
             // 時間到了才攻擊
-            if (attackTimer > Time.time)
+            if (!attackCdTimer.IsTimeUp)
                 return;
-            attackTimer = AttackCoolDown + Time.time;
+            attackCdTimer.Reset();
 
             // 切換動畫
             creature.Attack(type);
@@ -119,7 +119,7 @@ namespace Main.Entity.Controller
 
         public virtual void Update()
         {
-            creature.GroundedCheckUpdate();
+            creature.Update();
             if (!AIUsed)
                 return;
             aiState?.Update();

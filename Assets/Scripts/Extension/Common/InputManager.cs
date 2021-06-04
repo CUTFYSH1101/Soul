@@ -1,9 +1,5 @@
 ﻿namespace Test2
 {
-    public class InputManager
-    {
-    }
-
     public class Input
     {
         private string key;

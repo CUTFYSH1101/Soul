@@ -74,9 +74,17 @@ namespace Main.Common
                     break;
                 case MindState.Move:
                     break;
+                default:
+                    Debug.LogError("超出範圍");
+                    return false;
             }
 
             return false;
+        }
+
+        public bool CanNotMoving()
+        {
+            return CanNotControlled() && value != MindState.Dash;
         }
     }
 

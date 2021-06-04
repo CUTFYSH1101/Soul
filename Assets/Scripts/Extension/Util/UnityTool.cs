@@ -257,5 +257,8 @@ namespace Main.Util
             }
         }
     }
-    
+    public static partial class UnityTool
+    {
+        public static AnimatorStateInfo GetStateInfo(this Animator animator) => animator.GetCurrentAnimatorStateInfo(0);
+    }
 }

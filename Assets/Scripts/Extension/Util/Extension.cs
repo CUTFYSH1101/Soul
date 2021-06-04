@@ -50,6 +50,11 @@ namespace Main.Util
             return (source == null) || (source.Equals("") || source.Length == 0);
         }
 
+        public static bool IsEmpty(this KeyCode source)
+        {
+            return (source == null) || (source == default);
+        }
+
         public static bool NotEmpty<T>(this T source)
         {
             return source != null && !source.Equals("");

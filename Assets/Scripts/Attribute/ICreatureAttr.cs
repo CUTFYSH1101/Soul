@@ -179,6 +179,8 @@ namespace Main.Entity.Attr
 
         public bool CanNotControlled() => mindState.CanNotControlled();
 
+        public bool CanNotMoving() => mindState.CanNotMoving();
+
 
         // OnValidate Init();
         public void Init()

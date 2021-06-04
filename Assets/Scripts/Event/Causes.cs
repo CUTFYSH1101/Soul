@@ -2,10 +2,10 @@
 using JetBrains.Annotations;
 using Main.Entity.Controller;
 using Main.Util;
-using Test2.Timers;
+using Main.Util.Timers;
 using UnityEngine;
-using static Test2.Timers.Stopwatch;
-using Input= Main.Common.Input;
+using static Main.Util.Timers.Stopwatch;
+using Input = Main.Common.Input;
 
 /// 所有的cause一定來自unity
 namespace Test2.Causes
@@ -122,13 +122,14 @@ namespace Test2.Causes
                     result = false;
                     break;
             }
+
             return result;
         }
     }
 
     public class DBClick : ICause
     {
-        private Action ONSingle
+        /*private Action ONSingle
         {
             get
             {
@@ -144,9 +145,9 @@ namespace Test2.Causes
                 SubReset();
                 return onDouble;
             }
-        }
+        }*/
 
-        private readonly Action onSingle, onDouble;
+        // private readonly Action onSingle, onDouble;
         private readonly CDTimer singleTimer;
         private readonly Input input;
 
@@ -163,8 +164,10 @@ namespace Test2.Causes
         {
             input = new Input(key);
             this.singleTimer = new CDTimer(duration, Mode.RealWorld);
-            onSingle = () => "single event".LogLine();
-            onDouble = () => "double event".LogLine();
+            /*this.onSingle = onSingle ?? "single event".LogLine;
+            this.onDouble = onDouble ?? "double event".LogLine;*/
+            /*this.onSingle = () => "single event".LogLine();
+            this.onDouble = () => "double event".LogLine();*/
         }
 
         /// 初始化狀態。還沒有任何點擊
@@ -205,14 +208,16 @@ namespace Test2.Causes
             if (IsDouble())
             {
                 state = State.Double;
-                ONDouble?.Invoke();
+                // ONDouble?.Invoke();
+                Reset();
                 return true;
             }
 
 
             if (IsSingle())
             {
-                ONSingle?.Invoke();
+                // ONSingle?.Invoke();
+                Reset();
                 return false;
             }
 
@@ -229,6 +234,17 @@ namespace Test2.Causes
         // 在玩家觸發IsSingle以後，依然會持續一段時間，直到Reset
         public void Reset()
         {
+            SubReset();
+        }
+
+        public override string ToString()
+        {
+            string msg = $"{this.GetType()}" +
+                         $"目前狀態；\n" +
+                         $"是否已經第一次點擊；{!HasNoClick()}\n" +
+                         $"是否已經第一次點擊；{!IsFirstClick()}\n" +
+                         $"是否滿足dbClick：{IsDouble()}";
+            return msg;
         }
     }
 

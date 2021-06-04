@@ -12,7 +12,7 @@ using Test2.Causes;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using Input = UnityEngine.Input;
-using Type = Main.Entity.Controller.ICreature.AttackAnimator.Type;
+using Type = Main.Entity.Controller.ICreature.NormalAttackAnimator.Type;
 
 namespace Main.Entity.Controller
 {
@@ -23,6 +23,7 @@ namespace Main.Entity.Controller
         private MoveController moveController;
         public bool Switch { get; set; } = true;
         private DiveAttack diveAttack;
+        private NormalAttack normalAttack;
 
 
         public PlayerController(ICreature creature)
@@ -32,11 +33,14 @@ namespace Main.Entity.Controller
             // moveController.ToString().LogLine();
 
             diveAttack = new DiveAttack(creature, 0.2f);
+            normalAttack = new NormalAttack(creature);
         }
 
         // TODO:later delete...
         private Rigidbody2D rb => GetCreatureAI().GetTransform()
             .GetComponent<Rigidbody2D>();
+
+        private bool temp = true;
 
         public void Update()
         {
@@ -49,57 +53,52 @@ namespace Main.Entity.Controller
 
             if (Input.GetButtonDown("Fire1"))
             {
-                GetCreatureAI().Attack(ICreature.AttackAnimator.Type.Rect);
-                // TODO: mindState=空中時，俯衝
-                // if whereState==Air
-
-                diveAttack.Invoke();
-                /*if (!GetCreatureAttr().Grounded)
+                if (Grounded)
                 {
-                    var dir = new Vector2(creature.IsFacingRight ? 1 : -1, -1);
-                    rb.AddForce(dir * 10, ForceMode2D.Impulse);
-                }*/
+                    // GetCreatureAI().Attack(ICreature.NormalAttackAnimator.Type.Rect);
+                    normalAttack.Invoke(Type.Rect);
+                }
+                else
+                {
+                    diveAttack.Invoke();
+                }
             }
 
             if (Input.GetButtonDown("Fire2"))
             {
-                GetCreatureAI().Attack(ICreature.AttackAnimator.Type.Round);
+                if (Grounded)
+                    normalAttack.Invoke(Type.Round);
+                diveAttack.Invoke();
             }
 
             if (Input.GetButtonDown("Fire3"))
             {
-                GetCreatureAI().Attack(ICreature.AttackAnimator.Type.Cross);
+                if (Grounded)
+                    normalAttack.Invoke(Type.Cross);
+                diveAttack.Invoke();
             }
 
             // 當按下按鍵->確認狀態->跳躍
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && temp)
             {
-                if (!Grounded && !EnableAirControl || CanNotControlled)
+                temp = false;
+                if (CanNotControlled)
                     return;
                 if (OnCollision())
                 {
                     if (WallPos != default)
                     {
                         var dir = Math.Sign(creature.GetPosition().x - ((Vector2) WallPos).x);
-                        rb.AddForce(new Vector2(dir, 2) * GetCreatureAttr().JumpForce);
-                        if (dir > 0 && !creature.IsFacingRight)
-                        {
-                            creature.Flip();
-                        }
-
-                        if (dir < 0 && creature.IsFacingRight)
-                        {
-                            creature.Flip();
-                        }
+                        rb.AddForce_OnActive(new Vector2(dir * 0.4f, 1) * GetCreatureAttr().JumpForce);
                     }
-
-                    //TODO:flip
                 }
-                else
+                else if (Grounded || EnableAirControl)
                 {
                     creature.Jump();
                 }
             }
+
+            temp = true;
         }
 
         private bool inited;
