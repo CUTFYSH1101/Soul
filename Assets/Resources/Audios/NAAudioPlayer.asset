@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7866d5ce30a64ec592713575b4b9e948, type: 3}
+  m_Name: NAAudioPlayer
+  m_EditorClassIdentifier: 
+  volume:
+    minValue: 0
+    maxValue: 1
+  pitch:
+    minValue: 0.7142857
+    maxValue: 0.9999999
+  clips:
+    clips:
+    - key: 1
+      clip: {fileID: 8300000, guid: b5a28ca28e9e1b94d8f213af8533bfe9, type: 3}
+    - key: 2
+      clip: {fileID: 8300000, guid: 20957669b41317d44b0835b32ef3a4b1, type: 3}
+    - key: 3
+      clip: {fileID: 8300000, guid: 996ceda13be7f3f4e8c697db632ca60b, type: 3}
+    - key: 4
+      clip: {fileID: 8300000, guid: 7e21835bf4e43ce4abe0321c914f4c84, type: 3}
+    - key: 5
+      clip: {fileID: 8300000, guid: e59daadb6b8eba54995049264364ecd0, type: 3}
