@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Monster
   - Wall
+  - Control
+  - Square
+  - Cross
+  - Circle
+  - Ground1
+  - Ground2
+  - Ground3
   layers:
   - Default
   - TransparentFX
@@ -23,10 +30,10 @@ TagManager:
   - Attack
   - TargetSensor
   - Audio
-  - Creature2
-  - Creature3
-  - Ground2
-  - Ground3
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

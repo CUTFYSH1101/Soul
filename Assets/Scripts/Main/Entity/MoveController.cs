@@ -1,8 +1,8 @@
-﻿using Main.Attribute;
+﻿using System;
+using JetBrains.Annotations;
+using Main.Attribute;
 using Main.Common;
-using Main.Entity.Skill_210528;
 using Main.Event;
-using UnityEngine;
 using Input = Main.Game.Input.Input;
 using Main.Game.Input;
 
@@ -10,59 +10,35 @@ namespace Main.Entity
 {
     public class MoveController
     {
-        private readonly AbstractCreature abstractCreature;
+        [NotNull] private Action<float> move;
+        [NotNull] private Action<float> dash;
+        private readonly AbstractCreature creature;
         private readonly DBClick dbClick;
-        private readonly DashSkill dash;
-        private ICreatureAttr GetCreatureAttr() => abstractCreature.GetCreatureAttr();
-
-        private bool Movable => GetCreatureAttr().Movable;
-
-        private bool CanNotControlled => GetCreatureAttr().CanNotControlled();
-
-        private bool CanNotMoving => GetCreatureAttr().CanNotMoving();
-
+        private CreatureAttr GetCreatureAttr() => creature.GetCreatureAttr();
+        private bool CanNotMoving => !GetCreatureAttr().MovableDyn;
         private bool EnableAirControl => GetCreatureAttr().EnableAirControl;
-
         private bool Grounded => GetCreatureAttr().Grounded;
-
         private bool IsDashing => GetCreatureAttr().MindState == MindState.Dash;
 
-        private bool AbleDashing
-            => GetCreatureAttr().MindState == MindState.Move ||
-               GetCreatureAttr().MindState == MindState.Move;
-
-        private void SetState(MindState newState)
-            => GetCreatureAttr().MindState = newState;
-
-        public MoveController(AbstractCreature abstractCreature, string key)
+        public MoveController(AbstractCreature creature, string key)
         {
-            this.abstractCreature = abstractCreature;
+            this.creature = creature;
             dbClick = new DBClick(key, .3f);
-            dash = new DashSkill(abstractCreature, 0.15f,
-                () => SetState(MindState.Dash),
-                () => SetState(MindState.Idle));
         }
 
-        private void Move(float dir)
+        public MoveController(AbstractCreature creature, string key,
+            [NotNull] Action<float> move, [NotNull] Action<float> dash)
         {
-            if (dir != 0)
-            {
-                abstractCreature.Move(true);
-                float moveX = dir * GetCreatureAttr().MoveSpeed;
-                abstractCreature.GetRigidbody2D().SetActiveX(moveX);
-                SetState(MindState.Move);
-            }
-            else
-            {
-                abstractCreature.Move(false);
-                abstractCreature.GetRigidbody2D().SetActiveX(0); // 當受到攻擊時，速度歸零
-                if (abstractCreature.GetAnimator().IsTag("Attack"))
-                {
-                    return;
-                }
+            this.creature = creature;
+            dbClick = new DBClick(key, .3f);
+            this.move = move;
+            this.dash = dash;
+        }
 
-                SetState(MindState.Idle);
-            }
+        public void Init([NotNull] BaseBehavior baseBehavior)
+        {
+            move = baseBehavior.Move;
+            dash = baseBehavior.Dash;
         }
 
         private void MoveCycle()
@@ -71,68 +47,46 @@ namespace Main.Entity
             var dir = Input.GetAxisRaw(HotkeySet.Horizontal);
             if (dir != 0)
             {
-                // 衝刺時，取消霸體
-                /*if (!Movable || CanNotControlled)
-                {
-                    Move(0);
-                }*/
-
                 if ((Grounded || EnableAirControl) && !CanNotMoving)
-                {
-                    Move(dir);
-                }
+                    move(dir);
+                // 一旦受到攻擊，馬上停止移動。在空中不會停止位移
+                else if (CanNotMoving)
+                    move(0);
+
             }
             // 當鬆開按鍵且在地面上->停下
             else
             {
-                if (Grounded)
-                {
-                    Move(0);
-                }
+                if (Grounded) move(0);
             }
         }
 
         public void Update()
         {
-            if (!@switch)
-                return;
+            if (!@switch || CanNotMoving) return;
 
-            if (dbClick.Cause())
-            {
-                Dash();
-                // dbClick.Reset();
-            }
+            if (dbClick.Cause()) Dash();
+            // dbClick.Reset();
 
-            if (!IsDashing)
-            {
-                MoveCycle();
-            }
-
-            // 一旦受到攻擊，馬上停止移動
-            if (CanNotMoving && Grounded)
-            {
-                Move(0);
-            }
+            if (!IsDashing) MoveCycle();
         }
 
-        private void Dash()
-        {
-            // Grounded && Movable && !CanNotMoving
-            if (Movable && !CanNotMoving)
-            {
-                var moveX = Input.GetAxisRaw("Horizontal") *
-                            GetCreatureAttr().DashForce;
-                dash.Invoke(new Vector2(moveX, 0));
-            }
-        }
+        private void Dash() => dash(Input.GetAxisRaw(HotkeySet.Horizontal));
 
+        // 強制開關
+        /// <code>
+        /// if(!GetCreatureAttr().MovableDyn || spurAttack.Invoke())
+        ///     Switch(false)
+        /// </code>
         private bool @switch = true;
 
         public void Switch(bool value)
         {
             @switch = value;
-            if (!@switch)
-                Move(0);
+            if (!@switch) move(0);
         }
     }
 }
+// idle->key->not double key->move
+// idle->key->double key->dash
+// state: enableMove, enableDash

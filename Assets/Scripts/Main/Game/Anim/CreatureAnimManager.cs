@@ -33,7 +33,8 @@ namespace Main.Entity
             if (moveAnim.UseGroundedChecker)
                 moveAnim.JumpUpdate(speedY);
         }
-
+        public void WallJump() => moveAnim.WallJump();
+        public void JumpAttack(Symbol symbol) => attackAnim.JumpAttack(symbol);
         public void Killed() => mindStateAnim.Killed();
         public void Revival() => mindStateAnim.Revival();
     }

@@ -30,9 +30,13 @@ namespace Main.Entity.Controller
         /// 包含衝刺、奔跑、攻擊...等主動行為
         public float GetActiveX() => activeX.Value;
         /// 受到對方攻擊...等被動行為
+        public void SetPassiveX(float value) => passiveX.Value = value;
+        /// 受到對方攻擊...等被動行為
         public float GetPassiveX() => passiveX.Value;
-        public float GetGuideX() => guideX.Value;
+        /// navigation
         public void SetGuideX(float value) => guideX.Value = value;
+        /// navigation
+        public float GetGuideX() => guideX.Value;
 
         private void Awake()
         {
@@ -99,7 +103,7 @@ namespace Main.Entity.Controller
 
             public Vector(Rigidbody2D rb, Collider2D collider2D, float drag)
             {
-                // Debug.Log("前"+this.GetType().Name+" "+dragMultiplier+" "+drag);
+                // Debug.Log("前"+this.GetType().SkillName+" "+dragMultiplier+" "+drag);
 
                 dragMultiplier = (1 - drag * Time.fixedDeltaTime);
                 if (dragMultiplier > 1)
@@ -110,7 +114,7 @@ namespace Main.Entity.Controller
                 this.Rb = rb;
                 // this.collider2D = collider2D;
                 bundle = new Physics2D.BundleData(rb, collider2D);
-                // Debug.Log("後"+this.GetType().Name+" "+dragMultiplier+" "+drag);
+                // Debug.Log("後"+this.GetType().SkillName+" "+dragMultiplier+" "+drag);
 
             }
 

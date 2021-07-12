@@ -1,73 +1,7 @@
 fileFormatVersion: 2
 guid: f9ae0d15a6eebd64a867dd16afb8c2c5
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -1882347247711912902
-    second: run_0
-  - first:
-      213: 7439426567979852956
-    second: run_1
-  - first:
-      213: -2673560216460186399
-    second: run_2
-  - first:
-      213: -5822559823783948592
-    second: run_3
-  - first:
-      213: -4997308686002322044
-    second: run_4
-  - first:
-      213: -7808277857516635856
-    second: run_5
-  - first:
-      213: 2102408166121253023
-    second: run_6
-  - first:
-      213: -828024806730890176
-    second: run_7
-  - first:
-      213: 7319402618797355783
-    second: run_8
-  - first:
-      213: -5877058464083753606
-    second: run_9
-  - first:
-      213: 3003789169655790119
-    second: run_10
-  - first:
-      213: 8552798593118551529
-    second: runandjump_0
-  - first:
-      213: 6137787426364311834
-    second: runandjump_1
-  - first:
-      213: -2022915950605295141
-    second: runandjump_2
-  - first:
-      213: 7228775032616282922
-    second: runandjump_3
-  - first:
-      213: -3609187013255642915
-    second: runandjump_4
-  - first:
-      213: 7876771734655940173
-    second: runandjump_5
-  - first:
-      213: -2926249122192258435
-    second: runandjump_6
-  - first:
-      213: 1740454580683457830
-    second: runandjump_7
-  - first:
-      213: -5195914638953341537
-    second: runandjump_8
-  - first:
-      213: 3477874374834223514
-    second: runandjump_9
-  - first:
-      213: -8814121071867925338
-    second: runandjump_10
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,6 +23,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -97,16 +32,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -120,28 +55,19 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -151,238 +77,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: runandjump_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9edba4a7105a1b670800000000000000
-      internalID: 8552798593118551529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_1
-      rect:
-        serializedVersion: 2
-        x: 1147
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a19cd47152dcd2550800000000000000
-      internalID: 6137787426364311834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_2
-      rect:
-        serializedVersion: 2
-        x: 2294
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd123b929a82de3e0800000000000000
-      internalID: -2022915950605295141
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_3
-      rect:
-        serializedVersion: 2
-        x: 3441
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2b6e4ca794c15460800000000000000
-      internalID: 7228775032616282922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_4
-      rect:
-        serializedVersion: 2
-        x: 4588
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd0c1f2a88799edc0800000000000000
-      internalID: -3609187013255642915
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_5
-      rect:
-        serializedVersion: 2
-        x: 5735
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d463105e82aef4d60800000000000000
-      internalID: 7876771734655940173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_6
-      rect:
-        serializedVersion: 2
-        x: 6882
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7a8e636defd367d0800000000000000
-      internalID: -2926249122192258435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_7
-      rect:
-        serializedVersion: 2
-        x: 8029
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 625c6554836572810800000000000000
-      internalID: 1740454580683457830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_8
-      rect:
-        serializedVersion: 2
-        x: 9176
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9d1fed3a2764e7b0800000000000000
-      internalID: -5195914638953341537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_9
-      rect:
-        serializedVersion: 2
-        x: 10323
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a997d6d3154e34030800000000000000
-      internalID: 3477874374834223514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: runandjump_10
-      rect:
-        serializedVersion: 2
-        x: 11470
-        y: 0
-        width: 1147.8182
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ace6089593fda580800000000000000
-      internalID: -8814121071867925338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

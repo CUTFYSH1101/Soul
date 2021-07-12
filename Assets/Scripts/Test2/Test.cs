@@ -14,17 +14,17 @@ namespace Test2
         private void Awake()
         {
             system = new Skill_1();
-            subjectSystem = new Subject(new Skill_1(), new CDCause(6), "被中斷".LogLine);
+            subjectSystem = new Subject(new Skill_1(), new CdCause(6), "被中斷".LogLine);
         }
 
         private void Update()
         {
             if (UnityEngine.Input.anyKeyDown)
             {
-                /*causeEnter = new CDCause(5);
+                /*causeEnter = new CdCause(5);
                 causeEnter.Reset();*/
                 // system = new Skill_1();
-                subjectSystem = new Subject(new Skill_1(), new CDCause(2), "被中斷".LogLine);
+                subjectSystem = new Subject(new Skill_1(), new CdCause(2), "被中斷".LogLine);
             }
 
             // system.Update();
@@ -78,7 +78,7 @@ namespace Test2
 
             protected void Init(float cdTime)
             {
-                /*first = new Node(new CDCause(cdTime), )
+                /*first = new Node(new CdCause(cdTime), )
                 toAction2 = new Node(EnterAction1)*/
             }
 
@@ -119,14 +119,14 @@ namespace Test2
 
         public class Skill_1 : AbstractSkillCompat
         {
-            private CDCause cause1, cause2, cause3;
+            private CdCause cause1, cause2, cause3;
 
             public Skill_1()
             {
                 // 初始化
-                cause1 = new CDCause(5);
-                cause2 = new CDCause(1);
-                cause3 = new CDCause(1);
+                cause1 = new CdCause(5);
+                cause2 = new CdCause(1);
+                cause3 = new CdCause(1);
                 // 初始化關卡
                 rootHandler =
                     new NodeHandler(new Node(cause1, null, "第一個事件".LogLine)).SetNextHandler(

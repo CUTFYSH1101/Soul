@@ -19,6 +19,7 @@ namespace Main.Entity
             this.abstractCreatureAI = builder.GetCreatureAI();
             // 預設值
             builder.SetInit();
+            builder.SetName();
             builder.SetAIStateSwitch(); // 是否啟用AI
             builder.InitAIState(); // 設定狀態
             builder.SetTeam(); // 設定陣營
@@ -38,11 +39,12 @@ namespace Main.Entity
 
     public abstract class Builder
     {
-        [NotNull] protected AbstractCreatureAI AbstractCreatureAI; // switch-case給予
-        internal AbstractCreatureAI GetCreatureAI() => AbstractCreatureAI;
+        [NotNull] protected AbstractCreatureAI CreatureAI; // switch-case給予
+        internal AbstractCreatureAI GetCreatureAI() => CreatureAI;
         public bool Inited { get; protected set; }
 
         public abstract void SetInit();
+        public abstract void SetName();
 
         public abstract void InitAIState();
 
@@ -64,42 +66,47 @@ namespace Main.Entity
         {
             // 初始化creature
             player = new Player(
-                new ICreatureAttr(jumpForce: 1800, dashForce: 30f),
-                transform, Resources.Load<DictionaryAudioPlayer>("Audios/NAAudioPlayer"));
-            AbstractCreatureAI = new PlayerAI(player);
+                new CreatureAttr(jumpForce: 1800, dashForce: 30f),
+                transform, UnityAudioTool.GetNormalAttackAudioPlayer());
+            CreatureAI = new PlayerAI(player);
             SetController();
         }
 
         private void SetController()
         {
-            ((PlayerAI) AbstractCreatureAI).SetController(new PlayerController(player));
-            Inited = !((PlayerAI) AbstractCreatureAI)?.GetController().IsEmpty() ?? false; // 偵測是否設定成功
+            ((PlayerAI) CreatureAI).SetController(new PlayerController(player));
+            Inited = !((PlayerAI) CreatureAI)?.GetController().IsEmpty() ?? false; // 偵測是否設定成功
         }
 
         // 初始化creatureAI
         public override void SetInit()
         {
-            AbstractCreatureAI.Init(new PlayerStrategy(AbstractCreatureAI), team: Team.Player);
+            CreatureAI.Init(new PlayerStrategy(CreatureAI), team: Team.Player);
+        }
+
+        public override void SetName()
+        {
+            player.GetCreatureAttr().Name = player.GetRigidbody2D().name; // 設定成遊戲物件的名稱
         }
 
         public override void InitAIState()
         {
-            AbstractCreatureAI.ChangeAIState(new IdleAIState());
+            CreatureAI.ChangeAIState(new IdleAIState());
         }
 
         public override void SetAIStateSwitch()
         {
-            AbstractCreatureAI.SetSwitch(true);
+            CreatureAI.SetSwitch(true);
         }
 
         public override void SetTeam()
         {
-            AbstractCreatureAI.SetTeam(Team.Player);
+            CreatureAI.SetTeam(Team.Player);
         }
 
         public override void SetMessage()
         {
-            AbstractCreatureAI.GetProfile().Init(AbstractCreatureAI);
+            CreatureAI.GetProfile().Init(CreatureAI);
         }
     }
 
@@ -110,37 +117,42 @@ namespace Main.Entity
         public MonsterBuilder(Transform transform)
         {
             monster = new Monster(
-                new ICreatureAttr(jumpForce: 400, moveSpeed: 3),
+                new CreatureAttr(jumpForce: 400, moveSpeed: 3),
                 transform, null);
-            AbstractCreatureAI = new MonsterAI(monster);
+            CreatureAI = new MonsterAI(monster);
         }
 
         public override void SetInit()
         {
             /*protected static readonly Vector2 AttackRange = new Vector2(0.85f, 1.5f);
             protected static readonly Vector2 ChaseRange = new Vector2(5f, 1.5f);*/
-            AbstractCreatureAI.Init(new MonsterStrategy(AbstractCreatureAI), team: Enemy,
+            CreatureAI.Init(new MonsterStrategy(CreatureAI), team: Enemy,
                 chaseRange: new Vector2(5f, 1.5f), attackRange: new Vector2(0.85f, 1.5f));
+        }
+
+        public override void SetName()
+        {
+            monster.GetCreatureAttr().Name = monster.GetRigidbody2D().name; // 設定成遊戲物件的名稱
         }
 
         public override void InitAIState()
         {
-            AbstractCreatureAI.ChangeAIState(new IdleAIState());
+            CreatureAI.ChangeAIState(new IdleAIState());
         }
 
         public override void SetAIStateSwitch()
         {
-            AbstractCreatureAI.SetSwitch(true);
+            CreatureAI.SetSwitch(true);
         }
 
         public override void SetTeam()
         {
-            AbstractCreatureAI.SetTeam(Enemy);
+            CreatureAI.SetTeam(Enemy);
         }
 
         public override void SetMessage()
         {
-            AbstractCreatureAI.GetProfile().Init(AbstractCreatureAI);
+            CreatureAI.GetProfile().Init(CreatureAI);
             Inited = true;
         }
     }

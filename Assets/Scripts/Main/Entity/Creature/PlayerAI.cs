@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Main.Entity
 {
-    /*Init(controller, 0.4f, 2, GetTeam());// 1.設定為預設值
-    Init(controller, 0.4f, 2, SetTeam(Team.Evil));// 2.
-    Init(controller, 0.4f, 2);// 3.
+    /*SetBehavior(controller, 0.4f, 2, GetTeam());// 1.設定為預設值
+    SetBehavior(controller, 0.4f, 2, SetTeam(Team.Evil));// 2.
+    SetBehavior(controller, 0.4f, 2);// 3.
     SetTeam(Team.Evil);*/
     /*private Message message;
     message = transform.GetOrLogComponent<Message>();
@@ -42,7 +42,7 @@ namespace Main.Entity
 
         public PlayerController GetController() => playerController;
 
-        /*public PlayerAI(AbstractCreature abstractCreature, float attackRange = 0.4f, float chaseRange = 2) : base(abstractCreature,
+        /*public PlayerAI(Creature creature, float attackRange = 0.4f, float chaseRange = 2) : base(creature,
             attackRange, chaseRange)
         {
         }*/
@@ -54,8 +54,9 @@ namespace Main.Entity
     [Serializable]
     public class Player : AbstractCreature
     {
-        protected internal Player(ICreatureAttr creatureAttr, Transform transform, DictionaryAudioPlayer audioPlayer) : base(creatureAttr, transform, audioPlayer)
+        protected internal Player(CreatureAttr creatureAttr, Transform transform, DictionaryAudioPlayer audioPlayer) : base(creatureAttr, transform, audioPlayer)
         {
+            SetBehavior(new PlayerBehavior(this,() => creatureAttr.Grounded));
         }
     }
 }

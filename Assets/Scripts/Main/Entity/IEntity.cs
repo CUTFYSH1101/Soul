@@ -86,7 +86,7 @@ namespace Main.Entity
                 rigidbody2D = container.GetOrAddComponent<Rb2D>();// 因此必定有rb2d
                 
                 // GroundChecker
-                bottomObject = container.GetFirstComponent<Transform>("GroundChecker");// todo check
+                bottomObject = container.GetFirstComponentInChildren<Transform>("GroundChecker");// todo check
                 // 垂直正下方
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Main.Extension.Util;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -10,11 +11,9 @@ namespace Main.Util
     /// 獲取遊戲物件組件相關方法
     public static partial class UnityTool
     {
-        public static bool HasChildren(this Component flag)
-        {
-            return flag.GetComponentsInChildren<Transform>().Length != 0;
-        }
-
+        // ======
+        // 
+        // ======
         public static bool HasComponent<T>(this Component flag) where T : Component
         {
             bool hasXXX = flag.GetComponent<T>() != null;
@@ -23,21 +22,31 @@ namespace Main.Util
             return hasXXX;
         }
 
+        public static T GetComponent<T>(this RaycastHit2D hit2D) =>
+            hit2D.transform.GetComponent<T>();
+
+        /// 當組件A身上具有組件B，取得組件B，否則添加後獲取
+        public static T GetOrAddComponent<T>(this Component flag) where T : Component
+        {
+            T type;
+            var hasComponent = (type = flag.GetComponent<T>()) != null;
+            return hasComponent
+                ? type
+                : flag.gameObject.AddComponent<T>();
+        }
+
         /// 當組件A身上具有組件B，取得組件B，否則Log警告
         public static T GetOrLogComponent<T>(this Component flag) where T : Component
         {
             T type;
-            bool hasXXX = (type = flag.GetComponent<T>()) != null;
-            if (!hasXXX)
-                Debug.Log(flag.name + " 沒有 " + typeof(T));
+            var hasComponent = (type = flag.GetComponent<T>()) != null;
+            if (!hasComponent) Debug.Log(flag.name + " 沒有 " + typeof(T));
             return type;
         }
 
-        /// <summary>
         /// 當組件A身上具有組件B，取得組件B，否則設定傳入狀態為否。
         /// EX: isGrounded。
-        /// </summary>
-        /// <param name="conditional">狀態機。EX: isGrounded</param>
+        /// <param skillName="conditional">狀態機。EX: isGrounded</param>
         public static T GetOrSetFalseComponent<T>(this Component flag, ref bool conditional) where T : Component
         {
             T type;
@@ -45,40 +54,105 @@ namespace Main.Util
             return type;
         }
 
-        public static T GetOrAddComponent<T>(this Component flag) where T : Component
+        public static T[] GetComponents<T>(string name) where T : Component =>
+            Object.FindObjectsOfType<T>() // 從場景中所有物件
+                .Filter(obj => obj.name == name);
+
+
+        // ======
+        // 
+        // ======
+        public static bool HasChildren(this Component flag)
         {
-            T type;
-            bool hasComponent = (type = flag.GetComponent<T>()) != null;
-            if (hasComponent)
-            {
-                return type;
-            }
-            else
-            {
-                return flag.gameObject.AddComponent<T>();
-            }
+            return flag.GetComponentsInChildren<Transform>().Length != 0;
         }
 
-        public static T GetComponent<T>(this RaycastHit2D hit2D) => 
-            hit2D.transform.GetComponent<T>();
-        
-        public static object Get<T>(this T @in, Func<T, bool> filter)
+        /// 獲取所有子物件群中所有的某物件群
+        public static T[] GetComponentsInChildren<T>(this Component container, string name) where T : Component
         {
-            if (@in == null || filter == null) return null;
-            return filter(@in) ? @in as object : null;
+            return container.IsEmpty()
+                ? GetComponents<T>(name)
+                : container.GetComponentsInChildren<T>() // 從container底下尋找
+                    .Filter(obj => obj.name == name);
         }
-        
-        public static T[] Get<T>(this T[] @in, Func<T, bool> filter)
+
+        public static T GetFirstComponentInChildren<T>(this Component container, string name) where T : Component
         {
-            if (@in == null || filter == null) return null;
-            return @in.Where(filter).ToArray();
+            var list = GetComponentsInChildren<T>(container, name);
+            return list.IsEmpty() ? null : list[0];
         }
+
+        /// foreach尋找，向下尋找是否子物件群中至少一個含有某組件
+        public static bool HasComponentInChildren<T>(this Component container) where T : Component
+        {
+            // 避免container為空
+            if (container.IsEmpty())
+            {
+                Debug.LogError("錯誤獲取子對象，子對象為空！");
+                return false;
+            }
+
+            // 避免不含任何子物件
+            Transform[] _flag = container.GetComponentsInChildren<Transform>();
+            if (_flag.Length == 0)
+            {
+                Debug.Log($"{container.name} 沒有 任何子物件");
+                return false;
+            }
+
+            bool hasComponent = _flag.Any(obj => obj.HasComponent<T>());
+            if (!hasComponent)
+            {
+                Debug.Log($"{container.name} 沒有 {typeof(T)}類型的子物件");
+            }
+
+            return hasComponent;
+        }
+
+        // ======
+        // 
+        // ======
+        /// <summary>
+        /// 遞迴尋找並所有父物件，不包括container
+        /// </summary>
+        /// <param skillName="leaf"></param>
+        public static Transform[] GetParents(this Transform leaf)
+        {
+            List<Transform> list = new List<Transform>();
+            leaf = leaf.parent;
+            if (leaf != null)
+            {
+                int i = 1;
+                list.Add(leaf);
+                while (true)
+                {
+                    if (leaf.parent != null)
+                    {
+                        leaf = leaf.parent;
+                        ++i;
+                        list.Add(leaf);
+                        Debug.Log("Reached parent " + i + ": " + leaf.name);
+                    }
+                    else
+                        break;
+                }
+
+                Debug.Log("container object is " + leaf.name);
+            }
+            else
+                Debug.Log("instance object has no parents");
+
+            return list.ToArray();
+        }
+
+        public static T GetComponentInParent<T>(this Component component, Func<T, bool> filter) =>
+            (T) component.GetComponentsInParent<T>().FirstOrNull(filter);
 
         /// <summary>
         /// 遞迴尋找，一層層向上尋找是否父物件群中至少一個含有某組件
         /// </summary>
-        /// <param name="flag"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <param skillName="flag"></param>
+        /// <typeparam skillName="T"></typeparam>
         /// <returns></returns>
         public static bool HasComponentInParent<T>(this Component flag) where T : Component
         {
@@ -114,157 +188,10 @@ namespace Main.Util
             Debug.Log(flag.name + " 沒有 " + typeof(T));
             return false;
         }
-
-        /// foreach尋找，向下尋找是否子物件群中至少一個含有某組件
-        public static bool HasComponentInChildren<T>(this Component container) where T : Component
-        {
-            // 避免container為空
-            if (container.IsEmpty())
-            {
-                Debug.LogError("錯誤獲取子對象，子對象為空！");
-                return false;
-            }
-
-            // 避免不含任何子物件
-            Transform[] _flag = container.GetComponentsInChildren<Transform>();
-            if (_flag.Length == 0)
-            {
-                Debug.Log($"{container.name} 沒有 任何子物件");
-                return false;
-            }
-
-            bool hasComponent = _flag.Any(obj => obj.HasComponent<T>());
-            if (!hasComponent)
-            {
-                Debug.Log($"{container.name} 沒有 {typeof(T)}類型的子物件");
-            }
-
-            return hasComponent;
-        }
-
-        /// <summary>
-        /// 遞迴尋找並Log所有父物件，不包括container
-        /// </summary>
-        /// <param name="objectToCheckParent"></param>
-        public static void LogParent(this Transform objectToCheckParent)
-        {
-            objectToCheckParent = objectToCheckParent.parent;
-            if (objectToCheckParent != null)
-            {
-                int i = 1;
-                while (true)
-                {
-                    Debug.Log("Reached parent " + i + ": " + objectToCheckParent.name);
-                    if (objectToCheckParent.parent != null)
-                    {
-                        objectToCheckParent = objectToCheckParent.parent;
-                        ++i;
-                    }
-                    else
-                        break;
-                }
-
-                Debug.Log("container object is " + objectToCheckParent.name);
-            }
-            else
-                Debug.Log("instance object has no parents");
-        }
-
-        /// <summary>
-        /// Log類別內所有資料，並回傳該字串
-        /// </summary>
-        /// <param name="type"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static string LogProperties<T>(this T type)
-        {
-            //實例化一個字串
-            string text = null;
-            //獲得一個array物件
-            FieldInfo[] data = type.GetFieldInfos();
-            //把字符串成字串
-            text += "【" + type.GetType() + "】： " + Environment.NewLine;
-            foreach (var item in data)
-                text += item.Name + " " + item.GetValue(type) + Environment.NewLine;
-            //log字串
-            Debug.Log(text);
-            //end
-            return text;
-        }
-
-        /// <summary>
-        /// Log一個List內所有元素
-        /// </summary>
-        public static string LogList<T>(this List<T> origin)
-        {
-            string text = null;
-            text += "陣列名：" + nameof(origin) + "\n";
-            foreach (var element in origin)
-            {
-                text += "\t" + "第 " + origin.IndexOf(element) + " 個 " + element + "\n";
-            }
-
-            Debug.Log(text);
-            return text;
-        }
-
-        /// <summary>
-        /// Log一個嵌套List內所有元素
-        /// </summary>
-        /// <param name="origin"></param>
-        /// <typeparam name="T"></typeparam>
-        public static string LogNestedList<T>(this List<List<T>> origin)
-        {
-            string text = null;
-            foreach (var list in origin)
-            {
-                text += "第 " + origin.IndexOf(list) + " 個鎮列有 " + list.Count + " 個元素\n";
-                foreach (var element in list)
-                {
-                    text += "\t" + "第 " + list.IndexOf(element) + " 個 " + element + "\n";
-                }
-
-                text += "\n";
-            }
-
-            Debug.Log(text);
-            return text;
-        }
     }
-
     public static partial class UnityTool
     {
-        //TODO:
-        /// 獲取所有子物件群中所有的某物件群
-        public static T[] GetComponents<T>(this Component container, string name) where T : Component
-        {
-            if (container.IsEmpty())
-            {
-                return Object.FindObjectsOfType<T>().Where(obj => obj.name == name).ToArray();
-                // return Get(Object.FindObjectsOfType<T>(), obj => obj.name == name);
-                /*var result = GameObject.FindObjectsOfType<T>();
-                result = result.Where(obj => obj.name == name).ToArray();
-                return result;*/
-            }
-            else
-            {
-                // 先找名稱符合的遊戲物件，接著確認是否含有某組件
-                return container.GetComponentsInChildren<T>().Where(obj => obj.name == name).ToArray();
-                // return Get(container.GetComponentsInChildren<T>(), obj => obj.name == name);
-                /*var flag = container.GetComponentsInChildren<Transform>();
-                var result = flag
-                    .Where(obj => obj.name == name)
-                    .Select(obj => obj.GetComponents<T>())
-                    .ToArray()
-                    .ToSingleArray();
-                return result;*/
-            }
-        }
-        public static T GetFirstComponent<T>(this Component container, string name) where T : Component => GetComponents<T>(container, name)[0];
-    }
-
-    public static partial class UnityTool
-    {
+        /// 音效相關
         public static AudioSource CreateAudioSource()
         {
             var newGO = new GameObject();
@@ -272,18 +199,8 @@ namespace Main.Util
             // Object.Destroy(newGO, 5);
             return audioSource;
         }
-        /*public static AnimatorStateInfo GetStateInfo(this Animator animator) => animator.GetCurrentAnimatorStateInfo(0);
-
-        public static bool HasParameter(this Animator animator, int id)
-            => animator.parameters.Any(parameter => parameter.nameHash == id);
-
-        public static bool NotHasParameter(this Animator animator, int id)
-            => animator.parameters.All(parameter => parameter.nameHash != id);*/
-
-        /*public static bool IsTag(this Animator animator, string tag)
-            => animator.GetStateInfo().IsTag(tag);
-
-        public static bool IsName(this Animator animator, string name)
-            => animator.GetStateInfo().IsName(name);*/
+        /// 用法同CompareTag
+        public static bool CompareLayer(this Component component, string layerName) =>
+            component.gameObject.layer == layerName.GetLayer();
     }
 }

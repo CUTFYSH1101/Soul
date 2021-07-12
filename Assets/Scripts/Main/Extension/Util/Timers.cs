@@ -64,13 +64,13 @@ namespace Main.Util.Timers
     /// </summary>
     public class CDMethod
     {
-        private readonly CDCause cdCause;
+        private readonly CdCause cdCause;
         private readonly MonoBehaviour mono;
 
         public CDMethod(MonoBehaviour mono, float cdTime, Stopwatch.Mode mode = Stopwatch.Mode.LocalGame)
         {
             this.mono = mono;
-            cdCause = new CDCause(cdTime, mode);
+            cdCause = new CdCause(cdTime, mode);
         }
 
         public void Invoke()

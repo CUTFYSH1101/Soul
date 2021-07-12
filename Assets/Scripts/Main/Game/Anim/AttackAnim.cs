@@ -10,6 +10,7 @@ namespace Main.Game.Anim
         private readonly bool hasDirect, hasChoice;
         private readonly bool hasDirectDive, hasChoiceDive;
         private readonly bool hasChoiceSpur;
+        private readonly bool hasChoiceJump;
 
         public AttackAnim(Animator animator)
         {
@@ -19,34 +20,35 @@ namespace Main.Game.Anim
             hasDirectDive = animator.HasParameter(UnityAnimID.DiveAttacking);
             hasChoiceDive = animator.HasParameter(UnityAnimID.DiveAttackingSquare);
             hasChoiceSpur = animator.HasParameter(UnityAnimID.ToSpurAttackSquare);
+            hasChoiceJump = animator.HasParameter(UnityAnimID.ToJumpAttackSquare);
         }
 
-        private void TriggerTemplate(bool hasType, Symbol type, int id)
+        private void TriggerTemplate(bool hasSymbol, Symbol symbol, int id)
         {
-            if (!hasType)
+            if (!hasSymbol)
             {
-                Debug.LogError("動畫機不含有" + type);
+                Debug.LogError("動畫機不含有" + symbol);
                 return;
             }
 
             animator.SetTrigger(id);
         }
 
-        public void NormalAttack(Symbol type)
+        public void NormalAttack(Symbol symbol)
         {
-            switch (type)
+            switch (symbol)
             {
                 case Symbol.Direct:
-                    TriggerTemplate(hasDirect, type, UnityAnimID.ToAttack);
+                    TriggerTemplate(hasDirect, symbol, UnityAnimID.ToAttack);
                     break;
                 case Symbol.Square:
-                    TriggerTemplate(hasChoice, type, UnityAnimID.ToNormalAttackSquare);
+                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToNormalAttackSquare);
                     break;
                 case Symbol.Circle:
-                    TriggerTemplate(hasChoice, type, UnityAnimID.ToNormalAttackCircle);
+                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToNormalAttackCircle);
                     break;
                 case Symbol.Cross:
-                    TriggerTemplate(hasChoice, type, UnityAnimID.ToNormalAttackCross);
+                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToNormalAttackCross);
                     break;
                 default:
                     Debug.LogError("超出範圍");
@@ -54,32 +56,32 @@ namespace Main.Game.Anim
             }
         }
 
-        private void BoolTemplate(bool hasType, Symbol type, int id, bool @switch)
+        private void BoolTemplate(bool hasSymbol, Symbol symbol, int id, bool @switch)
         {
-            if (!hasType)
+            if (!hasSymbol)
             {
-                Debug.LogError("動畫機不含有" + type);
+                Debug.LogError("動畫機不含有" + symbol);
                 return;
             }
 
             animator.SetBool(id, @switch);
         }
 
-        public void DiveAttack(Symbol type, bool @switch)
+        public void DiveAttack(Symbol symbol, bool @switch)
         {
-            switch (type)
+            switch (symbol)
             {
                 case Symbol.Direct:
-                    BoolTemplate(hasDirectDive, type, UnityAnimID.DiveAttacking, @switch);
+                    BoolTemplate(hasDirectDive, symbol, UnityAnimID.DiveAttacking, @switch);
                     break;
                 case Symbol.Square:
-                    BoolTemplate(hasChoiceDive, type, UnityAnimID.DiveAttackingSquare, @switch);
+                    BoolTemplate(hasChoiceDive, symbol, UnityAnimID.DiveAttackingSquare, @switch);
                     break;
                 case Symbol.Circle:
-                    BoolTemplate(hasChoiceDive, type, UnityAnimID.DiveAttackingCircle, @switch);
+                    BoolTemplate(hasChoiceDive, symbol, UnityAnimID.DiveAttackingCircle, @switch);
                     break;
                 case Symbol.Cross:
-                    BoolTemplate(hasChoiceDive, type, UnityAnimID.DiveAttackingCross, @switch);
+                    BoolTemplate(hasChoiceDive, symbol, UnityAnimID.DiveAttackingCross, @switch);
                     break;
                 default:
                     Debug.LogError("超出範圍");
@@ -87,18 +89,37 @@ namespace Main.Game.Anim
             }
         }
 
-        public void SpurAttack(Symbol type)
+        public void SpurAttack(Symbol symbol)
         {
-            switch (type)
+            switch (symbol)
             {
                 case Symbol.Square:
-                    TriggerTemplate(hasChoiceSpur, type, UnityAnimID.ToSpurAttackSquare);
+                    TriggerTemplate(hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackSquare);
                     break;
                 case Symbol.Circle:
-                    TriggerTemplate(hasChoiceSpur, type, UnityAnimID.ToSpurAttackCircle);
+                    TriggerTemplate(hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackCircle);
                     break;
                 case Symbol.Cross:
-                    TriggerTemplate(hasChoiceSpur, type, UnityAnimID.ToSpurAttackCross);
+                    TriggerTemplate(hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackCross);
+                    break;
+                default:
+                    Debug.LogError("超出範圍");
+                    return;
+            }
+        }
+
+        public void JumpAttack(Symbol symbol)
+        {
+            switch (symbol)
+            {
+                case Symbol.Square:
+                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToJumpAttackSquare);
+                    break;
+                case Symbol.Circle:
+                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToJumpAttackCross);
+                    break;
+                case Symbol.Cross:
+                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToJumpAttackCircle);
                     break;
                 default:
                     Debug.LogError("超出範圍");

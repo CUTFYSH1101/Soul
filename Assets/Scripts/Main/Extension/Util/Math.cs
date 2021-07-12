@@ -53,11 +53,11 @@ namespace Main.Util
         /// 公式: x + (value-X) * rate;
         /// rate = [(y-x)/(Y-X)]
         /// </code>
-        /// <param name="x">映射後輸出的最小值</param>
-        /// <param name="y">映射後輸出的最大值</param>
-        /// <param name="X">映射前最小值</param>
-        /// <param name="Y">映射前最大值</param>
-        /// <param name="value">要被映射的值</param>
+        /// <param skillName="x">映射後輸出的最小值</param>
+        /// <param skillName="y">映射後輸出的最大值</param>
+        /// <param skillName="X">映射前最小值</param>
+        /// <param skillName="Y">映射前最大值</param>
+        /// <param skillName="value">要被映射的值</param>
         /// <returns>回傳結果</returns>
         public static double Remap(double x, double y, double X, double Y, double value)
         {
@@ -125,8 +125,8 @@ namespace Main.Util
         /// <summary>
         /// 回傳起點至終點的歸一化向量
         /// </summary>
-        /// <param name="from">起點</param>
-        /// <param name="to">終點</param>
+        /// <param skillName="from">起點</param>
+        /// <param skillName="to">終點</param>
         /// <returns></returns>
         public static Vector2 Normalize(this Component from, Component to)
         {

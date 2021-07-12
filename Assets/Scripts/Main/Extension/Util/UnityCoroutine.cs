@@ -13,10 +13,11 @@ namespace Main.Util
         private Actions actions;
         private IEnumerator coroutine;
         private MonoBehaviour mono;
-
         private IEnumerator Coroutine(Func<bool> stopCause)
         {
             actions.ONEnter?.Invoke();
+            yield return new Update();
+
             while (!stopCause())
             {
                 actions.ONRepeat?.Invoke();
@@ -37,11 +38,11 @@ namespace Main.Util
         /// 最後一幀事件B, 停下來的原因b,
         /// 重複執行事件C,
         /// </code>
-        /// <param name="container">Unity物件，協程執行的地方</param>
-        /// <param name="onEnter">第一幀事件</param>
-        /// <param name="onExit">最後一幀事件</param>
-        /// <param name="exitCause">停下來的原因</param>
-        /// <param name="onRepeat">重複執行的事件</param>
+        /// <param skillName="container">Unity物件，協程執行的地方</param>
+        /// <param skillName="onEnter">第一幀事件</param>
+        /// <param skillName="onExit">最後一幀事件</param>
+        /// <param skillName="exitCause">停下來的原因</param>
+        /// <param skillName="onRepeat">重複執行的事件</param>
         public UnityCoroutine Create(Component container,
             [CanBeNull] Action onEnter,
             [CanBeNull] Action onExit, Func<bool> exitCause,
@@ -56,8 +57,8 @@ namespace Main.Util
         }
 
         /// 創建一個協程，用以執行單一重複執行的事件
-        /// <param name="container">Unity物件，協程執行的地方</param>
-        /// <param name="coroutine">被委託處理的協程</param>
+        /// <param skillName="container">Unity物件，協程執行的地方</param>
+        /// <param skillName="coroutine">被委託處理的協程</param>
         public UnityCoroutine Create(Component container, IEnumerator coroutine)
         {
             mono = container.GetOrAddComponent<MonoClass>();
@@ -146,26 +147,44 @@ namespace Main.Util
         }
     }
 
+    public partial class UnityCoroutine
+    {
+        private IEnumerator Coroutine(Action action, float delayTime)
+        {
+            var delayer = new CdCause(delayTime);
+            delayer.Reset();
+            yield return Wait(delayer.Cause);
+            action?.Invoke();
+        }
+
+        public UnityCoroutine Create(Component container, Action action, float delayTime)
+        {
+            mono = container.GetOrAddComponent<MonoClass>();
+            // 開始協程
+            coroutine = Coroutine(action, delayTime);
+            mono.StartCoroutine(coroutine);
+            return this;
+        }
+    }
+
     public class UnityCoroutineObserver
     {
         private IEnumerator coroutine;
+
         private MonoBehaviour mono;
         // public void StopCoroutine() => mono.StopCoroutine(coroutine);
 
         private IEnumerator Coroutine([NotNull] UnityCoroutine subject,
             Func<bool> interruptCause, Action interruptAction)
         {
-            CDCause wait = new CDCause(10);// 最長10秒以內
-            wait.Reset();
-            
-            while (!(interruptCause() || wait.Cause()))
-            {
+            yield return new Update();// 避免一開始就觸發
+            while (!interruptCause())
                 yield return new Update();
-            }
-            
+
             subject.StopCoroutine();
             interruptAction?.Invoke();
         }
+
         public UnityCoroutineObserver Create([NotNull] Component container,
             [NotNull] UnityCoroutine subject,
             Func<bool> interruptCause, Action interruptAction)

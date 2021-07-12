@@ -1,36 +1,35 @@
-﻿using Main.Util;
-
-namespace Main.Entity
+﻿namespace Main.Entity
 {
     public class MonsterStrategy : IAIStrategy
     {
-        private readonly AbstractCreatureAI abstractCreatureAI;
+        private readonly AbstractCreatureAI creatureAI;
 
-        public MonsterStrategy(AbstractCreatureAI abstractCreatureAI)
+        public MonsterStrategy(AbstractCreatureAI creatureAI)
         {
-            this.abstractCreatureAI = abstractCreatureAI;
+            this.creatureAI = creatureAI;
         }
 
         public override void IdleUpdate()
         {
             // 當敵人進入視野，進入Chase
-            if (abstractCreatureAI.IsSeeingEnemy()) 
-                abstractCreatureAI.ChangeAIState(new ChaseAIState());
+            if (creatureAI.IsSeeingEnemy())
+                creatureAI.ChangeAIState(new ChaseAIState());
 
             // 當敵人進入攻擊範圍，則切換至Attack
-            if (abstractCreatureAI.IsEnemyInAttackRange())
-                abstractCreatureAI.ChangeAIState(new AttackAIState());
+            if (creatureAI.IsEnemyInAttackRange())
+                creatureAI.ChangeAIState(new AttackAIState());
         }
 
         public override void AttackUpdate()
         {
-            // 等待初始化，並切換成對應的動畫
-            if (abstractCreatureAI.IsEmpty()) return;
-            
             // 當初始化後循環執行
-            abstractCreatureAI.Attack();
-            if (!abstractCreatureAI.IsEnemyInAttackRange())
-                abstractCreatureAI.ChangeAIState(new IdleAIState());
+            if (!creatureAI.IsEnemyInAttackRange())
+                creatureAI.ChangeAIState(new IdleAIState());
+
+            if (creatureAI.GetCreatureAttr().AttackableDyn)
+                ((MonsterBehavior) creatureAI.GetCreature().GetBehavior())
+                    ?.NormalAttack();
+            // creatureAI.GetCreature().NormalAttack(Symbol.Direct);
         }
     }
 }

@@ -31,8 +31,8 @@ namespace Main.Game.Collision
         private bool AllFilter(Collider2D hit2D)
         {
             if (filter == null)
-                return hit2D.GetComponent<Profile>().Get(p => !p.IsKilled()) != null;
-            return hit2D.GetComponent<Profile>().Get(p => !p.IsKilled() && filter(p)) != null;
+                return hit2D.GetComponent<Profile>().Filter(p => !p.IsKilled()) != null;
+            return hit2D.GetComponent<Profile>().Filter(p => !p.IsKilled() && filter(p)) != null;
         }
 
         [CanBeNull] private readonly Func<Profile, bool> filter;

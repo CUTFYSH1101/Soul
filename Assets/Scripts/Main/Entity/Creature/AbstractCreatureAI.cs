@@ -1,13 +1,14 @@
 ﻿using System;
 using JetBrains.Annotations;
+using Main.Attribute;
 using Main.Common;
+using Main.Extension.Util;
 using Main.Game.Collision;
 using Main.Util;
 using Main.Util.Timers;
 using UnityEngine;
 using UnityEngine.Serialization;
 using static Main.Common.Team;
-using static Main.Common.Symbol;
 
 namespace Main.Entity
 {
@@ -26,6 +27,7 @@ namespace Main.Entity
         public Transform GetTransform() => abstractCreature.GetTransform();
         public Profile GetProfile() => profile;
         public AbstractCreature GetCreature() => abstractCreature;
+        public CreatureAttr GetCreatureAttr() => abstractCreature.GetCreatureAttr();
         public Team GetTeam() => team;
         public Team SetTeam(Team team) => this.team = team;
 
@@ -44,14 +46,6 @@ namespace Main.Entity
 
         public void SetSwitch(bool value) => aiUsed = value;
         public bool GetSwitch() => aiUsed;
-
-        /*protected internal ICreatureAI(AbstractCreature abstractCreature, float attackRange = 0.4f, float chaseRange = 2f,
-            Team team = Peace)
-        {
-            Init(abstractCreature, null, attackRange, chaseRange, team);
-        }*/
-        /*protected static readonly Vector2 AttackRange = new Vector2(0.85f, 1.5f);
-        protected static readonly Vector2 ChaseRange = new Vector2(5f, 1.5f);*/
         public AbstractCreatureAI(AbstractCreature abstractCreature)
         {
             this.abstractCreature = abstractCreature;
@@ -85,7 +79,6 @@ namespace Main.Entity
         }
 
         public IAIState GetAIState() => aiState;
-
         private Vector2 ChaseRange => enemyInView.Size;
         private Vector2 AttackRange => enemyInAttackRange.Size;
         private AnyEnemyInView enemyInView;
@@ -96,36 +89,30 @@ namespace Main.Entity
 
         public bool IsEnemyInAttackRange() => enemyInAttackRange.UpdateCreatureInView();
 
-        /// 使用Trigger觸發
-        /// <param name="type">傷害類型:直接/選擇</param>
-        public void Attack(Symbol type = Direct)
-        {
-            // 時間到了才攻擊
-            if (!attackCdTimer.IsTimeUp)
-                return;
-            attackCdTimer.Reset();
-
-            // 切換動畫
-            abstractCreature.NormalAttack(type);
-        }
-
-
         public virtual void Update()
         {
             abstractCreature.Update();
-            if (!aiUsed)
-                return;
+            
+            // 如果不使用ai
+            if (!aiUsed) return;
+            
+            // 等待初始化，並切換成對應的動畫
+            if (!aiState.Inited) return;
+
+            /*if (GetType()==typeof(MonsterAI))
+                Debug.Log(aiState.GetType().Name);*/
+
             aiState?.Update();
         }
 
         public override string ToString()
         {
             string info = GetType().Name;
-            info += "\n" + abstractCreature.GetIsNotNullToString();
-            info += "\n" + aiState.GetIsNotNullToString();
-            info += "\n" + transform.GetIsNotNullToString();
-            info += "\n" + ChaseRange.GetIsNotNullToString();
-            info += "\n" + AttackRange.GetIsNotNullToString();
+            info += "\n" + abstractCreature.GetIsNotNullString();
+            info += "\n" + aiState.GetIsNotNullString();
+            info += "\n" + transform.GetIsNotNullString();
+            info += "\n" + ChaseRange.GetIsNotNullString();
+            info += "\n" + AttackRange.GetIsNotNullString();
             info += "\n" + "隊伍：\t" + team;
             return info;
         }

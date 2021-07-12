@@ -7,41 +7,41 @@ using static System.Reflection.BindingFlags;
 
 namespace Main.Entity
 {
-    public class Profile : MonoBehaviour, IHitable
+    public class Profile : MonoBehaviour, IHittable
     {
         private Team team;
         private IAIState aiState;
-        private AbstractCreature abstractCreature;
-        private AbstractCreatureAI abstractCreatureAI;
-        private ICreatureAttr creatureAttr;
+        private AbstractCreature creature;
+        private AbstractCreatureAI creatureAI;
+        private CreatureAttr creatureAttr;
 
         public void Init(AbstractCreatureAI abstractCreatureAI)
         {
-            this.abstractCreatureAI = abstractCreatureAI;
-            abstractCreature = abstractCreatureAI.GetCreature();
+            this.creatureAI = abstractCreatureAI;
+            creature = abstractCreatureAI.GetCreature();
             aiState = abstractCreatureAI.GetAIState();
             team = abstractCreatureAI.GetTeam(); // 只用來顯示
-            creatureAttr = abstractCreature.GetCreatureAttr();
+            creatureAttr = creature.GetCreatureAttr();
         }
 
         public bool IsEnemy(Team team) => GetCreatureAI().IsEnemy(team);
 
-        public IAIState GetAIState()
+        /*public IAIState GetAIState()
         {
-            if (aiState.IsEmpty()) aiState = abstractCreatureAI.GetAIState();
+            if (aiState.IsEmpty()) aiState = creatureAI.GetAIState();
             return aiState;
-        }
+        }*/
 
         public AbstractCreature GetCreature()
         {
-            if (abstractCreature.IsEmpty())
-                abstractCreature = abstractCreatureAI.GetCreature();
-            return abstractCreature;
+            if (creature.IsEmpty())
+                creature = creatureAI.GetCreature();
+            return creature;
         }
 
-        public AbstractCreatureAI GetCreatureAI() => abstractCreatureAI;
+        public AbstractCreatureAI GetCreatureAI() => creatureAI;
 
-        public ICreatureAttr GetCreatureAttr()
+        public CreatureAttr GetCreatureAttr()
         {
             if (creatureAttr.IsEmpty())
                 creatureAttr = GetCreature().GetCreatureAttr();
@@ -50,10 +50,10 @@ namespace Main.Entity
         /// 呼叫creature受傷
         public void Hit(Vector2 direction, float force,
             Transform vfx = null, Vector2 position = default)
-            => abstractCreature.Hit(direction, force, vfx, position);
+            => creature.Hit(direction, force, vfx, position);
 
-        public bool IsKilled() => abstractCreature.IsKilled();
-        public void Killed() => abstractCreature.Killed();
+        public bool IsKilled() => creature.IsKilled();
+        public void Killed() => creature.Killed();
         public void Destroy() => gameObject.SetActive(false);
 
         public override string ToString()

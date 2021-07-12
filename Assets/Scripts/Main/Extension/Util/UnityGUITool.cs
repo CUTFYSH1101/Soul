@@ -13,7 +13,7 @@ namespace Main.Util
 
         public static void AddOnClickListener(this Component container, string buttonName, Action action)
         {
-            container.GetFirstComponent<Button>(buttonName).AddOnClickListener(action);
+            container.GetFirstComponentInChildren<Button>(buttonName).AddOnClickListener(action);
         }
     }
 }

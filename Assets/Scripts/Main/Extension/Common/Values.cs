@@ -55,11 +55,15 @@
 
     public enum Symbol
     {
-        None,
-        Direct,
+        None,   // 類似null
+        Direct, // 直接傷害
         Square,
         Cross,
-        Circle
+        Circle,
+        AltAll, // 所有特殊符號
+        AltSquare,
+        AltCross,
+        AltCircle,
     }
 
     public enum Team

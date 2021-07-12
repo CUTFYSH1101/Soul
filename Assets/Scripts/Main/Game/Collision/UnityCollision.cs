@@ -15,10 +15,10 @@ namespace Main.Util
 
         /// 獲取主體(subject)與三者以上物體的中心點距離，並回傳最小值。例如；主體和最近的地面距離多遠。
         /// 介於0~Infinity
-        /// <param name="subject"></param>
-        /// <param name="direction"></param>
-        /// <param name="layerName"></param>
-        /// <param name="predicate"></param>
+        /// <param skillName="subject"></param>
+        /// <param skillName="direction"></param>
+        /// <param skillName="layerName"></param>
+        /// <param skillName="predicate"></param>
         /// <returns></returns>
         public static float GetDistance(this Component subject, Vector2 direction,
             [CanBeNull] string layerName = null, [CanBeNull] Func<RaycastHit2D, bool> predicate = null)
@@ -41,8 +41,8 @@ namespace Main.Util
         /// <summary>
         /// 與unity直接相關
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="direction"></param>
+        /// <param skillName="subject"></param>
+        /// <param skillName="direction"></param>
         /// <returns></returns>
         public static RaycastHit2D[] RayCastAll(this Component subject, Vector2 direction) =>
             Physics2D.RaycastAll(subject.transform.position + new Vector3(0, 0.1f, 0), direction)
@@ -51,8 +51,8 @@ namespace Main.Util
         /// <summary>
         /// 與unity直接相關
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="radius"></param>
+        /// <param skillName="subject"></param>
+        /// <param skillName="radius"></param>
         /// <returns></returns>
         public static Collider2D[] CircleCastAll(this Component subject, float radius) =>
             Physics2D.OverlapCircleAll(subject.transform.position + new Vector3(0, 0.1f, 0), radius)
@@ -61,8 +61,8 @@ namespace Main.Util
         /// <summary>
         /// 與unity直接相關
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="size"></param>
+        /// <param skillName="subject"></param>
+        /// <param skillName="size"></param>
         /// <returns></returns>
         public static Collider2D[] BoxCastAll(this Component subject, Vector2 size) =>
             Physics2D.OverlapBoxAll(subject.transform.position, size, 0)

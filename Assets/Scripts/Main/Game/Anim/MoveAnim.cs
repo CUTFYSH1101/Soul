@@ -78,5 +78,10 @@ namespace Main.Game.Anim
                     break;
             }
         }
+
+        public void WallJump()
+        {
+            animator.SetTrigger(ToWallJump);
+        }
     }
 }
