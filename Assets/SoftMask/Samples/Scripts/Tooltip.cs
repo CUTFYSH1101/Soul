@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         public RectTransform tooltip;
 

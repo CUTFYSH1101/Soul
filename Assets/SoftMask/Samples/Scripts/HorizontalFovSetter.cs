@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     [RequireComponent(typeof(Camera))]
     public class HorizontalFovSetter : MonoBehaviour {
         public float horizontalFov;

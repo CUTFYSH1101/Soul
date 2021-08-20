@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     [RequireComponent(typeof(RectTransform))]
     public class PaintedMask : UIBehaviour {
         public Camera renderCamera;
-        public SoftMask targetMask;
+        public SoftMask.Scripts.SoftMask targetMask;
 
         RenderTexture _renderTexture;
 

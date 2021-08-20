@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     [RequireComponent(typeof(RectTransform))]
     public class MaskPainter : UIBehaviour, IPointerDownHandler, IDragHandler {
         public Graphic spot;

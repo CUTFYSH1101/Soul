@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     [RequireComponent(typeof(RectTransform))]
     public class RectManipulator : UIBehaviour,
             IPointerEnterHandler,

@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground1
-  - Ground2
-  - Ground3
   - Monster
-  - PlayerTag
+  - Wall
+  - Ground1
+  - Ground0
+  - Circle
+  - 11
+  - Square
+  - Cross
   layers:
   - Default
   - TransparentFX
@@ -26,10 +29,10 @@ TagManager:
   - Attack
   - TargetSensor
   - Audio
-  - 
-  - 
-  - 
-  - 
+  - Creature2
+  - Creature3
+  - Ground2
+  - Ground3
   - 
   - 
   - 

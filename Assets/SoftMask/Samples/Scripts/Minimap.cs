@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     public class Minimap : MonoBehaviour {
         public RectTransform map;
         public RectTransform marker;

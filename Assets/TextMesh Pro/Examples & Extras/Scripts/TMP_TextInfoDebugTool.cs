@@ -1,10 +1,9 @@
 ﻿using System;
-using UnityEngine;
-using System.Collections;
+using TMPro;
 using UnityEditor;
+using UnityEngine;
 
-
-namespace TMPro.Examples
+namespace TextMesh_Pro.Scripts
 {
 
     public class TMP_TextInfoDebugTool : MonoBehaviour
@@ -106,9 +105,12 @@ namespace TMPro.Examples
                 // Draw visible as well as invisible characters
                 TMP_CharacterInfo characterInfo = m_TextInfo.characterInfo[i];
 
-                bool isCharacterVisible = i >= m_TextComponent.maxVisibleCharacters ||
-                                          characterInfo.lineNumber >= m_TextComponent.maxVisibleLines ||
-                                          (m_TextComponent.overflowMode == TextOverflowModes.Page && characterInfo.pageNumber + 1 != m_TextComponent.pageToDisplay) ? false : true;
+                bool isCharacterVisible = i < m_TextComponent.maxVisibleCharacters &&
+                                          characterInfo.lineNumber < m_TextComponent.maxVisibleLines &&
+                                          i >= m_TextComponent.firstVisibleCharacter;
+
+                if (m_TextComponent.overflowMode == TextOverflowModes.Page)
+                    isCharacterVisible = isCharacterVisible && characterInfo.pageNumber + 1 == m_TextComponent.pageToDisplay;
 
                 if (!isCharacterVisible)
                     continue;
@@ -636,12 +638,12 @@ namespace TMPro.Examples
         {
             var cam = Camera.current;
             float dotSpacing = (cam.WorldToScreenPoint(br).x - cam.WorldToScreenPoint(bl).x) / 75f;
-            UnityEditor.Handles.color = color;
+            Handles.color = color;
 
-            UnityEditor.Handles.DrawDottedLine(bl, tl, dotSpacing);
-            UnityEditor.Handles.DrawDottedLine(tl, tr, dotSpacing);
-            UnityEditor.Handles.DrawDottedLine(tr, br, dotSpacing);
-            UnityEditor.Handles.DrawDottedLine(br, bl, dotSpacing);
+            Handles.DrawDottedLine(bl, tl, dotSpacing);
+            Handles.DrawDottedLine(tl, tr, dotSpacing);
+            Handles.DrawDottedLine(tr, br, dotSpacing);
+            Handles.DrawDottedLine(br, bl, dotSpacing);
         }
         #endif
     }

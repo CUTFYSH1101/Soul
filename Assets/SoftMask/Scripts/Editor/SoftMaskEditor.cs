@@ -1,10 +1,11 @@
 ﻿using System;
+using SoftMask.Scripts;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace SoftMasking.Editor {
-    [CustomEditor(typeof(SoftMask))]
+    [CustomEditor(typeof(SoftMask.Scripts.SoftMask))]
     [CanEditMultipleObjects]
     public class SoftMaskEditor : UnityEditor.Editor {
         SerializedProperty _source;
@@ -116,16 +117,16 @@ namespace SoftMasking.Editor {
             serializedObject.Update();
             EditorGUILayout.PropertyField(_source, Labels.Source);
             CustomEditors.WithIndent(() => {
-                switch ((SoftMask.MaskSource)_source.enumValueIndex) {
-                    case SoftMask.MaskSource.Graphic:
+                switch ((SoftMask.Scripts.SoftMask.MaskSource)_source.enumValueIndex) {
+                    case SoftMask.Scripts.SoftMask.MaskSource.Graphic:
                         break;
-                    case SoftMask.MaskSource.Sprite:
+                    case SoftMask.Scripts.SoftMask.MaskSource.Sprite:
                         EditorGUILayout.PropertyField(_sprite, Labels.Sprite);
                         EditorGUILayout.PropertyField(_spriteBorderMode, Labels.SpriteBorderMode);
-                        if ((SoftMask.BorderMode)_spriteBorderMode.enumValueIndex != SoftMask.BorderMode.Simple)
+                        if ((SoftMask.Scripts.SoftMask.BorderMode)_spriteBorderMode.enumValueIndex != SoftMask.Scripts.SoftMask.BorderMode.Simple)
                             EditorGUILayout.PropertyField(_spritePixelsPerUnitMultiplier, Labels.SpritePixelsPerUnitMultiplier);
                         break;
-                    case SoftMask.MaskSource.Texture:
+                    case SoftMask.Scripts.SoftMask.MaskSource.Texture:
                         EditorGUILayout.PropertyField(_texture, Labels.Texture);
                         EditorGUILayout.PropertyField(_textureUVRect, Labels.TextureUVRect);
                         break;
@@ -146,25 +147,25 @@ namespace SoftMasking.Editor {
 
         void ShowErrorsIfAny() {
             var errors = CollectErrors();
-            ShowErrorIfPresent(errors, SoftMask.Errors.UnsupportedShaders,      Labels.UnsupportedShaders,      MessageType.Warning);
-            ShowErrorIfPresent(errors, SoftMask.Errors.NestedMasks,             Labels.NestedMasks,             MessageType.Warning);
-            ShowErrorIfPresent(errors, SoftMask.Errors.TightPackedSprite,       Labels.TightPackedSprite,       MessageType.Error);
-            ShowErrorIfPresent(errors, SoftMask.Errors.AlphaSplitSprite,        Labels.AlphaSplitSprite,        MessageType.Error);
-            ShowErrorIfPresent(errors, SoftMask.Errors.UnsupportedImageType,    Labels.UnsupportedImageType,    MessageType.Error);
-            ShowErrorIfPresent(errors, SoftMask.Errors.UnreadableTexture,       Labels.UnreadableTexture,       MessageType.Error);
-            ShowErrorIfPresent(errors, SoftMask.Errors.UnreadableRenderTexture, Labels.UnreadableRenderTexture, MessageType.Error);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.UnsupportedShaders,      Labels.UnsupportedShaders,      MessageType.Warning);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.NestedMasks,             Labels.NestedMasks,             MessageType.Warning);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.TightPackedSprite,       Labels.TightPackedSprite,       MessageType.Error);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.AlphaSplitSprite,        Labels.AlphaSplitSprite,        MessageType.Error);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.UnsupportedImageType,    Labels.UnsupportedImageType,    MessageType.Error);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.UnreadableTexture,       Labels.UnreadableTexture,       MessageType.Error);
+            ShowErrorIfPresent(errors, SoftMask.Scripts.SoftMask.Errors.UnreadableRenderTexture, Labels.UnreadableRenderTexture, MessageType.Error);
         }
 
-        SoftMask.Errors CollectErrors() {
-            var result = SoftMask.Errors.NoError;
+        SoftMask.Scripts.SoftMask.Errors CollectErrors() {
+            var result = SoftMask.Scripts.SoftMask.Errors.NoError;
             foreach (var t in targets)
-                result |= ((SoftMask)t).PollErrors();
+                result |= ((SoftMask.Scripts.SoftMask)t).PollErrors();
             return result;
         }
 
         static void ShowErrorIfPresent(
-                SoftMask.Errors actualErrors,
-                SoftMask.Errors expectedError,
+                SoftMask.Scripts.SoftMask.Errors actualErrors,
+                SoftMask.Scripts.SoftMask.Errors expectedError,
                 string errorMessage,
                 MessageType errorMessageType) {
             if ((actualErrors & expectedError) != 0)

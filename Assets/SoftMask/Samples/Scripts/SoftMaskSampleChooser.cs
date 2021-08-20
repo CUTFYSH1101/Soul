@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using System.Linq;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+#endif
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     public class SoftMaskSampleChooser : MonoBehaviour {
         public Dropdown dropdown;
         public Text fallbackLabel;

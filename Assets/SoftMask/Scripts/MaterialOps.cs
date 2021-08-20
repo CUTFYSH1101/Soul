@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SoftMasking.Extensions {
+namespace SoftMask.Scripts {
     public static class MaterialOps {
         public static bool SupportsSoftMask(this Material mat) {
             return mat.HasProperty("_SoftMask");

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Scripting;
 
-namespace SoftMasking.TextMeshPro {
+namespace SoftMask.Scripts.TextMeshPro {
     [Preserve]
     [GlobalMaterialReplacer]
     public class MaterialReplacer : IMaterialReplacer {

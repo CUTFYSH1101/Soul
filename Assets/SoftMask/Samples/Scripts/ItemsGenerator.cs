@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     public class ItemsGenerator : MonoBehaviour {
         public RectTransform target;
         public Sprite image;

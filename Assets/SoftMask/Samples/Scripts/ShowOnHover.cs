@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SoftMasking.Samples {
+namespace SoftMask.Samples.Scripts {
     [RequireComponent(typeof(RectTransform))]
     public class ShowOnHover : UIBehaviour, IPointerEnterHandler, IPointerExitHandler {
         public CanvasGroup targetGroup;

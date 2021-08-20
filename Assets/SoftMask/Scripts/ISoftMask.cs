@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SoftMasking {
+namespace SoftMask.Scripts {
     public interface ISoftMask {
         bool isAlive { get; }
         bool isMaskingEnabled { get; }
