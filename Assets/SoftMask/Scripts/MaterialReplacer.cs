@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
 #if !NET_STANDARD_2_0
 using System.Reflection.Emit;
 #endif
+using UnityEngine;
 
-namespace SoftMask.Scripts {
+namespace SoftMasking {
     /// <summary>
     /// Mark an implementation of the IMaterialReplacer interface with this attribute to
     /// register it in the global material replacer chain. The global replacers will be

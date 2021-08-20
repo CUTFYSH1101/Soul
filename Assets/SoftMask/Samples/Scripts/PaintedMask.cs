@@ -5,7 +5,7 @@ namespace SoftMask.Samples.Scripts {
     [RequireComponent(typeof(RectTransform))]
     public class PaintedMask : UIBehaviour {
         public Camera renderCamera;
-        public SoftMask.Scripts.SoftMask targetMask;
+        public SoftMasking.SoftMask targetMask;
 
         RenderTexture _renderTexture;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace SoftMask.Scripts {
+namespace SoftMasking {
     class MaterialReplacements {
         readonly IMaterialReplacer _replacer;
         readonly Action<Material> _applyParameters;

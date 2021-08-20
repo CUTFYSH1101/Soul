@@ -10,23 +10,23 @@ namespace Main.Util
             LocalGame
         }
 
-        private readonly Mode mode;
+        private readonly Mode _mode;
 
         public Stopwatch(Mode mode = Mode.LocalGame)
         {
-            this.mode = mode;
+            _mode = mode;
         }
 
-        public float time
+        public float Time
         {
             get
             {
-                switch (mode)
+                switch (_mode)
                 {
                     case Mode.LocalGame:
-                        return Time.LocalTimeSinceStartup;
+                        return Util.Time.LocalTimeSinceStartup;
                     case Mode.RealWorld:
-                        return Time.RealtimeSinceStartup;
+                        return Util.Time.RealtimeSinceStartup;
                     default:
                         return 0;
                 }
@@ -34,29 +34,29 @@ namespace Main.Util
         }
     }
 
-    public class CDTimer
+    public class CdTimer
     {
-        private readonly Stopwatch timer;
-        private float time;
-        public float Time => time - timer.time;
+        private readonly Stopwatch _timer;
+        private float _time;
+        public float Time => _time - _timer.Time;
         public float Lag { get; } // .1f
 
         /// 重製。直到時間到，才呼叫下一次計時開始
         public void Reset()
         {
-            if (timer == null) return;
-            time = Lag + timer.time;
+            if (_timer == null) return;
+            _time = Lag + _timer.Time;
         }
 
         public bool IsTimeUp =>
-            timer.time > time;
+            _timer.Time > _time;
 
         /// 初始化計時器。填入要計時的時間（秒）
-        public CDTimer(float lag, Stopwatch.Mode mode)
+        public CdTimer(float lag, Stopwatch.Mode mode)
         {
             Lag = lag;
-            time = 0;
-            timer = new Stopwatch(mode);
+            _time = 0;
+            _timer = new Stopwatch(mode);
         }
     }
 

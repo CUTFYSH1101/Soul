@@ -9,19 +9,19 @@ namespace Main.AnimAndAudioSystem.Audios.Scripts
         [SerializeField] protected RangedFloat pitch;
         private static AudioSource CreateAudioSource() =>
             new GameObject().AddComponent<AudioSource>();
-        private AudioSource audioSource;
+        private AudioSource _audioSource;
         public AudioSource AudioSource
         {
             get
             {
-                if (audioSource == false) audioSource = CreateAudioSource();
-                return audioSource;
+                if (_audioSource == false) _audioSource = CreateAudioSource();
+                return _audioSource;
             }
         }
         ~AbstractAudioPlayer()
         {
-            if (audioSource != null)
-                Destroy(audioSource.transform);
+            if (_audioSource != null)
+                Destroy(_audioSource.transform);
         }
     }
 }

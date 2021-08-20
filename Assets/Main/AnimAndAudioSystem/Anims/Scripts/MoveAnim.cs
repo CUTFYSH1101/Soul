@@ -6,7 +6,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
     /// 避免float和bool的起衝突...協調器
     internal class MoveAnim
     {
-        private readonly Animator animator;
+        private readonly Animator _animator;
 
         private enum Type
         {
@@ -14,7 +14,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             Bool
         }
 
-        private readonly Type type;
+        private readonly Type _type;
 
         private enum Dir
         {
@@ -23,65 +23,65 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             Stay
         }
 
-        private Dir dir;
-        private readonly bool hasAnim;
-        public bool UseGroundedChecker => hasAnim; // 作為判斷要不要使用Grounded的一個工具
+        private Dir _dir;
+        private readonly bool _hasAnim;
+        public bool UseGroundedChecker => _hasAnim; // 作為判斷要不要使用GroundedChecker的一個參數
 
         public MoveAnim(Animator animator)
         {
-            this.animator = animator;
-            type = animator.HasParameter(Moving) ? Type.Bool : Type.Float;
-            hasAnim = animator.HasParameter(Up); // 確認有沒有anim
+            _animator = animator;
+            _type = animator.HasParameter(Moving) ? Type.Bool : Type.Float;
+            _hasAnim = animator.HasParameter(Up); // 確認有沒有anim
         }
 
         public void Dash(bool @switch)
-            => animator.SetBool(Dashing, @switch);
+            => _animator.SetBool(Dashing, @switch);
 
         public void Move(bool @switch)
         {
-            switch (type)
+            switch (_type)
             {
                 case Type.Bool:
-                    animator.SetBool(Moving, @switch);
+                    _animator.SetBool(Moving, @switch);
                     break;
                 case Type.Float:
-                    animator.SetFloat(Speed, @switch ? 1 : 0);
+                    _animator.SetFloat(Speed, @switch ? 1 : 0);
                     break;
             }
         }
 
         public void JumpUpdate(int speedY)
         {
-            if (!hasAnim)
+            if (!_hasAnim)
                 return;
 
             if (speedY > .1)
-                dir = Dir.Up;
+                _dir = Dir.Up;
             else if (speedY < -.1)
-                dir = Dir.Down;
+                _dir = Dir.Down;
             else
-                dir = Dir.Stay;
+                _dir = Dir.Stay;
 
-            switch (dir)
+            switch (_dir)
             {
                 case Dir.Up:
-                    animator.SetBool(Up, true);
-                    animator.SetBool(Down, false);
+                    _animator.SetBool(Up, true);
+                    _animator.SetBool(Down, false);
                     break;
                 case Dir.Down:
-                    animator.SetBool(Up, false);
-                    animator.SetBool(Down, true);
+                    _animator.SetBool(Up, false);
+                    _animator.SetBool(Down, true);
                     break;
                 case Dir.Stay:
-                    animator.SetBool(Up, false);
-                    animator.SetBool(Down, false);
+                    _animator.SetBool(Up, false);
+                    _animator.SetBool(Down, false);
                     break;
             }
         }
 
         public void WallJump()
         {
-            animator.SetTrigger(ToWallJump);
+            _animator.SetTrigger(ToWallJump);
         }
     }
 }

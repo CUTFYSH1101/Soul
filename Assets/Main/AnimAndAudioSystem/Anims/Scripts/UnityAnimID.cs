@@ -17,6 +17,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             DiveAttackingSquare = Animator.StringToHash("DiveAttacking.Square"),
             DiveAttackingCross = Animator.StringToHash("DiveAttacking.Cross"),
             DiveAttackingCircle = Animator.StringToHash("DiveAttacking.Circle"),
+            DiveAttackExit = Animator.StringToHash("DiveAttack.Exit"),
             ToSpurAttackSquare = Animator.StringToHash("ToSpurAttack.Square"),
             ToSpurAttackCross = Animator.StringToHash("ToSpurAttack.Cross"),
             ToSpurAttackCircle = Animator.StringToHash("ToSpurAttack.Circle");
@@ -36,6 +37,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             Knockbacked = Animator.StringToHash("Knockbacked");
 
         public static readonly int
-            AttackSpeed = Animator.StringToHash("AttackSpeed");
+            AttackSpeed = Animator.StringToHash("AttackSpeed"),
+            ToInterruptAnimation = Animator.StringToHash("ToInterruptAnimation");
     }
 }

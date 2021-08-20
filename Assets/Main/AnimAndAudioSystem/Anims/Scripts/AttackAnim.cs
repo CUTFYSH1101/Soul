@@ -6,23 +6,23 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
     /// 根據攻擊符號，出現對應動畫
     internal class AttackAnim
     {
-        private readonly Animator animator;
-        private readonly bool hasDirect, hasChoice;
-        private readonly bool hasDirectDive, hasChoiceDive;
-        private readonly bool hasChoiceSpur;
-        private readonly bool hasChoiceJump;
-        private readonly bool hasAttackSpeed;
+        private readonly Animator _animator;
+        private readonly bool _hasDirect, _hasChoice;
+        private readonly bool _hasDirectDive, _hasChoiceDive;
+        private readonly bool _hasChoiceSpur;
+        private readonly bool _hasChoiceJump;
+        private readonly bool _hasAttackSpeed;
 
         public AttackAnim(Animator animator)
         {
-            this.animator = animator;
-            hasDirect = animator.HasParameter(UnityAnimID.ToAttack);
-            hasChoice = animator.HasParameter(UnityAnimID.ToNormalAttackSquare);
-            hasDirectDive = animator.HasParameter(UnityAnimID.DiveAttacking);
-            hasChoiceDive = animator.HasParameter(UnityAnimID.DiveAttackingSquare);
-            hasChoiceSpur = animator.HasParameter(UnityAnimID.ToSpurAttackSquare);
-            hasChoiceJump = animator.HasParameter(UnityAnimID.ToJumpAttackSquare);
-            hasAttackSpeed = animator.HasParameter(UnityAnimID.AttackSpeed);
+            _animator = animator;
+            _hasDirect = animator.HasParameter(UnityAnimID.ToAttack);
+            _hasChoice = animator.HasParameter(UnityAnimID.ToNormalAttackSquare);
+            _hasDirectDive = animator.HasParameter(UnityAnimID.DiveAttacking);
+            _hasChoiceDive = animator.HasParameter(UnityAnimID.DiveAttackingSquare);
+            _hasChoiceSpur = animator.HasParameter(UnityAnimID.ToSpurAttackSquare);
+            _hasChoiceJump = animator.HasParameter(UnityAnimID.ToJumpAttackSquare);
+            _hasAttackSpeed = animator.HasParameter(UnityAnimID.AttackSpeed);
         }
 
         private void TriggerTemplate(bool hasSymbol, EnumSymbol symbol, int id)
@@ -33,7 +33,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
                 return;
             }
 
-            animator.SetTrigger(id);
+            _animator.SetTrigger(id);
         }
 
         public void NormalAttack(EnumSymbol symbol)
@@ -41,16 +41,16 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             switch (symbol)
             {
                 case EnumSymbol.Direct:
-                    TriggerTemplate(hasDirect, symbol, UnityAnimID.ToAttack);
+                    TriggerTemplate(_hasDirect, symbol, UnityAnimID.ToAttack);
                     break;
                 case EnumSymbol.Square:
-                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToNormalAttackSquare);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToNormalAttackSquare);
                     break;
                 case EnumSymbol.Circle:
-                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToNormalAttackCircle);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToNormalAttackCircle);
                     break;
                 case EnumSymbol.Cross:
-                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToNormalAttackCross);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToNormalAttackCross);
                     break;
                 default:
                     Debug.LogError("超出範圍");
@@ -66,7 +66,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
                 return;
             }
 
-            animator.SetBool(id, @switch);
+            _animator.SetBool(id, @switch);
         }
 
         private void FloatTemplate(bool hasVar, int id, float value)
@@ -77,7 +77,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
                 return;
             }
 
-            animator.SetFloat(id, value);
+            _animator.SetFloat(id, value);
         }
 
         public void DiveAttack(EnumSymbol symbol, bool @switch)
@@ -85,35 +85,38 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             switch (symbol)
             {
                 case EnumSymbol.Direct:
-                    BoolTemplate(hasDirectDive, symbol, UnityAnimID.DiveAttacking, @switch);
+                    BoolTemplate(_hasDirectDive, symbol, UnityAnimID.DiveAttacking, @switch);
                     break;
                 case EnumSymbol.Square:
-                    BoolTemplate(hasChoiceDive, symbol, UnityAnimID.DiveAttackingSquare, @switch);
+                    BoolTemplate(_hasChoiceDive, symbol, UnityAnimID.DiveAttackingSquare, @switch);
                     break;
                 case EnumSymbol.Circle:
-                    BoolTemplate(hasChoiceDive, symbol, UnityAnimID.DiveAttackingCircle, @switch);
+                    BoolTemplate(_hasChoiceDive, symbol, UnityAnimID.DiveAttackingCircle, @switch);
                     break;
                 case EnumSymbol.Cross:
-                    BoolTemplate(hasChoiceDive, symbol, UnityAnimID.DiveAttackingCross, @switch);
+                    BoolTemplate(_hasChoiceDive, symbol, UnityAnimID.DiveAttackingCross, @switch);
                     break;
                 default:
+                    Debug.Log(symbol);
                     Debug.LogError("超出範圍");
                     return;
             }
         }
+        
+        public void ExitDiveAttack(bool @switch) => _animator.SetBool(UnityAnimID.DiveAttackExit,@switch);
 
         public void SpurAttack(EnumSymbol symbol)
         {
             switch (symbol)
             {
                 case EnumSymbol.Square:
-                    TriggerTemplate(hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackSquare);
+                    TriggerTemplate(_hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackSquare);
                     break;
                 case EnumSymbol.Circle:
-                    TriggerTemplate(hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackCircle);
+                    TriggerTemplate(_hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackCircle);
                     break;
                 case EnumSymbol.Cross:
-                    TriggerTemplate(hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackCross);
+                    TriggerTemplate(_hasChoiceSpur, symbol, UnityAnimID.ToSpurAttackCross);
                     break;
                 default:
                     Debug.LogError("超出範圍");
@@ -126,13 +129,13 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
             switch (symbol)
             {
                 case EnumSymbol.Square:
-                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToJumpAttackSquare);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackSquare);
                     break;
                 case EnumSymbol.Circle:
-                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToJumpAttackCross);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackCross);
                     break;
                 case EnumSymbol.Cross:
-                    TriggerTemplate(hasChoice, symbol, UnityAnimID.ToJumpAttackCircle);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackCircle);
                     break;
                 default:
                     Debug.LogError("超出範圍");
@@ -142,7 +145,7 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
 
         public void SetAttackSpeed(float value)
         {
-            FloatTemplate(hasAttackSpeed, UnityAnimID.AttackSpeed, value);
+            FloatTemplate(_hasAttackSpeed, UnityAnimID.AttackSpeed, value);
         }
     }
 }

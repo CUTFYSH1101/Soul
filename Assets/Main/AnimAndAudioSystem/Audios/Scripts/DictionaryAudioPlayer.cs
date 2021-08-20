@@ -50,10 +50,10 @@ namespace Main.AnimAndAudioSystem.Audios.Scripts
 
         public enum Key
         {
-            NADirect,
-            NASquare,
-            NACross,
-            NACircle,
+            NaDirect,
+            NaSquare,
+            NaCross,
+            NaCircle,
             Dash,
             WallJump
         }
@@ -65,16 +65,16 @@ namespace Main.AnimAndAudioSystem.Audios.Scripts
             switch (symbol)
             {
                 case EnumSymbol.Direct:
-                    Play(Key.NADirect);
+                    Play(Key.NaDirect);
                     return;
                 case EnumSymbol.Square:
-                    Play(Key.NASquare);
+                    Play(Key.NaSquare);
                     return;
                 case EnumSymbol.Circle:
-                    Play(Key.NACircle);
+                    Play(Key.NaCircle);
                     return;
                 case EnumSymbol.Cross:
-                    Play(Key.NACross);
+                    Play(Key.NaCross);
                     return;
                 default:
                     Debug.LogError("超出範圍");

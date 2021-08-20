@@ -4,10 +4,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
-using UnityEngine.Sprites;
 using UnityEngine.UI;
+using UnityEngine.Sprites;
+using SoftMasking.Extensions;
 
-namespace SoftMask.Scripts {
+namespace SoftMasking {
     /// <summary>
     /// Contains some predefined combinations of mask channel weights.
     /// </summary>

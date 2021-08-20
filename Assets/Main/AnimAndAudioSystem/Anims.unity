@@ -1333,10 +1333,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 0.12
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 30d844ecb1573154d82830e8aa64f6d8, type: 2}
+  m_Material: {fileID: 6200000, guid: 99606f0398f1380408126093e7c9bedd, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1350,7 +1350,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 558952102}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 30d844ecb1573154d82830e8aa64f6d8, type: 2}
+  m_Material: {fileID: 6200000, guid: 99606f0398f1380408126093e7c9bedd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

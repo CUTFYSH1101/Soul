@@ -8,7 +8,7 @@ namespace SoftMask.Samples.Scripts {
 
         public void Toggle(bool enabled) {
             if (mask) {
-                mask.GetComponent<SoftMask.Scripts.SoftMask>().enabled = enabled;
+                mask.GetComponent<SoftMasking.SoftMask>().enabled = enabled;
                 mask.GetComponent<Mask>().enabled = !enabled;
                 if (!doNotTouchImage)
                     mask.GetComponent<Image>().enabled = !enabled;

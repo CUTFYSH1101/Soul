@@ -66,10 +66,10 @@ namespace SoftMasking.Editor {
             Assert.IsTrue(IsConvertibleMask(gameObject));
             DeepCheckConvertibility(gameObject);
             var mask = gameObject.GetComponent<Mask>();
-            var softMask = Undo.AddComponent<SoftMask.Scripts.SoftMask>(gameObject);
+            var softMask = Undo.AddComponent<SoftMask>(gameObject);
             var mayUseGraphic = MayUseGraphicSource(mask);
             if (mayUseGraphic) {
-                softMask.source = SoftMask.Scripts.SoftMask.MaskSource.Graphic;
+                softMask.source = SoftMask.MaskSource.Graphic;
                 Undo.DestroyObjectImmediate(mask);
             } else {
                 var graphic = gameObject.GetComponent<Graphic>();
@@ -93,7 +93,7 @@ namespace SoftMasking.Editor {
                     throw new UnsupportedRawImageTextureType(gameObject, texture);
             }
             var image = gameObject.GetComponent<Image>();
-            if (image && !SoftMask.Scripts.SoftMask.IsImageTypeSupported(image.type))
+            if (image && !SoftMask.IsImageTypeSupported(image.type))
                 throw new UnsupportedImageType(image.gameObject, image.type);
         }
 
@@ -132,18 +132,18 @@ namespace SoftMasking.Editor {
                 : original;
         }
 
-        static void SetUpFromImage(SoftMask.Scripts.SoftMask softMask, Image image) {
-            Assert.IsTrue(SoftMask.Scripts.SoftMask.IsImageTypeSupported(image.type));
-            softMask.source = SoftMask.Scripts.SoftMask.MaskSource.Sprite;
+        static void SetUpFromImage(SoftMask softMask, Image image) {
+            Assert.IsTrue(SoftMask.IsImageTypeSupported(image.type));
+            softMask.source = SoftMask.MaskSource.Sprite;
             softMask.sprite = SoftMaskCompatibleVersionOf(image.sprite);
-            softMask.spriteBorderMode = SoftMask.Scripts.SoftMask.ImageTypeToBorderMode(image.type);
+            softMask.spriteBorderMode = SoftMask.ImageTypeToBorderMode(image.type);
         #if UNITY_2019_2_OR_NEWER
             softMask.spritePixelsPerUnitMultiplier = image.pixelsPerUnitMultiplier;
         #endif
         }
 
-        static void SetUpFromRawImage(SoftMask.Scripts.SoftMask softMask, RawImage rawImage) {
-            softMask.source = SoftMask.Scripts.SoftMask.MaskSource.Texture;
+        static void SetUpFromRawImage(SoftMask softMask, RawImage rawImage) {
+            softMask.source = SoftMask.MaskSource.Texture;
             var texture = rawImage.texture;
             if (texture)
                 if (texture is Texture2D)

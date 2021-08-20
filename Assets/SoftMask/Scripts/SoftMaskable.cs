@@ -2,8 +2,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using SoftMasking.Extensions;
 
-namespace SoftMask.Scripts {
+namespace SoftMasking {
     [ExecuteInEditMode]
     [AddComponentMenu("")]
     public class SoftMaskable : UIBehaviour, IMaterialModifier {
