@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Monster
+  - Wall
+  - Ground1
+  - Ground0
+  - Circle
+  - 11
+  - Square
+  - Cross
   layers:
   - Default
   - TransparentFX
@@ -15,16 +23,16 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Creature
+  - Item
+  - Attack
+  - TargetSensor
+  - Audio
+  - Creature2
+  - Creature3
+  - Ground2
+  - Ground3
   - 
   - 
   - 
