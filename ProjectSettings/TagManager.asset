@@ -4,15 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Monster
-  - Wall
-  - Control
-  - Square
-  - Cross
-  - Circle
   - Ground1
   - Ground2
   - Ground3
+  - Monster
+  - PlayerTag
   layers:
   - Default
   - TransparentFX
