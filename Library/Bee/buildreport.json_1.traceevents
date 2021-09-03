@@ -1,0 +1,362 @@
+{ "pid": "BeeDriver", "ph":"M", "name": "process_name", "args": {"name": "BeeDriver"} },
+{ "pid": "BeeDriver", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -2} },
+{ "pid": "BeeDriver", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": ""} },
+{ "pid": "BeeDriver", "tid": 1,"ts": 11877554547.5,"dur": 0, "ph":"X", "name": "Build Player"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 11877554835.3,"dur": 1918.7, "ph":"X", "name": "WriteBuildProgramData"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 11877556754.4,"dur": 91314.1, "ph":"X", "name": "Run Backend"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 11877648069.4,"dur": 1061402.3, "ph":"X", "name": "BuildProgram"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 11878709472.5,"dur": 1920390.3, "ph":"X", "name": "Run Backend"},
+{ "pid": "BeeDriver", "tid": 1,"ts": 11880629863.4,"dur": 1677.2, "ph":"X", "name": "Finish"},
+{ "pid": "BuildProgram", "ph":"M", "name": "process_name", "args": {"name": "BuildProgram"} },
+{ "pid": "BuildProgram", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -1} },
+{ "pid": "BuildProgram", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": ""} },
+{ "pid": "BuildProgram", "tid": 1,"ts": 11878358654,"dur": 338585.1, "ph":"X", "name": "BuildProgram"},
+{ "pid": "BuildProgram", "tid": 1,"ts": 11878358920.9,"dur": 78487.6, "ph":"X", "name": "BuildProgramContextCCtor"},
+{ "pid": "BuildProgram", "tid": 1,"ts": 11878673014.8,"dur": 7809.8, "ph":"X", "name": "OutputData.Write"},
+{ "pid": "BuildProgram", "tid": 1,"ts": 11878680825.4,"dur": 16412.9, "ph":"X", "name": "Backend.Write"},
+{ "pid": "BuildProgram", "tid": 1,"ts": 11878681896.2,"dur": 14416.3, "ph":"X", "name": "JsonToString"},
+{ "cat":"", "pid":"bee_backend", "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":"bee_backend", "tid":0, "ts":11878786262, "dur":13342, "ph":"X", "name": "DriverCheckDagSignatures",  "args": { "durationMS":13, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11878799605, "dur":1627, "ph":"X", "name": "DriverInitData",  "args": { "durationMS":2, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11878801355, "dur":69, "ph":"X", "name": "Tundra",  "args": { "durationMS":0, "detail":"RemoveStaleOutputs" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11878801467, "dur":18, "ph":"X", "name": "Tundra",  "args": { "durationMS":0, "detail":"PrepareNodes" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11878801486, "dur":607, "ph":"X", "name": "Tundra",  "args": { "durationMS":1, "detail":"BuildQueueInit" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880606008, "dur":11205, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":11, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617224, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617236, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617247, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617256, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617266, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617275, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617284, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617293, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617302, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617311, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617321, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617332, "dur":0, "ph":"X", "name": "SharedResourceDestroy",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":0, "ts":11880617382, "dur":1813, "ph":"X", "name": "Tundra",  "args": { "durationMS":2, "detail":"Write AllBuiltNodes" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878801829, "dur":1921, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":2, "detail":"" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878812808, "dur":34, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878861680, "dur":32290, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":32, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878894740, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878894769, "dur":38903, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":39, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878934262, "dur":10, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo.exe" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878934301, "dur":53124, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":53, "detail":"D://01.///0824 AI/demo/demo.exe" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878987830, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11878987866, "dur":411295, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":411, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879399777, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879399822, "dur":280633, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":281, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879681209, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879681245, "dur":3841, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879685627, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879685666, "dur":2312, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879688704, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879688741, "dur":103238, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":103, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879792374, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879792401, "dur":44849, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":45, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879837788, "dur":9, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879837828, "dur":27487, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":27, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879865876, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879865928, "dur":1937, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879868386, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11879868415, "dur":294218, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":294, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11880163215, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/clipper_library.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11880163242, "dur":4311, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/clipper_library.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11880168212, "dur":15256, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":15, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Plugins/x86_64/lib_burst_generated.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11880184824, "dur":1956, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Plugins/x86_64/lib_burst_generated.dll" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11880187053, "dur":418959, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":419, "detail":"" }}
+,{ "pid":"bee_backend", "tid":1, "ts":11880606013, "dur":10954, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11878801916, "dur":1831, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":2, "detail":"" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11878810741, "dur":24, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11878862091, "dur":70479, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":70, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11878933340, "dur":13, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/NVUnityPlugin.dll" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11878933389, "dur":1270032, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":1270, "detail":"D://01.///0824 AI/demo/NVUnityPlugin.dll" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11880203714, "dur":402295, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":402, "detail":"" }}
+,{ "pid":"bee_backend", "tid":2, "ts":11880606009, "dur":10927, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878801992, "dur":1756, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":2, "detail":"" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878809984, "dur":7, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878862625, "dur":39522, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":40, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878902765, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878902799, "dur":63827, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":64, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878967110, "dur":10, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878967144, "dur":1739, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878969259, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11878969293, "dur":598634, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":599, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11879568434, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11879568464, "dur":130449, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":130, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11879699345, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11879699372, "dur":303967, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":304, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11880004464, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11880004510, "dur":123084, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":123, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11880128209, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11880128246, "dur":117059, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":117, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.dll" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11880245641, "dur":360370, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":360, "detail":"" }}
+,{ "pid":"bee_backend", "tid":3, "ts":11880606012, "dur":10922, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878802058, "dur":1686, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":2, "detail":"" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878804527, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878804903, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/app.info" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878809138, "dur":53369, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":53, "detail":"D://01.///0824 AI/demo/demo_Data/app.info" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878862884, "dur":6, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878863644, "dur":42163, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":42, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878906223, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878906774, "dur":54710, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":55, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878961998, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878962462, "dur":1502, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878964347, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11878964586, "dur":603407, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":603, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11879568544, "dur":9, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11879568585, "dur":151667, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":152, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11879720816, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11879720858, "dur":3752, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11879725202, "dur":6, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11879725251, "dur":277875, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":278, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880004248, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880004281, "dur":134527, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":135, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880139426, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Transactions.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880139460, "dur":2755, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Transactions.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880142811, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880142853, "dur":3694, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880147049, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880147082, "dur":3246, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880151012, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880151052, "dur":6064, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":6, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880157763, "dur":8, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880157815, "dur":4540, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":5, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880162977, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Mono.Security.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880163036, "dur":4768, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":5, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Mono.Security.dll" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880168448, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/sharedassets0.resource" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880168476, "dur":11984, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":12, "detail":"D://01.///0824 AI/demo/demo_Data/sharedassets0.resource" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880181080, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/resources.resource" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880181120, "dur":2142, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/resources.resource" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880183566, "dur":422446, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":422, "detail":"" }}
+,{ "pid":"bee_backend", "tid":4, "ts":11880606012, "dur":10922, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11878804654, "dur":8, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11878861677, "dur":40157, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":40, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11878902373, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11878902402, "dur":432384, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":432, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879335207, "dur":10, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879335243, "dur":344924, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":345, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879680824, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879680866, "dur":2326, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879683804, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879683910, "dur":2378, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879686891, "dur":7, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879686937, "dur":2025, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879689398, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879689439, "dur":3057, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879693001, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11879693041, "dur":310387, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":310, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880004570, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880004611, "dur":83561, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":84, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880088587, "dur":236, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880088847, "dur":1955, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880091244, "dur":438, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880091706, "dur":1958, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880094251, "dur":1076, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Mathematics.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880095362, "dur":2387, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Mathematics.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880098296, "dur":211, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880098544, "dur":1859, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880100784, "dur":1290, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.InputSystem.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880102114, "dur":2772, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.InputSystem.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880105430, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Unsafe.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880105475, "dur":1906, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Unsafe.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880107938, "dur":645, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880108619, "dur":2604, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880112129, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.Rocks.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880112174, "dur":88547, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":89, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.Rocks.dll" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880201015, "dur":404992, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":405, "detail":"" }}
+,{ "pid":"bee_backend", "tid":5, "ts":11880606007, "dur":10945, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11878804678, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11878862644, "dur":31933, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":32, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11878895201, "dur":19, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11878895260, "dur":38154, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":38, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11878934110, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/nvngx_dlss.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11878934151, "dur":322824, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":323, "detail":"D://01.///0824 AI/demo/nvngx_dlss.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879257575, "dur":15, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879257626, "dur":116531, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":117, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879374739, "dur":18, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879374814, "dur":305999, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":306, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879681571, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UaaLAnalyticsModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879681606, "dur":159420, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":159, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UaaLAnalyticsModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879841605, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11879841646, "dur":161863, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":162, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11880004619, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11880004652, "dur":114994, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":115, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11880120171, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.Pdb.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11880120200, "dur":126044, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":126, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.Pdb.dll" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11880246479, "dur":359529, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":360, "detail":"" }}
+,{ "pid":"bee_backend", "tid":6, "ts":11880606008, "dur":10943, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11878812148, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11878861867, "dur":260743, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":261, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879123246, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879123291, "dur":557414, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":557, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879681617, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879681652, "dur":90743, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":91, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879772823, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879772853, "dur":2128, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879775491, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879775519, "dur":86404, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":86, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879862496, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11879862542, "dur":291011, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":291, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880154212, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880154251, "dur":3390, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880158303, "dur":307, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/SoftMask.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880158641, "dur":4346, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/SoftMask.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880163989, "dur":573, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Cinemachine.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880164607, "dur":4067, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Cinemachine.dll" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880169261, "dur":812, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880170100, "dur":12325, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":12, "detail":"D://01.///0824 AI/demo/demo_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880182983, "dur":186, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/boot.config" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880183208, "dur":2532, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/boot.config" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880186028, "dur":419986, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":420, "detail":"" }}
+,{ "pid":"bee_backend", "tid":7, "ts":11880606014, "dur":10917, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11878805163, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11878862601, "dur":39363, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":39, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11878902620, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11878902658, "dur":24422, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":24, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11878927680, "dur":7, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/UnityCrashHandler64.exe" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11878927719, "dur":480396, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":480, "detail":"D://01.///0824 AI/demo/UnityCrashHandler64.exe" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879408757, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879408802, "dur":217526, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":218, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879626867, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879626904, "dur":53843, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":54, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879681452, "dur":507, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879681987, "dur":2533, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879684924, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879684954, "dur":1783, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879687314, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879687359, "dur":87421, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":87, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879775358, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879775391, "dur":2870, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879778773, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879778804, "dur":1524, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879780874, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879780913, "dur":81062, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":81, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879862561, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11879862599, "dur":161249, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":161, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880024239, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880024266, "dur":110240, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":110, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880135197, "dur":282, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.Common.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880135519, "dur":2838, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.Common.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880138908, "dur":7, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880138938, "dur":3027, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880142700, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Security.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880142749, "dur":3012, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Security.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880146308, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880146351, "dur":3453, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880150419, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880150456, "dur":3149, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880154192, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Core.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880154220, "dur":3722, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Core.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880158660, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/netstandard.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880158698, "dur":4330, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/netstandard.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880164008, "dur":668, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":1, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880164705, "dur":3748, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880168926, "dur":236, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/ScriptingAssemblies.json" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880169186, "dur":12708, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":13, "detail":"D://01.///0824 AI/demo/demo_Data/ScriptingAssemblies.json" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880182490, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/data.unity3d" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880182526, "dur":11300, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":11, "detail":"D://01.///0824 AI/demo/demo_Data/data.unity3d" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880194112, "dur":411898, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":412, "detail":"" }}
+,{ "pid":"bee_backend", "tid":8, "ts":11880606010, "dur":10925, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11878804547, "dur":8, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11878860525, "dur":62733, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":63, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11878923843, "dur":16, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11878924286, "dur":651980, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":652, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879576756, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879576804, "dur":164013, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":164, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879741424, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879741465, "dur":72754, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":73, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879814803, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879814847, "dur":2007, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879817268, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879817295, "dur":1343, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":1, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879819011, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879819037, "dur":1731, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879821252, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879821279, "dur":1675, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879823615, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11879823661, "dur":179416, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":179, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880004109, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880004158, "dur":123639, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":124, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880128331, "dur":327, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880128690, "dur":1933, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880131184, "dur":229, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.PixelPerfect.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880131449, "dur":2573, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.PixelPerfect.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880134622, "dur":272, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.IK.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880134939, "dur":2775, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.IK.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880138343, "dur":302, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.Animation.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880138681, "dur":2903, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.2D.Animation.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880142260, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880142293, "dur":2973, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880145899, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880145929, "dur":3546, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Runtime.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880150082, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880150112, "dur":3278, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880153981, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Data.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880154016, "dur":4287, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Data.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880158970, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/mscorlib.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880159009, "dur":8328, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":8, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/mscorlib.dll" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880167985, "dur":132040, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":132, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Plugins/x86_64/lib_burst_generated.txt" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880300501, "dur":1414, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":1, "detail":"D://01.///0824 AI/demo/demo_Data/Plugins/x86_64/lib_burst_generated.txt" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880302153, "dur":303864, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":304, "detail":"" }}
+,{ "pid":"bee_backend", "tid":9, "ts":11880606018, "dur":10915, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11878804589, "dur":21, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11878860861, "dur":32576, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":33, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11878894031, "dur":10, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11878894408, "dur":28959, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":29, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11878923983, "dur":12, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/UnityPlayer.dll" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11878924023, "dur":1681727, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":1682, "detail":"D://01.///0824 AI/demo/UnityPlayer.dll" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11880605966, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"Player" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11880605971, "dur":42, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":0, "detail":"" }}
+,{ "pid":"bee_backend", "tid":10, "ts":11880606013, "dur":10920, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11878804605, "dur":24, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11878861543, "dur":84034, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":84, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11878946169, "dur":7, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Resources/unity default resources" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11878958476, "dur":492866, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":493, "detail":"D://01.///0824 AI/demo/demo_Data/Resources/unity default resources" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879451794, "dur":14, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879451851, "dur":161871, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":162, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879614117, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879614143, "dur":91025, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":91, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879705682, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879705718, "dur":1500, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":1, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879708069, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11879708113, "dur":295272, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":295, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880004476, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880004516, "dur":2901, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880007972, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880008009, "dur":1880, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880010481, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880010526, "dur":116837, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":117, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880127916, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.Mdb.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880127956, "dur":128207, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":128, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Unity.Burst.Cecil.Mdb.dll" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880256390, "dur":349633, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":350, "detail":"" }}
+,{ "pid":"bee_backend", "tid":11, "ts":11880606023, "dur":10910, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11878811351, "dur":6, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11878861595, "dur":261980, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":262, "detail":"D://01.///0824 AI/demo/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879124212, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879124254, "dur":237781, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":238, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879362907, "dur":17, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879363025, "dur":383587, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":384, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879747026, "dur":10, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879747061, "dur":90476, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":90, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879837983, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879838017, "dur":1903, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":2, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879840536, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11879840578, "dur":162460, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":162, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880004035, "dur":6, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880004091, "dur":3831, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880008481, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880008518, "dur":130206, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":130, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880139282, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Xml.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880139309, "dur":6075, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":6, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Xml.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880145950, "dur":4, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Numerics.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880145990, "dur":3862, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":4, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Numerics.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880150467, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Drawing.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880150504, "dur":3496, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Drawing.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880154484, "dur":2, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/System.Configuration.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880154509, "dur":3381, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":3, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/System.Configuration.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880158540, "dur":3, "ph":"X", "name": "CheckInputSignature",  "args": { "durationMS":0, "detail":"CopyFiles D://01.///0824 AI/demo/demo_Data/Managed/Newtonsoft.Json.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880158581, "dur":98653, "ph":"X", "name": "CopyFiles",  "args": { "durationMS":99, "detail":"D://01.///0824 AI/demo/demo_Data/Managed/Newtonsoft.Json.dll" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880257449, "dur":348566, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "durationMS":349, "detail":"" }}
+,{ "pid":"bee_backend", "tid":12, "ts":11880606017, "dur":10932, "ph":"X", "name": "Exiting",  "args": { "durationMS":11, "detail":"BuildLoop" }}
+,

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Main/EventSystem/Sample.unity
-    guid: 85d1dcb4398969b4c8eee7f3231d5b87
+    path: Assets/Main/CreatureAndBehavior/Creature And Behavior.unity
+    guid: ae14f57fe7ad4224969d3fabcb85665b
   m_configObjects: {}

@@ -1,0 +1,123 @@
+{
+  "BurstVersion": "bace72e1-c284-41d0-baf4-9fb4f0772068",
+  "Assemblies": [
+    {
+      "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-09-03T10:12:02.1664008Z"
+    },
+    {
+      "FullName": "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+      "LastWriteTime": "2021-08-17T05:00:08Z"
+    },
+    {
+      "FullName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "LastWriteTime": "2021-08-17T05:00:08Z"
+    },
+    {
+      "FullName": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-08-17T05:03:36Z"
+    },
+    {
+      "FullName": "Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-09-03T10:12:04.4834764Z"
+    },
+    {
+      "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "LastWriteTime": "2021-08-17T05:00:08Z"
+    },
+    {
+      "FullName": "UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-08-17T05:03:36Z"
+    },
+    {
+      "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-09-03T10:12:01.6884162Z"
+    },
+    {
+      "FullName": "Unity.2D.Common.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-09-03T10:12:02.6694503Z"
+    },
+    {
+      "FullName": "Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-09-03T10:12:05.6787482Z"
+    },
+    {
+      "FullName": "UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2021-08-17T05:03:20Z"
+    }
+  ],
+  "Functions": [
+    {
+      "FullName": "System.Int32 Unity.Burst.Intrinsics.X86::DoGetCSRTrampoline()",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "27670bb3ff83e873b7d61269da13a2c0",
+      "LinkName": "CDCA4A5193BE5947",
+      "AssemblyDependencyIndices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Burst.Intrinsics.X86::DoSetCSRTrampoline(System.Int32)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "a649083711fabe10d7f131d8dc7d74c9",
+      "LinkName": "801E9A000BB37B05",
+      "AssemblyDependencyIndices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<UnityEngine.U2D.SpriteShapeGenerator>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 15221144590354301703,
+      "ModuleHash": "b96eff9f1fa665fb67c5fb7f631255d5",
+      "LinkName": "104599FDEEB36FAE",
+      "AssemblyDependencyIndices": [
+        3,
+        4,
+        5,
+        6,
+        1,
+        2,
+        7,
+        8
+      ]
+    },
+    {
+      "FullName": "System.Void UnityEditor.U2D.Animation.TriangulationUtility::TessellateBurst(Unity.Collections.Allocator,Unity.Mathematics.float2*,System.Int32,Unity.Mathematics.int2*,System.Int32,Unity.Mathematics.float2*,System.Int32*,Unity.Mathematics.int2*,System.Int32,Unity.Mathematics.int3*)",
+      "ModuleOptionsHash": 8518222010799602013,
+      "ModuleHash": "5a8f00dc1eef971ea3344ea474e59a88",
+      "LinkName": "7D2E04AB7759F565",
+      "AssemblyDependencyIndices": [
+        9,
+        7,
+        8,
+        10,
+        2,
+        3,
+        1,
+        0,
+        5
+      ]
+    },
+    {
+      "FullName": "System.Void UnityEditor.U2D.Animation.TriangulationUtility::SubdivideBurst(Unity.Collections.Allocator,Unity.Mathematics.float2*,System.Int32,Unity.Mathematics.int2*,System.Int32,Unity.Mathematics.float2*,System.Int32*,Unity.Mathematics.int2*,System.Int32,System.Single,System.Single,System.Int32,System.Int32,Unity.Mathematics.int3*)",
+      "ModuleOptionsHash": 8518222010799602013,
+      "ModuleHash": "1d7604d426e5ad2da31c434be9b86e60",
+      "LinkName": "4E9252389FAD9FEE",
+      "AssemblyDependencyIndices": [
+        9,
+        2,
+        3,
+        7,
+        0,
+        1,
+        8,
+        5,
+        10
+      ]
+    }
+  ]
+}

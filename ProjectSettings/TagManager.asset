@@ -4,19 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Monster
-  - Wall
   - Ground1
-  - Ground0
-  - Circle
-  - 11
-  - Square
-  - Cross
+  - Ground2
+  - Ground3
+  - Monster
+  - Player
+  - Wall
+  - MiddleMonster
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -29,10 +28,10 @@ TagManager:
   - Attack
   - TargetSensor
   - Audio
-  - Creature2
-  - Creature3
-  - Ground2
-  - Ground3
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

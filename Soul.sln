@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feafd90c-8d24-80fb-65b7-61d6d8f728a0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftMask", "SoftMask.csproj", "{796dd671-73d1-ad40-6408-0e186888bff5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{14132e14-514e-b47b-8dc1-2c172da550b5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftMask-Editor", "SoftMask-Editor.csproj", "{1bcbb3d7-3cdc-7c0e-d4e6-af49a3e09d4a}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{feafd90c-8d24-80fb-65b7-61d6d8f728a0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{feafd90c-8d24-80fb-65b7-61d6d8f728a0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796dd671-73d1-ad40-6408-0e186888bff5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796dd671-73d1-ad40-6408-0e186888bff5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14132e14-514e-b47b-8dc1-2c172da550b5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14132e14-514e-b47b-8dc1-2c172da550b5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1bcbb3d7-3cdc-7c0e-d4e6-af49a3e09d4a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1bcbb3d7-3cdc-7c0e-d4e6-af49a3e09d4a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
