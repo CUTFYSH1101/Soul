@@ -27,7 +27,6 @@ namespace Main.EventSystem.Event.UIEvent.CD
             _compSeconds = _compUI == null ? null : _compUI.GetFirstComponentInChildren<TMP_Text>("Seconds");
 
             CauseEnter = new FuncCause(() => !IsEmpty());
-
             if (IsEmpty()) return;
             _compCover.enabled = false; // 一開始不顯示
             _compSeconds.enabled = false;

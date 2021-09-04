@@ -10,7 +10,7 @@ namespace Main.EventSystem.Event
         protected abstract void Update();
         protected abstract void Exit();
 
-        protected Action PreUpdate;
+        protected event Action PreUpdate;
         protected FuncCause CauseEnter, CauseExit;
 
         // cd null允許進，enter null 允許進

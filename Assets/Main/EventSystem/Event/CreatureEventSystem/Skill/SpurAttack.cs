@@ -1,5 +1,4 @@
-﻿using System;
-using Main.AnimAndAudioSystem.Main.Common;
+﻿using Main.AnimAndAudioSystem.Main.Common;
 using Main.Entity.Creature;
 using Main.EventSystem.Common;
 using Main.EventSystem.Cause;
@@ -15,16 +14,15 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
     {
         // 推力+角色動畫->確認是否ForceTime.IsTimeUp，是則停止移動->確認是否動畫結束，是則結束
         // 如果動畫提早結束，也會中斷Force
-        [Tooltip("受力持續時間")] private const float ForceTime = 0.1f;
-        [Tooltip("擊退力大小")] private const float Force = 8;
+        [Tooltip("受力持續時間")] private const float ForceTime = 0.01f;
         private readonly CdCause _forceDuration;
         public SkillAttr SkillAttr { get; }
 
-        public SpurAttack(AbstractCreature creature) : base(creature)
+        public SpurAttack(Creature creature) : base(creature)
         {
             SkillAttr = new SkillAttr(EnumSkillTag.SpurAttack)
-                .SetKnockBack(Force, () =>
-                new Vector2(CreatureInterface.GetDirX, 0));
+                .SetKnockBack(dynDirection: () =>
+                    CreatureInterface.LookAt);
 
             _forceDuration = new CdCause(ForceTime);
 
@@ -50,7 +48,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
                 CreatureInterface.GetRigidbody2D().ActiveX = 0;
                 CreatureInterface.GetAnimManager().Interrupt();
             };
-            InitCreatureEventOrder(EnumCreatureEventTag.SpurAttack,EnumOrder.Attack);
+            InitCreatureEventOrder(EnumCreatureEventTag.SpurAttack, EnumOrder.Attack);
         }
 
         public void Invoke(EnumSymbol symbol)

@@ -4,13 +4,13 @@ using Main.Entity.Creature;
 using Main.EventSystem.Cause;
 using Main.EventSystem.Event;
 using Main.EventSystem.Event.CreatureEventSystem;
+using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute;
 using Main.EventSystem.Event.CreatureEventSystem.StateEvent;
 using Main.EventSystem.Event.UIEvent.CameraShaker;
 using Main.EventSystem.Event.UIEvent.CD;
 using Main.EventSystem.Event.UIEvent.Combo;
 using Main.EventSystem.Event.UIEvent.QTE;
-using Main.Game.Collision;
 using Main.Util;
 using UnityEngine;
 
@@ -25,8 +25,25 @@ namespace Main.EventSystem
         /// </summary>
         /// <param name="creature"></param>
         /// <returns></returns>
-        public static CreatureBehaviorInterface CreateCreatureBehaviorInterface(AbstractCreature creature) =>
+        public static CreatureBehaviorInterface CreateCreatureBehaviorInterface(Creature creature) =>
             new CreatureBehaviorInterface(creature);
+
+        public static CreatureInterface GetCreatureInterface(Creature creature) =>
+            new CreatureInterface(creature);
+
+        public static float GetLookAtAxisX(Creature creature) => creature.IsFacingRight ? 1 : -1;
+        public static Vector2 GetLookAt(Creature creature) => new Vector2(GetLookAtAxisX(creature), 0);
+        public static bool Grounded(Creature creature) => creature.CreatureAttr.Grounded;
+
+        public static SkillAttr SetKnockBack(ISkill skill,
+            float force = 80, Func<Vector2> dynDirection = null,
+            bool @switch = true) =>
+            skill.SkillAttr.SetKnockBack(force, dynDirection, @switch);
+
+        public static SkillAttr SetVFX(ISkill skill,
+            [CanBeNull] Transform obj, Func<Vector2> dynDirection = null, Vector2 offsetPos = default,
+            bool @switch = false) =>
+            skill.SkillAttr.SetVFX(obj, dynDirection, offsetPos, @switch);
 
         /// <summary>
         /// 技能攻擊到對方
@@ -34,8 +51,14 @@ namespace Main.EventSystem
         /// </summary>
         /// <param name="theInjured">受擊方角色</param>
         /// <param name="attacker">攻擊方技能</param>
-        public static void Hit(AbstractCreature theInjured, SkillAttr attacker) =>
+        public static void Hit(Creature theInjured, SkillAttr attacker) =>
             HitEvent.Invoke(theInjured, attacker);
+
+        public static void Killed(Creature target) =>
+            CreateCreatureBehaviorInterface(target).Killed();
+
+        public static void Revival(Creature target) => 
+            CreateCreatureBehaviorInterface(target).Revival();
 
         public static CameraShaker CreateCameraShakerEvent(float duration = 0.05f, float quake = 0.2f) =>
             new CameraShaker("Main Camera", duration, quake);

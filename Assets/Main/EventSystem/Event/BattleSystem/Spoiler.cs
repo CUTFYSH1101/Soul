@@ -23,11 +23,11 @@ namespace Main.EventSystem.Event.BattleSystem
         // 其他：是否會受到debuff影響（例如boss免疫某些負面狀態或是完全免疫負面狀態）
         // 修改為builder set
         private ComboUIEvent _comboUI;
-        public AbstractCreature Creature { get; private set; }
+        public Creature Creature { get; private set; }
         public Team Team { get; private set; }
         public bool IsKilled => Creature.IsKilled();
 
-        public Spoiler Init(AbstractCreature self, Team team)
+        public Spoiler Init(Creature self, Team team)
         {
             Creature = self;
             Team = team;
@@ -44,7 +44,7 @@ namespace Main.EventSystem.Event.BattleSystem
                 _ => target != Team
             };
 
-        public static void SetTargetHit([NotNull] AbstractCreature target, [NotNull] AbstractCreature attacker,
+        public static void SetTargetHit([NotNull] Creature target, [NotNull] Creature attacker,
             [NotNull] SkillAttr attackerAttr)
         {
             /*
@@ -75,7 +75,7 @@ namespace Main.EventSystem.Event.BattleSystem
              */
         }
 
-        public static GameObject CreateDamageBoxOnScene(AbstractCreature target, AbstractCreature attacker)
+        public static GameObject CreateDamageBoxOnScene(Creature target, Creature attacker)
         {
             var go = new GameObject();
             go.transform.parent = attacker.Transform;

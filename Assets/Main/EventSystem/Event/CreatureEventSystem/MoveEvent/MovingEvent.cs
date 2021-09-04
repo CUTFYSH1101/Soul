@@ -3,10 +3,8 @@ using JetBrains.Annotations;
 using Main.AnimAndAudioSystem.Anims.Scripts;
 using Main.Entity.Creature;
 using Main.EventSystem.Common;
-using Main.EventSystem.Event.Attribute;
 using Main.EventSystem.Event.CreatureEventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Decorator;
-using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using Main.Game;
 
 namespace Main.EventSystem.Event.CreatureEventSystem.MoveEvent
@@ -16,7 +14,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.MoveEvent
         private readonly Func<int> _axisInput;
         private readonly (CreatureAnimManager anim, UnityRb2D rb2D, CreatureAttr attr) _obj;
 
-        public MovingEvent(AbstractCreature creature, [NotNull] string axisInputKey) : base(creature)
+        public MovingEvent(Creature creature, [NotNull] string axisInputKey) : base(creature)
         {
             var @interface = CreatureInterface;
             _obj.anim = @interface.GetAnimManager();

@@ -30,7 +30,7 @@ namespace Main.EventSystem.Event.BattleSystem
 
         public Vector2 Size => _size;
         public IMediator Mediator { get; private set; }
-        public Action<AbstractCreature> OnSetTarget { private get; set; }
+        public Action<Creature> OnSetTarget { private get; set; }
 
         public bool UpdateCreatureInView()
         {

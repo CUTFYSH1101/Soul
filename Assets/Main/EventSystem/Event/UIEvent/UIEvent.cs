@@ -1,7 +1,5 @@
-﻿using System;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Main.EventSystem.Event.Attribute;
-using Main.EventSystem.Event.CreatureEventSystem.Skill;
 
 namespace Main.EventSystem.Event.UIEvent
 {

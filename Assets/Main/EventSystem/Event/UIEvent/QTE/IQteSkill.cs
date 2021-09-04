@@ -1,23 +1,12 @@
-﻿using System;
-using JetBrains.Annotations;
-using Main.AnimAndAudioSystem.Main.Common;
-using Main.Entity.Creature;
+﻿using Main.Entity.Creature;
 using Main.EventSystem.Common;
 using Main.EventSystem.Event.Attribute;
 using Main.EventSystem.Event.CreatureEventSystem.Decorator;
 using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute;
 using Main.EventSystem.Event.CreatureEventSystem.Skill.Common;
-using Main.EventSystem.Util;
-using Main.Game;
-using Main.Game.Collision;
 using Main.Input;
-using Main.Util;
 using UnityEngine;
-using UnityEngine.UI;
-using Object = UnityEngine.Object;
-using Physics2D = UnityEngine.Physics2D;
-using Time = Main.Util.Time;
 using UnityInput = UnityEngine.Input;
 
 namespace Main.EventSystem.Event.UIEvent.QTE
@@ -31,7 +20,7 @@ namespace Main.EventSystem.Event.UIEvent.QTE
 
         /// 1.自帶傷害事件 或
         /// 2.由呼叫的Skill判斷，移除此項
-        protected AbstractQteSkill(AbstractCreature creature, QteUIEvent uiEvent,
+        protected AbstractQteSkill(Creature creature, QteUIEvent uiEvent,
             float cd = 5, float duration = 0.5f) :
             base(creature, new EventAttr(cd, duration))
         {
@@ -58,7 +47,7 @@ namespace Main.EventSystem.Event.UIEvent.QTE
             SkillAttr = new SkillAttr(tag, duration: EventAttr.MaxDuration, cdTime: EventAttr.CdTime)
                 .SetDeBuff(DeBuff.Dizzy);
 
-        public void Invoke(AbstractCreature target, EnumQteSymbol attacker)
+        public void Invoke(Creature target, EnumQteSymbol attacker)
         {
             _target = new CreatureInterface(target);
             _attacker = attacker;

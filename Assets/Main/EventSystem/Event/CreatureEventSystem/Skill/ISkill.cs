@@ -10,6 +10,8 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
 
         CreatureInterface CreatureInterface { get; }
 
+        // void SetKnockBack(float force = 30, Func<Vector2> dynDirection = null, bool @switch = true);
+
         /*
         protected ISkill(float cdTime = 0, float duration = 10) : base(new EventAttr(cdTime, duration))
         {

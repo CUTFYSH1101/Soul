@@ -10,7 +10,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Decorator
         protected CreatureEvent CreatureEvent { get; }
         public CreatureInterface CreatureInterface { get; }
 
-        protected AbstractCreatureEventB(AbstractCreature creature, EventAttr eventAttr) : base(eventAttr)
+        protected AbstractCreatureEventB(Creature creature, EventAttr eventAttr) : base(eventAttr)
         {
             CreatureEvent = new CreatureEvent(creature);
             CreatureInterface = new CreatureInterface(creature);

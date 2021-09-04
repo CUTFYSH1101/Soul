@@ -1,18 +1,7 @@
-﻿using System;
-using JetBrains.Annotations;
-using Main.Entity.Creature;
-using Main.EventSystem.Common;
-using Main.EventSystem.Event.Attribute;
-using Main.EventSystem.Event.CreatureEventSystem.Skill;
-using Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute;
-using Main.EventSystem.Util;
+﻿using Main.EventSystem.Util;
 using Main.Game;
-using Main.Game.Collision;
-using Main.Util;
 using UnityEngine;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
-using Physics2D = UnityEngine.Physics2D;
 using Time = Main.Util.Time;
 using UnityInput = UnityEngine.Input;
 

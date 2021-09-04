@@ -13,7 +13,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.MoveEvent
         private (Action jump, Action<int?> wallJump) _actions;
         private bool _switch = true;
 
-        public JumpOrWallJump(AbstractCreature creature)
+        public JumpOrWallJump(Creature creature)
         {
             _creatureInterface = new CreatureInterface(creature);
             _triggerEvent = new CollisionManager.TouchTheWallEvent(_creatureInterface.GetRigidbody2D());

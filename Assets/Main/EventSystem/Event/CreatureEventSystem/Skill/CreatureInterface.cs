@@ -11,8 +11,9 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
 {
     public class CreatureInterface
     {
-        private readonly AbstractCreature _creature;
-        public AbstractCreature GetCreature() => _creature;
+        public string ObjName => _creature.Transform.name;
+        private readonly Creature _creature;
+        public Creature GetCreature() => _creature;
         public CreatureAttr GetCreatureAttr() => _creature.CreatureAttr;
         public bool IsKilled() => _creature.IsKilled();
         public bool MovableDyn => _creature.CreatureAttr.MovableDyn;
@@ -30,7 +31,8 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
             set => _creature.CreatureAttr.CurrentSkill = value;
         }
         public bool IsFacingRight => _creature.IsFacingRight;
-        public float GetDirX => IsFacingRight ? 1 : -1;
+        public float LookAtAxisX => IsFacingRight ? 1 : -1;
+        public Vector2 LookAt => new Vector2(LookAtAxisX, 0);
         public bool Grounded => _creature.CreatureAttr.Grounded;
 
         public Vector2 GetAbsolutePosition() => _creature.AbsolutePosition;
@@ -49,6 +51,6 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
         public void Play(EnumSymbol key) =>
             GetAudioPlayer()?.Play(key);
 
-        public CreatureInterface(AbstractCreature creature) => _creature = creature;
+        public CreatureInterface(Creature creature) => _creature = creature;
     }
 }

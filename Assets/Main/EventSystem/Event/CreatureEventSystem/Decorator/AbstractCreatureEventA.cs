@@ -10,12 +10,11 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Decorator
         protected CreatureEvent CreatureEvent { get; }
         public CreatureInterface CreatureInterface { get;  }
 
-        protected AbstractCreatureEventA(AbstractCreature creature, EventAttr eventAttr = default) : base(eventAttr)
+        protected AbstractCreatureEventA(Creature creature, EventAttr eventAttr = default) : base(eventAttr)
         {
             CreatureEvent = new CreatureEvent(creature);
             CreatureInterface = new CreatureInterface(creature);
         }
-
         protected void InitCreatureEventOrder(EnumCreatureEventTag tag, EnumOrder order) =>
             CreatureEvent.InitEvent(tag, order, this);
 

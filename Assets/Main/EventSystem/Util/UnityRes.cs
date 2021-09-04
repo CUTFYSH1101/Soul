@@ -9,7 +9,7 @@ namespace Main.EventSystem.Util
 {
     public static partial class UnityRes
     {
-        public static MonoBehaviour GetMonoClass(this AbstractCreature container)
+        public static MonoBehaviour GetMonoClass(this Creature container)
             => container.Transform.GetOrAddComponent<MonoClass>();
 
         public static MonoBehaviour GetMonoClass() =>

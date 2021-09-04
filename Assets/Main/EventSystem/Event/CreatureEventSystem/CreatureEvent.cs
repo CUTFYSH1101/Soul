@@ -27,7 +27,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem
         [NotNull] private Action _interruptCmd, _allowEnter;
         public Action InvokeEvent { get; private set; }
         public Func<bool> Finished { get; private set; }
-        private readonly AbstractCreature _creature;
+        private readonly Creature _creature;
 
         public void AppendToThread(Action delegateEvent)
         {
@@ -36,7 +36,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem
         }
 
         // ReSharper disable once NotNullMemberIsNotInitialized
-        public CreatureEvent(AbstractCreature creature) => _creature = creature;
+        public CreatureEvent(Creature creature) => _creature = creature;
 
         public void InitEvent(EnumCreatureEventTag tag, EnumOrder order, Action interruptCmd, Action allowEnter, Func<bool> finished)
         {

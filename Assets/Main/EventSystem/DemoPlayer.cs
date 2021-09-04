@@ -1,9 +1,8 @@
 ﻿using System;
 using Main.AnimAndAudioSystem.Audios.Scripts;
 using JetBrains.Annotations;
-using Main.CreatureAndBehavior.Behavior;
+using Main.AnimAndAudioSystem.Main.Common;
 using Main.Entity.Creature;
-using Main.EventSystem.Common;
 using Main.EventSystem.Cause;
 using Main.EventSystem.Event.CreatureEventSystem;
 using Main.EventSystem.Event.CreatureEventSystem.MoveEvent;
@@ -14,11 +13,10 @@ using Main.Input;
 using UnityEngine;
 using static Main.AnimAndAudioSystem.Main.Common.EnumSymbol;
 using DeBuff = Main.EventSystem.Common.DeBuff;
-using Input = Main.Input.Input;
 
 namespace Main.EventSystem
 {
-    public class DemoPlayer : AbstractCreature
+    public class DemoPlayer : Creature
     {
         private bool Grounded => base.CreatureAttr.Grounded;
         private new CreatureAttr CreatureAttr => base.CreatureAttr;
@@ -39,7 +37,7 @@ namespace Main.EventSystem
         }
 
         internal DemoPlayer(Transform transform, [CanBeNull] DictionaryAudioPlayer audioPlayer = null) :
-            base(new CreatureAttr(jumpForce: 30, dashForce: 30, diveForce: 60), transform, audioPlayer)
+            base(transform, new CreatureAttr(jumpForce: 30, dashForce: 30, diveForce: 60), audioPlayer)
         {
             _normalAttack = new NormalAttack(this);
             _normalAttack.SkillAttr
@@ -59,7 +57,7 @@ namespace Main.EventSystem
 
             // _diveAttack.CdTime = 7;
             UserInterface.CreateCdUI("UI/PanelCd/Skill", _diveAttack);
-            _diveAttack.PreAction2 += UserInterface.CreateCameraShakerEvent(0.02f,0.1f).Invoke;
+            _diveAttack.AfterTouchGround += UserInterface.CreateCameraShakerEvent(0.02f,0.1f).Invoke;
         }
 
 
@@ -70,7 +68,10 @@ namespace Main.EventSystem
                 return;
             HitEvent.Invoke(this, _knockback, skillAttr);
         }
-
+        
+        private const EnumSymbol Fire1 = Square;
+        private const EnumSymbol Fire2 = Cross;
+        private const EnumSymbol Fire3 = Circle;
         public new void Update()
         {
             base.Update();
@@ -96,32 +97,30 @@ namespace Main.EventSystem
             {
                 if (Input.Input.GetButton(HotkeySet.Horizontal))
                 {
-                    if (Input.Input.GetButtonDown(HotkeySet.Fire1))
-                    {
-                        _spurAttack.Invoke(Square);
-                    }
+                    if (Input.Input.GetButtonDown(HotkeySet.Fire1)) 
+                        _spurAttack.Invoke(Fire1);
 
                     if (Input.Input.GetButtonDown(HotkeySet.Fire2))
-                        _spurAttack.Invoke(Cross);
+                        _spurAttack.Invoke(Fire2);
 
                     if (Input.Input.GetButtonDown(HotkeySet.Fire3))
-                        _spurAttack.Invoke(Circle);
+                        _spurAttack.Invoke(Fire3);
                 }
                 else
                 {
                     if (Input.Input.GetButtonDown(HotkeySet.Fire1))
                     {
-                        _normalAttack.Invoke(Square);
+                        _normalAttack.Invoke(Fire1);
                     }
 
                     if (Input.Input.GetButtonDown(HotkeySet.Fire2))
                     {
-                        _normalAttack.Invoke(Cross);
+                        _normalAttack.Invoke(Fire2);
                     }
 
                     if (Input.Input.GetButtonDown(HotkeySet.Fire3))
                     {
-                        _normalAttack.Invoke(Circle);
+                        _normalAttack.Invoke(Fire3);
                     }
                 }
             }
@@ -134,17 +133,17 @@ namespace Main.EventSystem
 
                 if (Input.Input.GetButtonDown(HotkeySet.Fire1))
                 {
-                    _jumpAttack.Invoke(Square);
+                    _jumpAttack.Invoke(Fire1);
                 }
 
                 if (Input.Input.GetButtonDown(HotkeySet.Fire2))
                 {
-                    _jumpAttack.Invoke(Cross);
+                    _jumpAttack.Invoke(Fire2);
                 }
 
                 if (Input.Input.GetButtonDown(HotkeySet.Fire3))
                 {
-                    _jumpAttack.Invoke(Circle);
+                    _jumpAttack.Invoke(Fire3);
                 }
             }
 

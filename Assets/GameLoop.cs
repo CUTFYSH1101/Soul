@@ -1,5 +1,4 @@
 ﻿using Main.EventSystem.Cause;
-using Main.EventSystem.Event;
 using Main.EventSystem.Event.Demo;
 using Main.EventSystem.Event.Demo.EventA;
 using Main.EventSystem.Util;

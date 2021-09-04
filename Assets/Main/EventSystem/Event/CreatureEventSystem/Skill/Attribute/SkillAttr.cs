@@ -26,7 +26,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute
 
         public Buff Buff { get; set; }
         public DeBuff DeBuff { get; set; }
-
+        // private DeBuffList _deBuffList = new DeBuffList(); // todo改為
         public SkillAttr SetDeBuff(DeBuff deBuff)
         {
             DeBuff = deBuff;
@@ -56,7 +56,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute
         /// <param name="force">擊退力大小，越大擊退距離越遠，0表示沒有攻擊方向</param>
         /// <param name="dynDirection">null表示沒有攻擊方向</param>
         /// <param name="switch"></param>
-        public SkillAttr SetKnockBack(float force = 30, Func<Vector2> dynDirection = null, bool @switch = true)
+        public SkillAttr SetKnockBack(float force = 80, Func<Vector2> dynDirection = null, bool @switch = true)
         {
             Knockback = new KnockbackAttr(force, dynDirection, @switch);
             return this;

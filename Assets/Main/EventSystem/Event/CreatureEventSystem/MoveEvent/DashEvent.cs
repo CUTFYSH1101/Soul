@@ -1,10 +1,8 @@
-﻿using System;
-using Main.Entity.Creature;
+﻿using Main.Entity.Creature;
 using Main.EventSystem.Common;
 using Main.EventSystem.Event.Attribute;
 using Main.EventSystem.Event.CreatureEventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Decorator;
-using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using UnityEngine;
 using static Main.AnimAndAudioSystem.Audios.Scripts.DictionaryAudioPlayer.Key;
 
@@ -30,25 +28,16 @@ namespace Main.EventSystem.Event.CreatureEventSystem.MoveEvent
             _inited = true;
         }
 
-        private bool _interrupt;
-
-        public void Interrupt()
-        {
-            _interrupt = true;
-        }
-
-
         // dbClick -> onEnter
         // CauseDuration.IsTimeUp || math.abs rigidbody.velocity.x <= 0.1f -> onExit
-        public DashEvent(AbstractCreature creature,
+        public DashEvent(Creature creature,
             float cdTime = 0.8f, float duration = 0.15f) :
-            base(creature,new EventAttr(cdTime, duration))
+            base(creature, new EventAttr(cdTime, duration))
         {
             CauseEnter = new FuncCause(() =>
                 CreatureInterface.GetCreatureAttr().MovableDyn && _inited); // 防呆。事件執行順序：SetForce->Enter
-            CauseExit = new FuncCause(() =>
-                NotMove() || _interrupt);
-            
+            CauseExit = new FuncCause(NotMove);
+
             PreWork += () => creature.SetMindState(EnumMindState.Dash);
             PostWork += () => creature.SetMindState(EnumMindState.Idle);
 
@@ -59,19 +48,18 @@ namespace Main.EventSystem.Event.CreatureEventSystem.MoveEvent
                 CreatureInterface.GetRigidbody2D().UseGravity(true);
                 CreatureInterface.GetAnimManager().Dash(false);
             };
-            InitCreatureEventOrder(EnumCreatureEventTag.Dash,EnumOrder.Dash);
+            InitCreatureEventOrder(EnumCreatureEventTag.Dash, EnumOrder.Dash);
         }
 
-        public void Invoke(Vector2 force)
+        public void Invoke(Vector2 dir)
         {
             if (State != EnumState.Free) return;
-            SetForce(force);
+            SetForce(dir.normalized * CreatureInterface.GetCreatureAttr().DiveForce);
             base.Invoke();
         }
 
         protected override void Enter()
         {
-            _interrupt = false;
             _inited = false;
             // 開啟動畫
             CreatureInterface.Play(Dash);
@@ -90,8 +78,8 @@ namespace Main.EventSystem.Event.CreatureEventSystem.MoveEvent
         protected override void Exit()
         {
             // 在空中會繼續向前移動一段距離，在地面則直接停下
-            if (!_interrupt) // 避免錯誤更改，在diveAttack時
-                CreatureInterface.GetRigidbody2D().ActiveX *= CreatureInterface.Grounded ? 0 : 0.3f;
+            // 避免錯誤更改，在diveAttack時 todo
+            CreatureInterface.GetRigidbody2D().ActiveX *= CreatureInterface.Grounded ? 0 : 0.3f;
             // 關閉
             CreatureInterface.GetRigidbody2D().UseGravity(true);
             CreatureInterface.GetAnimManager().Dash(false);

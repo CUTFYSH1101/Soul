@@ -1,7 +1,6 @@
 ﻿using Main.AnimAndAudioSystem.Audios.Scripts;
 using Main.AnimAndAudioSystem.Main.Common;
 using UnityEngine;
-using Input = Main.Input.Input;
 using UnityInput = UnityEngine.Input;
 using static Main.Input.HotkeySet;
 

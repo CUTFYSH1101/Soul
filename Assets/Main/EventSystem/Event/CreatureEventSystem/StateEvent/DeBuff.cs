@@ -16,7 +16,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
             set => EventAttr.MaxDuration = value;
         }
 
-        public DeBuff(AbstractCreature creature, Action preWork, Action postWork, float duration) :
+        public DeBuff(Creature creature, Action preWork, Action postWork, float duration) :
             base(creature,0, duration) // 沒有cd
         {
             CauseEnter = new FuncCause(() => creature.CreatureAttr.Alive);

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Numerics;
-using JetBrains.Annotations;
+using Main.Entity.Creature;
 using Main.EventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using UnityEngine;
@@ -12,6 +11,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem
     {
         private readonly CreatureInterface _interface;
         public BaseBehaviorInterface(CreatureInterface @interface) => _interface = @interface;
+        public BaseBehaviorInterface(Creature creature) => _interface = new CreatureInterface(creature);
 
         /// <summary>
         /// 

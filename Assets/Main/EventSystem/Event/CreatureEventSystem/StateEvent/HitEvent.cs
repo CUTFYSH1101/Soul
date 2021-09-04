@@ -1,12 +1,11 @@
 ﻿using Main.Entity.Creature;
-using Main.EventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute;
 
 namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
 {
     public static class HitEvent
     {
-        public static void Invoke(AbstractCreature theInjured,
+        public static void Invoke(Creature theInjured,
             SkillAttr attackerAttr)
         {
             if (theInjured == null || attackerAttr == null) return;
@@ -19,7 +18,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
                 ?.Invoke();
         }
         
-        public static void Invoke(AbstractCreature theInjured, Knockback injuredKnockback,
+        public static void Invoke(Creature theInjured, Knockback injuredKnockback,
             SkillAttr attackerSkillAttr)
         {
             if (theInjured == null || injuredKnockback == null || attackerSkillAttr == null) return;
@@ -46,7 +45,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
         }
 
         /// 更改受擊方的精神狀態，使無法控制。
-        private static DeBuff AppendState(this AbstractCreature target, EventSystem.Common.DeBuff deBuff)
+        private static DeBuff AppendState(this Creature target, EventSystem.Common.DeBuff deBuff)
         {
             var _ = new DeBuff(target, () =>
             {

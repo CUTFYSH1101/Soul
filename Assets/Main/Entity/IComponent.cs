@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Main.Util;
-
-namespace Main.Entity
+﻿namespace Main.Entity
 {
     public interface IComponent
     {

@@ -15,7 +15,11 @@ namespace Main.Util
             Debug.Log(message.ToString());
             Console.WriteLine(message.ToString());
         }
-
+        public static void LogErrorLine(this object message)
+        {
+            Debug.LogError(message.ToString());
+            Console.WriteLine(message.ToString());
+        }
         /// 簡易的獲取所有變數集合，包含Public | NonPublic | instance
         public static FieldInfo[] GetFieldInfos(this object source)
         {

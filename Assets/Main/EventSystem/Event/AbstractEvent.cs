@@ -1,6 +1,8 @@
 ﻿using System;
 using Main.EventSystem.Event.Attribute;
+using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using Main.EventSystem.Util;
+using UnityEngine;
 using Time = Main.Util.Time;
 
 // using Time = UnityEngine.Time;
@@ -19,7 +21,15 @@ namespace Main.EventSystem.Event
         public virtual float CdTime
         {
             get => EventAttr.CdTime;
-            set => EventAttr.CdTime = value;
+            set
+            {
+                EventAttr.CdTime = value;
+                if (GetType() == typeof(ISkill))
+                {
+                    ((ISkill) this).SkillAttr.CdTime = value;
+                    Debug.Log("SkillAttr上的技能CD，已同步成功");
+                }
+            }
         }
 
         protected AbstractEvent(EventAttr eventAttr = default)

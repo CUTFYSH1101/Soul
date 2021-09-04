@@ -132,10 +132,10 @@ namespace Main.AnimAndAudioSystem.Anims.Scripts
                     TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackSquare);
                     break;
                 case EnumSymbol.Circle:
-                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackCross);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackCircle);
                     break;
                 case EnumSymbol.Cross:
-                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackCircle);
+                    TriggerTemplate(_hasChoice, symbol, UnityAnimID.ToJumpAttackCross);
                     break;
                 default:
                     Debug.LogError("超出範圍");

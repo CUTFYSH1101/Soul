@@ -8,7 +8,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Decorator
     {
         protected CreatureEvent CreatureEvent { get; }
         public CreatureInterface CreatureInterface { get; }
-        protected AbstractCreatureEventC(AbstractCreature creature, float cdTime = 0, float duration = 10) :
+        protected AbstractCreatureEventC(Creature creature, float cdTime = 0, float duration = 10) :
             base(cdTime, duration)
         {
             CreatureEvent = new CreatureEvent(creature);

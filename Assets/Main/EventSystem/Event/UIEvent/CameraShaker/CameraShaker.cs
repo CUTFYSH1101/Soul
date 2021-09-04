@@ -3,8 +3,6 @@
 // *錯誤解決辦法：
 // http://bradlypaul.blogspot.com/2016/05/shaderfind.html
 
-using System;
-using JetBrains.Annotations;
 using Main.EventSystem.Event.Attribute;
 using Main.Game;
 using UnityEngine;

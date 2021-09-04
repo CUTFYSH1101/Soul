@@ -1,5 +1,21 @@
-﻿namespace Main.CreatureAndBehavior.Behavior
+﻿using Main.AnimAndAudioSystem.Main.Common;
+using Main.EventSystem.Event.CreatureEventSystem;
+
+namespace Main.CreatureAndBehavior.Behavior
 {
+    public class MonsterBehavior
+    {
+        private readonly CreatureBehaviorInterface _interface;
+
+        public MonsterBehavior(Entity.Creature.Creature creature)
+        {
+            _interface = new CreatureBehaviorInterface(creature);
+            _interface.InitSkillCd(normalAttack: 2); // 每兩秒攻擊一次
+        }
+        // public void MoveTo(Vector2 targetPos) => moveEvent.MoveTo(targetPos); todo moveTo
+        
+        public void NormalAttack() => _interface.NormalAttack(EnumSymbol.Direct);
+    }
     /*
     public class MonsterBehavior : AbstractCreatureBehavior
     {

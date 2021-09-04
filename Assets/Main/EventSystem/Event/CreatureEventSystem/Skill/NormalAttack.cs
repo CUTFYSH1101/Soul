@@ -14,7 +14,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
 
 
 
-        public NormalAttack(AbstractCreature creature) :
+        public NormalAttack(Creature creature) :
             base(creature)
         {
             SkillAttr = new SkillAttr(EnumSkillTag.NormalAttack);

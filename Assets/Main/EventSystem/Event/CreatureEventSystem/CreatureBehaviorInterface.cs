@@ -1,16 +1,12 @@
-﻿using System;
-using System.Numerics;
-using JetBrains.Annotations;
-using Main.AnimAndAudioSystem.Main.Common;
-using Main.Entity;
+﻿using Main.AnimAndAudioSystem.Main.Common;
 using Main.Entity.Creature;
-using Main.EventSystem.Cause;
 using Main.EventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Life;
 using Main.EventSystem.Event.CreatureEventSystem.MoveEvent;
 using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using Main.EventSystem.Event.UIEvent.QTE;
 using Main.Input;
+using Vector2 = UnityEngine.Vector2;
 
 namespace Main.EventSystem.Event.CreatureEventSystem
 {
@@ -19,11 +15,14 @@ namespace Main.EventSystem.Event.CreatureEventSystem
         private readonly (NormalAttack normalAttack, SpurAttack spurAttack, JumpAttack jumpAttack, DiveAttack diveAttack
             ) _skill;
 
+        public (NormalAttack normalAttack, SpurAttack spurAttack, JumpAttack jumpAttack, DiveAttack diveAttack
+            ) Skill => _skill;
+
         private readonly (MovingEvent movingEvent, DashEvent dashEvent, JumpOrWallJump jumpEvent) _move; // todo move to
         private readonly (ParryEvent parryEvent, AbstractQteSkill qteSkill) _other; // todo
         private readonly LifeEvent _life;
 
-        public CreatureBehaviorInterface(AbstractCreature creature)
+        public CreatureBehaviorInterface(Creature creature)
         {
             _skill.normalAttack = new NormalAttack(creature);
             _skill.spurAttack = new SpurAttack(creature);
@@ -31,7 +30,8 @@ namespace Main.EventSystem.Event.CreatureEventSystem
             _skill.diveAttack = new DiveAttack(creature);
             _move.movingEvent = new MovingEvent(creature, HotkeySet.Horizontal);
             _move.dashEvent = new DashEvent(creature);
-            _move.jumpEvent = new JumpOrWallJump(creature);
+            var behavior = new BaseBehaviorInterface(creature);
+            _move.jumpEvent = new JumpOrWallJump(creature).InitAction(behavior.Jump, behavior.WallJump);
             _life = new LifeEvent(creature);
         }
 
@@ -49,15 +49,36 @@ namespace Main.EventSystem.Event.CreatureEventSystem
         }
 
         public CreatureBehaviorInterface InitSkillCd(
-            float normalAttack,
-            float spurAttack,
-            float jumpAttack,
-            float diveAttack)
+            float normalAttack = 0,
+            float spurAttack = 0,
+            float jumpAttack = 0,
+            float diveAttack = 0)
         {
+            /*
             _skill.normalAttack.SkillAttr.CdTime = normalAttack;
             _skill.spurAttack.SkillAttr.CdTime = spurAttack;
             _skill.jumpAttack.SkillAttr.CdTime = jumpAttack;
             _skill.diveAttack.SkillAttr.CdTime = diveAttack;
+            */
+            _skill.normalAttack.CdTime = normalAttack;
+            _skill.spurAttack.CdTime = spurAttack;
+            _skill.jumpAttack.CdTime = jumpAttack;
+            _skill.diveAttack.CdTime = diveAttack;
+            return this;
+        }
+
+        public CreatureBehaviorInterface InitKnockback(
+            float normalAttack = 0,
+            float spurAttack = 0,
+            float jumpAttack = 0,
+            float diveAttack = 0)
+        {
+            /*
+            _skill.normalAttack.SkillAttr.CdTime = normalAttack;
+            _skill.spurAttack.SkillAttr.CdTime = spurAttack;
+            _skill.jumpAttack.SkillAttr.CdTime = jumpAttack;
+            _skill.diveAttack.SkillAttr.CdTime = diveAttack;
+            */
             _skill.normalAttack.CdTime = normalAttack;
             _skill.spurAttack.CdTime = spurAttack;
             _skill.jumpAttack.CdTime = jumpAttack;
@@ -71,8 +92,10 @@ namespace Main.EventSystem.Event.CreatureEventSystem
 
         /// wallJump + jump
         public void JumpOrWallJump() => _move.jumpEvent.Invoke();
-
-        public void Move() => _move.movingEvent.MoveUpdate();
+        /// 兩種方向，1往右，-1往左
+        /// <param name="dir">[-1,1]</param>
+        public void Dash(int dir) => _move.dashEvent.Invoke(new Vector2(dir, 0));
+        public void MoveUpdate() => _move.movingEvent.MoveUpdate();
 
         // public void MoveTo(Vector2 targetPos) => moveEvent.MoveTo(targetPos);
         public void NormalAttack(EnumSymbol symbol) => _skill.normalAttack.Invoke(symbol); // 玩家專屬normalAttack、音效

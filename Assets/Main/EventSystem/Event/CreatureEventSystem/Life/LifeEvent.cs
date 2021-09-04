@@ -2,14 +2,13 @@
 using Main.EventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Decorator;
-using Main.EventSystem.Event.CreatureEventSystem.Skill;
 
 namespace Main.EventSystem.Event.CreatureEventSystem.Life
 {
     
     public class LifeEvent : AbstractCreatureEventC
     {
-        public LifeEvent(AbstractCreature creature) : base(creature)
+        public LifeEvent(Creature creature) : base(creature)
         {
             FinalEvent += () => CreatureInterface.GetAnimManager().Interrupt();// 加速復活和死亡的流程
             InitCreatureEventOrder(EnumCreatureEventTag.Life, EnumOrder.Life);

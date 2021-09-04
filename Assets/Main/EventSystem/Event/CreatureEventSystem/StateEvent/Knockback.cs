@@ -7,7 +7,6 @@ using Main.EventSystem.Event.CreatureEventSystem.Decorator;
 using Main.EventSystem.Event.CreatureEventSystem.Skill;
 using Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute;
 using Main.EventSystem.Event.CreatureEventSystem.Skill.Common;
-using Main.EventSystem.Event.CreatureEventSystem.StateEvent.Attribute;
 using Main.Util;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -34,7 +33,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
         /// 裝填攻擊方技能的參數，之後再根據參數產生vfx和擊退效果，不包含角色本身的vfx，不包含角色本身的掉血動畫
         public SkillAttr SkillAttr { get; }
 
-        public Knockback(AbstractCreature creature) : base(creature,new EventAttr(
+        public Knockback(Creature creature) : base(creature, new EventAttr(
             timerMode: Stopwatch.Mode.RealWorld))
         {
             // 本身不帶有擊退方向，執行擊退行為時，參數由外部設定
@@ -49,7 +48,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
             CauseToAction4 = new FuncCause(() => _lagDuration.OrCause());
             // 玩家或怪物移動時，不會進入擊退狀態
             // CauseInterrupt = new FuncCause(() => Math.Abs(SkillTemplate.GetRigidbody2D().ActiveX) > 0.1f);
-            InitCreatureEventOrder(EnumCreatureEventTag.Knockback,EnumOrder.Knockback);
+            InitCreatureEventOrder(EnumCreatureEventTag.Knockback, EnumOrder.Knockback);
             FinalEvent = () => CreatureInterface.GetRigidbody2D().PassiveX = 0;
         }
 
@@ -73,8 +72,9 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
         private void SetVFX([CanBeNull] Transform obj, Vector2 direction = default, Vector2 offsetPos = default,
             bool @switch = false) => SkillAttr.SetVFX(obj, () => direction, offsetPos, @switch);
 
-        private void SetKnockBack(float force = 30, Vector2 direction = default, bool @switch = true)
+        private void SetKnockBack(float force, Vector2 direction = default, bool @switch = true)
             => SkillAttr.SetKnockBack(force, () => direction, @switch);
+
         /// 裝填攻擊方技能的參數，之後再根據參數產生vfx和擊退效果，不包含角色本身的vfx，不包含角色本身的掉血動畫。
         /// 使用擊退
         public void Invoke(Vector2 direction, float force)
@@ -84,6 +84,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
             SetKnockBack(force, direction);
             base.Invoke();
         }
+
         /// 裝填攻擊方技能的參數，之後再根據參數產生vfx和擊退效果，不包含角色本身的vfx，不包含角色本身的掉血動畫。
         /// 使用擊退和特效
         public void Invoke(Vector2 direction, float force,
@@ -95,6 +96,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.StateEvent
             SetVFX(vfxObj, direction, offsetPos);
             base.Invoke();
         }
+
         protected override void EnterAction1()
         {
             _lagDuration.Reset();

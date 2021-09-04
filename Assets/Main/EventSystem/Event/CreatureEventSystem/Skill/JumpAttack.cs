@@ -1,5 +1,4 @@
-﻿using System;
-using Main.Entity.Creature;
+﻿using Main.Entity.Creature;
 using Main.EventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Common;
 using Main.EventSystem.Event.CreatureEventSystem.Decorator;
@@ -18,11 +17,11 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
         [Tooltip("離地高度")] private const float GroundClearance = 1.8f;
         public SkillAttr SkillAttr { get; }
 
-        public JumpAttack(AbstractCreature creature) : base(creature)
+        public JumpAttack(Creature creature) : base(creature)
         {
             SkillAttr = new SkillAttr(EnumSkillTag.JumpAttack);
             SkillAttr.SetKnockBack(dynDirection: () =>
-                new Vector2(CreatureInterface.GetDirX * 0.7f, -0.7f).normalized); // todo 判斷擊退的方向spoiler
+                new Vector2(CreatureInterface.LookAtAxisX, -1).normalized); // todo 判斷擊退的方向spoiler
 
             // 在空中一定距離才能觸發攻擊
             CauseEnter = new FuncCause(() =>
@@ -47,7 +46,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
                 CreatureInterface.CurrentSkill = default;
             };
             FinalEvent += CreatureInterface.GetAnimManager().Interrupt;
-            InitCreatureEventOrder(EnumCreatureEventTag.JumpAttack,EnumOrder.Attack);
+            InitCreatureEventOrder(EnumCreatureEventTag.JumpAttack, EnumOrder.Attack);
         }
 
         public void Invoke(Symbol symbol)

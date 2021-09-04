@@ -147,7 +147,6 @@ using Main.EventSystem.Event.CreatureEventSystem.Skill.Common;
 using Main.Game.Collision;
 using Main.Util;
 using UnityEngine;
-using Time = UnityEngine.Time;
 
 namespace Main.EventSystem.Event.CreatureEventSystem.Skill
 {
@@ -166,12 +165,12 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
         private readonly CdCause _minDuration;
         public SkillAttr SkillAttr { get; }
 
-        public DiveAttack(AbstractCreature creature, float cdTime = 7) :
+        public DiveAttack(Creature creature, float cdTime = 7) :
             base(creature, new EventAttr(cdTime))
         {
             SkillAttr = new SkillAttr(EnumSkillTag.DiveAttack, cdTime: cdTime)
                 .SetKnockBack(CreatureInterface.GetCreatureAttr().DiveForce * 0.05f, () => // todo 修改力大小
-                    new Vector2(CreatureInterface.GetDirX, 0)); // todo 根據對方相對位置
+                    CreatureInterface.LookAt); // todo 根據對方相對位置
             SkillAttr.DeBuff = DeBuff.Dizzy; // 帶有暈眩效果
 
             _stayDuration = new CdCause(0.2f, Stopwatch.Mode.RealWorld); // 使用後一秒不能操控
@@ -186,7 +185,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
                 !attr.Grounded && MoreThenGroundClearance && // 空中時，允許俯衝
                 !touchTheWallEvent.IsTriggerStay && // 牆角邊禁止俯衝
                 attr.MovableDyn && attr.AttackableDyn); // 限定可攻擊可移動者
-            
+
             /*// 碰地
             CauseToAction2 = new FuncCause(() => attr.Grounded);
             // 碰地後經過1秒
@@ -194,7 +193,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
             // maxDuration或撞到牆壁時，中斷方法
             CauseInterrupt = new FuncCause(() =>
                 !CreatureInterface.GetRigidbody2D().IsMoving && touchTheWallEvent.IsTriggerStay); 8/13衝刺攻擊改動前*/
-            
+
             // 碰地
             CauseToAction2 = new FuncCause(() => _stayDuration.OrCause());
             // 碰地後經過1秒
@@ -239,20 +238,20 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
             base.Invoke();
         }
 
-        // Crash
+        // Delay 0.2s
         protected override void EnterAction1()
         {
             CreatureInterface.GetRigidbody2D().Velocity = new Vector2(
                 CreatureInterface.GetRigidbody2D().Velocity.x * 0.3f, CreatureInterface.GetRigidbody2D().Velocity.y);
         }
 
-        // Landing+Stay
+        // Crash
         protected override void Action2()
         {
             // Time.timeScale = 1f;
 
             // Debug.Log("EnterAction1");
-            var dir = new Vector2(CreatureInterface.GetDirX * 0.6f, -0.7f).normalized;
+            var dir = new Vector2(CreatureInterface.LookAtAxisX * 0.6f, -0.7f).normalized;
             // 切換動畫
             CreatureInterface.GetAnimManager().DiveAttack(SkillAttr.Symbol, true); // 注意需要先更改skillAttr的數值，才有辦法呼叫
             // 避免衝刺錯誤
@@ -264,13 +263,13 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
                 ForceMode2D.Impulse);
         }
 
-        public Action PreAction2 { get; set; }
+        public Action AfterTouchGround { get; set; }
 
-        // Idle
+        // Landing+Stay，接觸地面後，有一段時間不能移動
         protected override void Action3()
         {
             // Debug.Log(CreatureInterface.GetRigidbody2D().Velocity.x);
-            PreAction2?.Invoke();
+            AfterTouchGround?.Invoke();
             _stayDuration.Reset();
             CreatureInterface.GetRigidbody2D().ResetAll(); // 停止移動
             CreatureInterface.GetCreatureAttr().MovableDyn = false; // 禁止移動
@@ -278,6 +277,7 @@ namespace Main.EventSystem.Event.CreatureEventSystem.Skill
             CreatureInterface.GetAnimManager().ExitDiveAttack(true); // 切換動畫
         }
 
+        // Idle，可自由活動
         protected override void ExitAction4()
         {
             CreatureInterface.GetAnimManager().ExitDiveAttack(false); // 切換動畫
