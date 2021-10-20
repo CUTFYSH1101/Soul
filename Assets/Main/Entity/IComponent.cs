@@ -2,7 +2,7 @@
 {
     public interface IComponent
     {
-        int Id { get; }
+        EnumComponentTag Tag { get; }
         void Update();
     }
 }

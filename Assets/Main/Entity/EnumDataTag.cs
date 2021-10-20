@@ -3,6 +3,7 @@
     public enum EnumDataTag
     {
         None,
-        Behavior
+        Behavior,
+        Factory
     }
 }

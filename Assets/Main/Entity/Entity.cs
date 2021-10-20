@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Main.Util;
+using System.Linq;
 using UnityEngine;
 
 namespace Main.Entity
@@ -8,6 +8,7 @@ namespace Main.Entity
     public class Entity
     {
         private int _id;
+
         public int Id
         {
             get
@@ -17,26 +18,64 @@ namespace Main.Entity
             }
         }
 
-        private readonly List<IComponent> _componentList = new List<IComponent>();
-        private readonly List<Action> _updateList = new List<Action>();
-        private readonly Dictionary<EnumDataTag, IData> _dataDictionary = new Dictionary<EnumDataTag, IData>();
-        
-        public virtual void Update() => 
-            _updateList.ToArray().Foreach(update => update?.Invoke());
+        private readonly Dictionary<EnumComponentTag, IComponent> _dictCompByTag =
+            new();
+
+        private readonly List<Action> _updateList = new();
+        private readonly Dictionary<EnumDataTag, IData> _dataDictionary = new();
+
+        public virtual void Update() =>
+            _updateList.ForEach(update => update?.Invoke());
 
         public IComponent AppendComponent(IComponent component)
         {
-            _componentList.Add(component);
+            if (_dictCompByTag.ContainsKey(component.Tag))
+            {
+                Debug.LogError("資料已經含有相同類型的組件");
+                return null;
+            }
+
+            _dictCompByTag.Add(component.Tag, component);
             _updateList.Add(component.Update);
             return component;
         }
 
+        public bool ContainsComponent(IComponent component) => _dictCompByTag.ContainsKey(component.Tag);
+
         public IComponent RemoveComponent(IComponent component)
         {
-            _componentList.Remove(component);
+            if (!_dictCompByTag.ContainsKey(component.Tag))
+            {
+                Debug.LogError("不含有該類型的組件");
+                return null;
+            }
+
+            _dictCompByTag.Remove(component.Tag);
             _updateList.Remove(component.Update);
             return component;
         }
+
+        public bool ContainsComponent(EnumComponentTag tag) => _dictCompByTag.ContainsKey(tag);
+
+        public IComponent RemoveComponentByTag(EnumComponentTag tag)
+        {
+            if (!_dictCompByTag.ContainsKey(tag))
+            {
+                Debug.LogError("不含有該類型的組件");
+                return null;
+            }
+
+            var component = _dictCompByTag[tag];
+            _dictCompByTag.Remove(tag);
+            _updateList.Remove(component.Update);
+            return component;
+        }
+
+        public IComponent FindComponentByTag(EnumComponentTag tag) =>
+            _dictCompByTag.ContainsKey(tag) ? _dictCompByTag[tag] : null;
+
+        public T FindComponent<T>() where T : class, IComponent =>
+            (T)_dictCompByTag.FirstOrDefault(element => element.Value.GetType() == typeof(T)).Value;
 
         public IData AppendData(IData data)
         {
@@ -45,7 +84,37 @@ namespace Main.Entity
                 Debug.LogError("資料已經含有相同類型的參數");
                 return null;
             }
-            _dataDictionary.Add(data.Tag,data);
+
+            _dataDictionary.Add(data.Tag, data);
+            return data;
+        }
+
+        public bool ContainsData(IData data) => _dataDictionary.ContainsKey(data.Tag);
+
+        public IData RemoveData(IData data)
+        {
+            if (!_dataDictionary.ContainsKey(data.Tag))
+            {
+                Debug.LogError("不含有該類型的資料");
+                return null;
+            }
+
+            _dataDictionary.Add(data.Tag, data);
+            return data;
+        }
+
+        public bool ContainsData(EnumDataTag tag) => _dataDictionary.ContainsKey(tag);
+
+        public IData RemoveDataByTag(EnumDataTag tag)
+        {
+            if (!_dataDictionary.ContainsKey(tag))
+            {
+                Debug.LogError("不含有該類型的資料");
+                return null;
+            }
+
+            var data = _dataDictionary[tag];
+            _dataDictionary.Remove(tag);
             return data;
         }
 

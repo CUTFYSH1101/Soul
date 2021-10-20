@@ -25,7 +25,7 @@ namespace Main.Util
             typeof(T).Name + source;
 
         public static string GetIsNotNullString<T>(this T source) =>
-            typeof(T).Name + " 是否不為空？\t" + (source != null);
+            typeof(T).Name + " 是否存在（不為空）？\t" + (source != null);
 
         public static string GetNotZeroString(this double source) =>
             source.GetType().Name + " 是否不為零？\t" + (source != 0);

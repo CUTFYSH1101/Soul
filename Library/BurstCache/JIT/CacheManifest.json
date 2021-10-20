@@ -3,47 +3,47 @@
   "Assemblies": [
     {
       "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-09-03T10:12:02.1664008Z"
+      "LastWriteTime": "2021-10-20T15:13:52.5698051Z"
     },
     {
       "FullName": "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
-      "LastWriteTime": "2021-08-17T05:00:08Z"
+      "LastWriteTime": "2021-09-02T04:01:46Z"
     },
     {
       "FullName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-      "LastWriteTime": "2021-08-17T05:00:08Z"
+      "LastWriteTime": "2021-09-02T04:01:46Z"
     },
     {
       "FullName": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-08-17T05:03:36Z"
+      "LastWriteTime": "2021-09-02T04:03:56Z"
     },
     {
       "FullName": "Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-09-03T10:12:04.4834764Z"
+      "LastWriteTime": "2021-10-20T15:13:54.172792Z"
     },
     {
       "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-      "LastWriteTime": "2021-08-17T05:00:08Z"
+      "LastWriteTime": "2021-09-02T04:01:46Z"
     },
     {
       "FullName": "UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-08-17T05:03:36Z"
+      "LastWriteTime": "2021-09-02T04:03:54Z"
     },
     {
       "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-09-03T10:12:01.6884162Z"
+      "LastWriteTime": "2021-10-20T15:13:52.8628058Z"
     },
     {
       "FullName": "Unity.2D.Common.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-09-03T10:12:02.6694503Z"
+      "LastWriteTime": "2021-10-20T15:13:52.5398012Z"
     },
     {
       "FullName": "Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-09-03T10:12:05.6787482Z"
+      "LastWriteTime": "2021-10-20T15:13:57.5919132Z"
     },
     {
       "FullName": "UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2021-08-17T05:03:20Z"
+      "LastWriteTime": "2021-09-02T04:03:34Z"
     }
   ],
   "Functions": [
@@ -72,7 +72,7 @@
     {
       "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<UnityEngine.U2D.SpriteShapeGenerator>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "b96eff9f1fa665fb67c5fb7f631255d5",
+      "ModuleHash": "86e2eb45358c3975f5fa7591fccee8bd",
       "LinkName": "104599FDEEB36FAE",
       "AssemblyDependencyIndices": [
         3,
@@ -88,7 +88,7 @@
     {
       "FullName": "System.Void UnityEditor.U2D.Animation.TriangulationUtility::TessellateBurst(Unity.Collections.Allocator,Unity.Mathematics.float2*,System.Int32,Unity.Mathematics.int2*,System.Int32,Unity.Mathematics.float2*,System.Int32*,Unity.Mathematics.int2*,System.Int32,Unity.Mathematics.int3*)",
       "ModuleOptionsHash": 8518222010799602013,
-      "ModuleHash": "5a8f00dc1eef971ea3344ea474e59a88",
+      "ModuleHash": "8103210b9a2064c193a641d5fb8645b6",
       "LinkName": "7D2E04AB7759F565",
       "AssemblyDependencyIndices": [
         9,
@@ -105,7 +105,7 @@
     {
       "FullName": "System.Void UnityEditor.U2D.Animation.TriangulationUtility::SubdivideBurst(Unity.Collections.Allocator,Unity.Mathematics.float2*,System.Int32,Unity.Mathematics.int2*,System.Int32,Unity.Mathematics.float2*,System.Int32*,Unity.Mathematics.int2*,System.Int32,System.Single,System.Single,System.Int32,System.Int32,Unity.Mathematics.int3*)",
       "ModuleOptionsHash": 8518222010799602013,
-      "ModuleHash": "1d7604d426e5ad2da31c434be9b86e60",
+      "ModuleHash": "8d2eb79c6fa28ab52af91d1100756302",
       "LinkName": "4E9252389FAD9FEE",
       "AssemblyDependencyIndices": [
         9,

@@ -1,13 +1,13 @@
 ﻿using System;
 using JetBrains.Annotations;
-using Main.AnimAndAudioSystem.Anims.Scripts;
-using Main.AnimAndAudioSystem.Audios.Scripts;
-using Main.CreatureAndBehavior.Behavior;
-using Main.EventSystem.Common;
-using Main.EventSystem.Event.CreatureEventSystem;
-using Main.EventSystem.Event.CreatureEventSystem.Skill.Attribute;
-using Main.Game;
 using Main.Game.Collision;
+using Main.CreatureBehavior.Behavior;
+using Main.EventLib.Common;
+using Main.EventLib.Main.EventSystem.EventOrderbySystem;
+using Main.EventLib.Sub.CreatureEvent.Skill.Attribute;
+using Main.Game;
+using Main.Res.CharactersRes.Animations.Scripts;
+using Main.Res.Script.Audio;
 using UnityEngine;
 
 
@@ -18,6 +18,7 @@ namespace Main.Entity.Creature
     {
         [SerializeField] private CreatureAttr creatureAttr;
 
+        [NotNull]
         public CreatureAttr CreatureAttr
         {
             get => creatureAttr;
@@ -27,16 +28,18 @@ namespace Main.Entity.Creature
         public void SetMindState(EnumMindState newMindState) =>
             creatureAttr.MindState = newMindState;
 
-        public Transform Transform { get; }
+        [NotNull] public Transform Transform { get; }
 
         /// 獲取絕對位置
         public Vector2 AbsolutePosition => Transform.position;
 
-        public UnityRb2D Rigidbody2D { get; }
-        public CreatureAnimManager AnimManager { get; protected set; }
-        public bool IsKilled() => AnimManager.IsTag("Die");
-        public DictionaryAudioPlayer AudioPlayer { get; protected set; }
-        public IBehavior Behavior => (IBehavior) FindDataByTag(EnumDataTag.Behavior);
+        [NotNull] public ProxyUnityRb2D Rigidbody2D { get; }
+        [NotNull] public CreatureAnimInterface AnimInterface { get; protected set; }
+        public bool IsKilled() => AnimInterface.IsTag("Die");
+        [CanBeNull] public DictAudioPlayer AudioPlayer { get; protected set; } = null;
+        [CanBeNull] public IBehavior Behavior => (IBehavior)FindDataByTag(EnumDataTag.Behavior);
+
+        [CanBeNull]
         public SkillAttr CurrentSkill
         {
             get
@@ -52,7 +55,7 @@ namespace Main.Entity.Creature
             }
         }
 
-        private readonly FlipChecker _flipChecker;
+        [NotNull] private readonly FlipChecker _flipChecker;
         public bool IsFacingRight => _flipChecker.IsFacingRight;
 
         /// 該角色的攻擊速度
@@ -62,31 +65,32 @@ namespace Main.Entity.Creature
             set
             {
                 creatureAttr.AttackSpeed = value;
-                AnimManager.SetAttackSpeed(value);
+                AnimInterface.SetAtkSpeed(value);
             }
         }
 
-        public CreatureThreadSystem ThreadSystem { get; private set; }
+        [NotNull] public CreatureThreadSystem ThreadSystem { get; private set; }
 
         protected internal Creature(Transform transform, CreatureAttr creatureAttr,
-            [CanBeNull] DictionaryAudioPlayer audioPlayer = null)
+            [CanBeNull] DictAudioPlayer audioPlayer = null)
         {
             CreatureAttr = creatureAttr;
             var animator = transform.GetOrLogComponent<Animator>();
-            AnimManager = new CreatureAnimManager(animator);
+            AnimInterface = new CreatureAnimInterface(animator);
             Transform = transform;
-            Rigidbody2D = transform.GetOrAddComponent<UnityRb2D>();
+            Rigidbody2D = transform.GetOrAddComponent<ProxyUnityRb2D>();
             AudioPlayer = audioPlayer;
 
             AppendComponent(new GroundChecker(this)); // 地板更新事件
-            _flipChecker = (FlipChecker) AppendComponent(new FlipChecker(transform)); // 轉向更新
-            ThreadSystem = (CreatureThreadSystem) AppendComponent(new CreatureThreadSystem()); // 角色事件
+            _flipChecker = (FlipChecker)AppendComponent(new FlipChecker(transform)); // 轉向更新
+            ThreadSystem = (CreatureThreadSystem)AppendComponent(new CreatureThreadSystem()); // 角色事件
         }
 
         public override void Update()
         {
+            if (IsKilled() || GamePause.IsGamePause) return;
             base.Update();
-            AnimManager.Knockback(creatureAttr.DuringDeBuff); // 當在debuff中，更改顯示狀態
+            AnimInterface.Knockback(creatureAttr.DuringDeBuff); // 當在debuff中，更改顯示狀態
         }
 
         // ======
@@ -94,7 +98,7 @@ namespace Main.Entity.Creature
         // ======
         private class GroundChecker : IComponent
         {
-            private readonly CreatureAnimManager _moveAnim;
+            private readonly CreatureAnimInterface _moveAnim;
             private readonly GroundCollision _groundCollision;
             private readonly CreatureAttr _creatureAttr;
             public bool Switch { get; set; } = true;
@@ -102,13 +106,13 @@ namespace Main.Entity.Creature
             public GroundChecker(Creature creature)
             {
                 _groundCollision = new GroundCollision(creature.Transform);
-                _moveAnim = creature.AnimManager;
+                _moveAnim = creature.AnimInterface;
                 _creatureAttr = creature.CreatureAttr;
             }
 
             public bool GetGrounded() => _groundCollision.Grounded();
 
-            public int Id { get; }
+            public EnumComponentTag Tag => EnumComponentTag.GroundChecker;
 
             public void Update()
             {
@@ -120,9 +124,8 @@ namespace Main.Entity.Creature
 
             private class GroundCollision
             {
-                private readonly UnityRb2D _rigidbody2D;
+                private readonly ProxyUnityRb2D _rigidbody2D;
                 private readonly Transform _bottomObject;
-                private readonly CollisionManager.TouchTheGroundEvent _groundEvent;
 
                 public int VerticalDir
                 {
@@ -143,18 +146,15 @@ namespace Main.Entity.Creature
                 }
 
                 // public bool Grounded() => bottomObject.IsGrounded();
-                public bool Grounded() => _groundEvent.IsTriggerStay;
+                public bool Grounded() => _rigidbody2D.IsGrounded();
 
                 /// 根據collider最底下的點座標進行判斷
                 public GroundCollision([NotNull] Transform container)
                 {
-                    _rigidbody2D = container.GetOrAddComponent<UnityRb2D>(); // 因此必定有rb2d
+                    _rigidbody2D = container.GetOrAddComponent<ProxyUnityRb2D>(); // 因此必定有rb2d
 
                     // GroundChecker
                     _bottomObject = container.GetFirstComponentInChildren<Transform>("GroundChecker");
-
-                    // 垂直正下方
-                    _groundEvent = new CollisionManager.TouchTheGroundEvent(container);
                 }
             }
         }
@@ -163,15 +163,15 @@ namespace Main.Entity.Creature
         private class FlipChecker : IComponent
         {
             public bool IsFacingRight { get; private set; }
-            private UnityRb2D _rigidbody2D;
+            private ProxyUnityRb2D _rigidbody2D;
 
             public FlipChecker(Transform transform, bool isFacingRight = false)
             {
-                _rigidbody2D = transform.GetOrAddComponent<UnityRb2D>();
+                _rigidbody2D = transform.GetOrAddComponent<ProxyUnityRb2D>();
                 IsFacingRight = isFacingRight;
             }
 
-            /// 翻面
+            /// 轉向
             public void Flip()
             {
                 IsFacingRight = !IsFacingRight;
@@ -179,7 +179,7 @@ namespace Main.Entity.Creature
                     Vector3.Scale(_rigidbody2D.transform.localScale, new Vector3(-1, 1, 1));
             }
 
-            public int Id { get; }
+            public EnumComponentTag Tag => EnumComponentTag.FlipChecker;
 
             public void Update()
             {
@@ -191,9 +191,4 @@ namespace Main.Entity.Creature
             }
         }
     }
-
-    /*/// 控制角色行為，支援Anim+Attr+場景互動
-    public class AbstractCreatureBehavior
-    {
-    }*/
 }

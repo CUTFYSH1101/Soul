@@ -84,13 +84,13 @@ namespace Main.Util
     /// </summary>
     public class CDMethod
     {
-        private readonly CdCause cdCause;
+        private readonly CdCondition cdCause;
         private readonly MonoBehaviour mono;
 
         public CDMethod(MonoBehaviour mono, float cdTime, Stopwatch.Mode mode = Stopwatch.Mode.LocalGame)
         {
             this.mono = mono;
-            cdCause = new CdCause(cdTime, mode);
+            cdCause = new CdCondition(cdTime, mode);
         }
 
         public void Invoke()

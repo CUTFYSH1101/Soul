@@ -1,4 +1,6 @@
-﻿namespace Main.Input
+﻿using Main.Input.DataType;
+
+namespace Main.Input
 {
     /// 客戶端
     public static class Input
