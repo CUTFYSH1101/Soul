@@ -1,4 +1,5 @@
 ﻿using System;
+using Main.Blood;
 using Main.Res.Script;
 using UnityEngine;
 
@@ -39,8 +40,8 @@ namespace Main.Res.CharactersRes.Animations.Scripts
         public void Knockback(bool @switch) => _mindStateAnim.Knockback(@switch);
         public void AtkDiveCrash(bool @switch) => _attackAnim.DiveCrash(@switch);
         public void Landed(bool @switch) => _attackAnim.Landed(@switch);
-        public void AtkSpur(EnumShape type) => _attackAnim.AtkSpur(type);
-        public void AtkNormal(EnumShape type) => _attackAnim.AtkNormal(type);
+        public void AtkSpur(BloodType type) => _attackAnim.AtkSpur(type);
+        public void AtkNormal(BloodType type) => _attackAnim.AtkNormal(type);
         public void Move(bool @switch) => _moveAnim.Move(@switch);
         public void Dash(bool @switch) => _moveAnim.Dash(@switch);
 
@@ -58,7 +59,7 @@ namespace Main.Res.CharactersRes.Animations.Scripts
             else Interrupt();
         }
 
-        public void AtkJump(EnumShape shape) => _attackAnim.AtkJump(shape);
+        public void AtkJump(BloodType shape) => _attackAnim.AtkJump(shape);
         public void Killed() => _mindStateAnim.Killed();
         public void Revival() => _mindStateAnim.Revival();
         public void Interrupt() => _anim.SetTrigger(UnityAnimID.ToInterruptAnimation);

@@ -1,4 +1,5 @@
 ﻿using System;
+using Main.Blood;
 using JetBrains.Annotations;
 using Main.Entity.Creature;
 using Main.EventLib.Common;
@@ -12,7 +13,7 @@ using Main.Input;
 using Main.Res.Script;
 using Main.Res.Script.Audio;
 using UnityEngine;
-using static Main.Res.Script.EnumShape;
+using static Main.Blood.BloodType;
 
 namespace Main.EventLib
 {
@@ -74,9 +75,9 @@ namespace Main.EventLib
             HitEvent.Execute(this, _knockback, skillAttr);
         }
         
-        private const EnumShape Fire1 = Square;
-        private const EnumShape Fire2 = Cross;
-        private const EnumShape Fire3 = Circle;
+        private const BloodType Fire1 = CSquare;
+        private const BloodType Fire2 = CCrossx;
+        private const BloodType Fire3 = CCircle;
         public new void Update()
         {
             base.Update();

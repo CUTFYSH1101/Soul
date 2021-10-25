@@ -84,7 +84,7 @@ namespace Main.EventLib.Main.EventSystem.Main
         private void Start()
         {
             _creature = new Creature(player, new CreatureAttr());
-            _creatureThreadSystem = _creature.FindComponentByTag(EnumComponentTag.CreatureThreadSystem);
+            _creatureThreadSystem = _creature.FindByTag(EnumComponentTag.CreatureThreadSystem);
             Debug.Log(_creatureThreadSystem.ToString());
             _gui = new GUILog();
             Log();

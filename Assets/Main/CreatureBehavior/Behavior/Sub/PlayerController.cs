@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using Main.Blood;
+using JetBrains.Annotations;
 using Main.Entity;
 using Main.EventLib.Sub.CreatureEvent.Skill;
 using Main.Input;
@@ -49,31 +50,31 @@ namespace Main.CreatureBehavior.Behavior.Sub
                 if (GetButtonDown(HotkeySet.Fire1))
                 {
                     if (!_interface.Grounded)
-                        _behavior.JumpAttack(EnumShape.Square);
+                        _behavior.JumpAttack(BloodType.CSquare);
                     else if (GetButton(HotkeySet.Horizontal))
-                        _behavior.SpurAttack(EnumShape.Square);
+                        _behavior.SpurAttack(BloodType.CSquare);
                     else
-                        _behavior.NormalAttack(EnumShape.Square);
+                        _behavior.NormalAttack(BloodType.CSquare);
                 }
 
                 if (GetButtonDown(HotkeySet.Fire2))
                 {
                     if (!_interface.Grounded)
-                        _behavior.JumpAttack(EnumShape.Cross);
+                        _behavior.JumpAttack(BloodType.CCrossx);
                     else if (GetButton(HotkeySet.Horizontal))
-                        _behavior.SpurAttack(EnumShape.Cross);
+                        _behavior.SpurAttack(BloodType.CCrossx);
                     else
-                        _behavior.NormalAttack(EnumShape.Cross);
+                        _behavior.NormalAttack(BloodType.CCrossx);
                 }
 
                 if (GetButtonDown(HotkeySet.Fire3))
                 {
                     if (!_interface.Grounded)
-                        _behavior.JumpAttack(EnumShape.Circle);
+                        _behavior.JumpAttack(BloodType.CCircle);
                     else if (GetButton(HotkeySet.Horizontal))
-                        _behavior.SpurAttack(EnumShape.Circle);
+                        _behavior.SpurAttack(BloodType.CCircle);
                     else
-                        _behavior.NormalAttack(EnumShape.Circle);
+                        _behavior.NormalAttack(BloodType.CCircle);
                 }
             }
 

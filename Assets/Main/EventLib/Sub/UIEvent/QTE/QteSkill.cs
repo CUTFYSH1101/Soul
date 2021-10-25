@@ -70,17 +70,17 @@ qte持續時間
 
         private void TargetGetHit()
         {
+            _target.MindState = EnumMindState.Idle;
             _targetOnHitAction?.Invoke();
             UserInterface.Hit(_target.GetCreature(), SkillAttr);
             Debug.Log("對玩家造成暈眩1秒，傷害同之前");
-            _target.MindState = EnumMindState.Idle;
         }
 
         private void AttackerGetHitBack()
         {
             _target.MindState = EnumMindState.Parry;
             UserInterface.CreateCreatureBehaviorInterface(CreatureInterface.GetCreature())
-                .InvokeParryEvent();
+                .InvokeParryEvent();// 完整一套event；start->end
             UserInterface.Hit(CreatureInterface.GetCreature(), SkillAttr);
             Debug.Log("玩家反抗，播放動畫和音效，對施放怪物造成暈眩");
         }
@@ -124,9 +124,9 @@ qte持續時間
         }
 
         private bool TheUserPressesRightBtn =>
-            Input.Input.GetButtonDown(HotkeySet.Qte1) && _attacker == EnumQteShape.Square ||
-            Input.Input.GetButtonDown(HotkeySet.Qte2) && _attacker == EnumQteShape.Cross ||
-            Input.Input.GetButtonDown(HotkeySet.Qte3) && _attacker == EnumQteShape.Circle;
+            Input.Input.GetButtonDown(HotkeySet.Qte1) && _attacker == EnumQteShape.CSquare ||
+            Input.Input.GetButtonDown(HotkeySet.Qte2) && _attacker == EnumQteShape.CCrossx ||
+            Input.Input.GetButtonDown(HotkeySet.Qte3) && _attacker == EnumQteShape.CCircle;
 
         public void Exit()
         {

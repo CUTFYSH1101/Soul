@@ -141,7 +141,6 @@
      <Compile Include="Assets\Extensions\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\Main\Res\Script\Anim\UnityAnimator.cs" />
      <Compile Include="Assets\Main\Input\KeyBundleExtensions.cs" />
-     <Compile Include="Assets\Main\Res\Script\EnumShape.cs" />
      <Compile Include="Assets\Main\EventLib\Main\Common\EnumDebuff.cs" />
      <Compile Include="Assets\Main\Res\Script\Anim\UnityAnimID.cs" />
      <Compile Include="Assets\Sandbox\GUILog.cs" />

@@ -37,7 +37,7 @@ namespace Main.Entity.Creature
         [NotNull] public CreatureAnimInterface AnimInterface { get; protected set; }
         public bool IsKilled() => AnimInterface.IsTag("Die");
         [CanBeNull] public DictAudioPlayer AudioPlayer { get; protected set; } = null;
-        [CanBeNull] public IBehavior Behavior => (IBehavior)FindDataByTag(EnumDataTag.Behavior);
+        [CanBeNull] public IBehavior Behavior => (IBehavior)FindByTag(EnumDataTag.Behavior);
 
         [CanBeNull]
         public SkillAttr CurrentSkill
@@ -81,9 +81,9 @@ namespace Main.Entity.Creature
             Rigidbody2D = transform.GetOrAddComponent<ProxyUnityRb2D>();
             AudioPlayer = audioPlayer;
 
-            AppendComponent(new GroundChecker(this)); // 地板更新事件
-            _flipChecker = (FlipChecker)AppendComponent(new FlipChecker(transform)); // 轉向更新
-            ThreadSystem = (CreatureThreadSystem)AppendComponent(new CreatureThreadSystem()); // 角色事件
+            Append(new GroundChecker(this)); // 地板更新事件
+            _flipChecker = (FlipChecker)Append(new FlipChecker(transform)); // 轉向更新
+            ThreadSystem = (CreatureThreadSystem)Append(new CreatureThreadSystem()); // 角色事件
         }
 
         public override void Update()

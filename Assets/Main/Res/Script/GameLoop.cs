@@ -1,4 +1,5 @@
-﻿using Main.Res.CharactersRes.Animations.Scripts;
+﻿using Main.Blood;
+using Main.Res.CharactersRes.Animations.Scripts;
 using Main.Res.Script.Audio;
 using UnityEngine;
 using UnityInput = UnityEngine.Input;
@@ -90,12 +91,12 @@ namespace Main.Res.Script
                 facade.anim.AtkDiveCrash(diveAttacking = !diveAttacking);
         }
 
-        private EnumShape Convert(string key) =>
+        private BloodType Convert(string key) =>
             key switch
             {
-                "Fire1" => EnumShape.Square,
-                "Fire2" => EnumShape.Cross,
-                "Fire3" => EnumShape.Circle,
+                "Fire1" => BloodType.CSquare,
+                "Fire2" => BloodType.CCrossx,
+                "Fire3" => BloodType.CCircle,
                 _ => default
             };
     }

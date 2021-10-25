@@ -54,7 +54,7 @@ namespace Main.EventLib.Sub.BattleSystem
 
         [CanBeNull]
         public IComponent FindComponent(Transform obj, EnumComponentTag tag) =>
-            FindCreatureByObj(obj)?.FindComponentByTag(tag);
+            FindCreatureByObj(obj)?.FindByTag(tag);
 
         [CanBeNull]
         public T FindComponent<T>(Transform obj) where T : class, IComponent => 
@@ -62,6 +62,6 @@ namespace Main.EventLib.Sub.BattleSystem
 
         [CanBeNull]
         public IData FindData(Transform obj, EnumDataTag tag) =>
-            FindCreatureByObj(obj)?.FindDataByTag(tag);
+            FindCreatureByObj(obj)?.FindByTag(tag);
     }
 }

@@ -1,11 +1,13 @@
 ﻿namespace Main.Blood {
     [System.Serializable]
     public enum BloodType {
-        CCircle,
-        CCrossx,
         CSquare,
-        XCricle,
-        XCrossx,
+        CCrossx,
+        CCircle,
         XSquare,
+        XCrossx,
+        XCircle,
+        None,   // 類似null
+        Direct, // 直接傷害
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Main.Blood;
 using Main.Res.Script;
 using UnityEngine;
 
@@ -47,20 +48,20 @@ namespace Main.Res.CharactersRes.Animations.Scripts
             _animator.SetFloat(id, value);
         }
 
-        public void AtkNormal(EnumShape shape)
+        public void AtkNormal(BloodType shape)
         {
             switch (shape)
             {
-                case EnumShape.Direct:
+                case BloodType.Direct:
                     TriggerTemplate(_hasDirect, UnityAnimID.ToAttack);
                     break;
-                case EnumShape.Square:
+                case BloodType.CSquare:
                     TriggerTemplate(_hasChoice, UnityAnimID.ToNormalAttackSquare);
                     break;
-                case EnumShape.Circle:
+                case BloodType.CCircle:
                     TriggerTemplate(_hasChoice, UnityAnimID.ToNormalAttackCircle);
                     break;
-                case EnumShape.Cross:
+                case BloodType.CCrossx:
                     TriggerTemplate(_hasChoice, UnityAnimID.ToNormalAttackCross);
                     break;
                 default:
@@ -74,17 +75,17 @@ namespace Main.Res.CharactersRes.Animations.Scripts
 
         public void Landed(bool @switch) => BoolTemplate(_hasDiveLanded,UnityAnimID.IsAtkDiveLanded, @switch);
 
-        public void AtkSpur(EnumShape shape)
+        public void AtkSpur(BloodType shape)
         {
             switch (shape)
             {
-                case EnumShape.Square:
+                case BloodType.CSquare:
                     TriggerTemplate(_hasChoiceSpur, UnityAnimID.ToSpurAttackSquare);
                     break;
-                case EnumShape.Circle:
+                case BloodType.CCircle:
                     TriggerTemplate(_hasChoiceSpur, UnityAnimID.ToSpurAttackCircle);
                     break;
-                case EnumShape.Cross:
+                case BloodType.CCrossx:
                     TriggerTemplate(_hasChoiceSpur, UnityAnimID.ToSpurAttackCross);
                     break;
                 default:
@@ -93,17 +94,17 @@ namespace Main.Res.CharactersRes.Animations.Scripts
             }
         }
 
-        public void AtkJump(EnumShape shape)
+        public void AtkJump(BloodType shape)
         {
             switch (shape)
             {
-                case EnumShape.Square:
+                case BloodType.CSquare:
                     TriggerTemplate(_hasChoice, UnityAnimID.ToJumpAttackSquare);
                     break;
-                case EnumShape.Circle:
+                case BloodType.CCircle:
                     TriggerTemplate(_hasChoice, UnityAnimID.ToJumpAttackCircle);
                     break;
-                case EnumShape.Cross:
+                case BloodType.CCrossx:
                     TriggerTemplate(_hasChoice, UnityAnimID.ToJumpAttackCross);
                     break;
                 default:

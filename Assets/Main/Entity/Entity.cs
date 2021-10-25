@@ -27,7 +27,7 @@ namespace Main.Entity
         public virtual void Update() =>
             _updateList.ForEach(update => update?.Invoke());
 
-        public IComponent AppendComponent(IComponent component)
+        public IComponent Append(IComponent component)
         {
             if (_dictCompByTag.ContainsKey(component.Tag))
             {
@@ -40,9 +40,9 @@ namespace Main.Entity
             return component;
         }
 
-        public bool ContainsComponent(IComponent component) => _dictCompByTag.ContainsKey(component.Tag);
+        public bool Contains(IComponent component) => _dictCompByTag.ContainsKey(component.Tag);
 
-        public IComponent RemoveComponent(IComponent component)
+        public IComponent Remove(IComponent component)
         {
             if (!_dictCompByTag.ContainsKey(component.Tag))
             {
@@ -55,9 +55,9 @@ namespace Main.Entity
             return component;
         }
 
-        public bool ContainsComponent(EnumComponentTag tag) => _dictCompByTag.ContainsKey(tag);
+        public bool Contains(EnumComponentTag tag) => _dictCompByTag.ContainsKey(tag);
 
-        public IComponent RemoveComponentByTag(EnumComponentTag tag)
+        public IComponent RemoveByTag(EnumComponentTag tag)
         {
             if (!_dictCompByTag.ContainsKey(tag))
             {
@@ -71,13 +71,13 @@ namespace Main.Entity
             return component;
         }
 
-        public IComponent FindComponentByTag(EnumComponentTag tag) =>
+        public IComponent FindByTag(EnumComponentTag tag) =>
             _dictCompByTag.ContainsKey(tag) ? _dictCompByTag[tag] : null;
 
         public T FindComponent<T>() where T : class, IComponent =>
             (T)_dictCompByTag.FirstOrDefault(element => element.Value.GetType() == typeof(T)).Value;
 
-        public IData AppendData(IData data)
+        public IData Append(IData data)
         {
             if (_dataDictionary.ContainsKey(data.Tag))
             {
@@ -89,9 +89,9 @@ namespace Main.Entity
             return data;
         }
 
-        public bool ContainsData(IData data) => _dataDictionary.ContainsKey(data.Tag);
+        public bool Contains(IData data) => _dataDictionary.ContainsKey(data.Tag);
 
-        public IData RemoveData(IData data)
+        public IData Remove(IData data)
         {
             if (!_dataDictionary.ContainsKey(data.Tag))
             {
@@ -103,9 +103,9 @@ namespace Main.Entity
             return data;
         }
 
-        public bool ContainsData(EnumDataTag tag) => _dataDictionary.ContainsKey(tag);
+        public bool Contains(EnumDataTag tag) => _dataDictionary.ContainsKey(tag);
 
-        public IData RemoveDataByTag(EnumDataTag tag)
+        public IData RemoveByTag(EnumDataTag tag)
         {
             if (!_dataDictionary.ContainsKey(tag))
             {
@@ -118,6 +118,6 @@ namespace Main.Entity
             return data;
         }
 
-        public IData FindDataByTag(EnumDataTag tag) => _dataDictionary.ContainsKey(tag) ? _dataDictionary[tag] : null;
+        public IData FindByTag(EnumDataTag tag) => _dataDictionary.ContainsKey(tag) ? _dataDictionary[tag] : null;
     }
 }

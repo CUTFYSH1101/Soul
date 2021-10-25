@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Main.Blood;
 using Main.EventLib.Main.EventSystem.Main;
 using Main.Game.Collision;
 using Main.Entity.Creature;
@@ -58,17 +59,17 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
             FinalAct += CreatureInterface.GetAnim().Interrupt;
         }
 
-        public void Execute(EnumShape shape)
+        public void Execute(BloodType shape)
         {
             if (State != EnumState.Free) return;
 
-            SkillAttr.Shape = shape;
+            SkillAttr.BloodType = shape;
             Director.CreateEvent();
         }
 
         public void Enter()
         {
-            CreatureInterface.GetAnim().AtkJump(SkillAttr.Shape);
+            CreatureInterface.GetAnim().AtkJump(SkillAttr.BloodType);
         }
 
         public void Exit()

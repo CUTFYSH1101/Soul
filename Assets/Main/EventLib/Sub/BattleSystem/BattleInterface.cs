@@ -32,7 +32,7 @@ namespace Main.EventLib.Sub.BattleSystem
         public static CreatureSystem CreateCreatureSystemComponent() => CreatureSystem.Instance;
 
         public static CreatureSystem CreateAndAppendCreatureSystemComponent(Creature self) =>
-            (CreatureSystem)self.AppendComponent(CreatureSystem.Instance);
+            (CreatureSystem)self.Append(CreatureSystem.Instance);
 
         [CanBeNull]
         public static Creature FindCreature(Transform obj) => CreatureSystem.FindCreatureByObj(obj);
@@ -94,9 +94,9 @@ namespace Main.EventLib.Sub.BattleSystem
         // 主要依賴類別：ComboUI, HitEvent, UnityCollision
         // ======
         public static Spoiler CreateAndAppendSpoilerComponent(Creature self, Team selfTeam) =>
-            (Spoiler)self.AppendComponent(Spoiler.Instance(self, selfTeam));
+            (Spoiler)self.Append(Spoiler.Instance(self, selfTeam));
 
         public static Spoiler CreateAndAppendSpoilerComponent(Creature self, Team selfTeam, Action onHit) =>
-            (Spoiler)self.AppendComponent(Spoiler.Instance(self, selfTeam).InitEvent(onHit));
+            (Spoiler)self.Append(Spoiler.Instance(self, selfTeam).InitEvent(onHit));
     }
 }

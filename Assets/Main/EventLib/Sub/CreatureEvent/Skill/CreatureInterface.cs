@@ -1,4 +1,5 @@
-﻿using Main.Entity.Creature;
+﻿using Main.Blood;
+using Main.Entity.Creature;
 using Main.EventLib.Common;
 using Main.EventLib.Sub.CreatureEvent.Skill.Common;
 using Main.Game;
@@ -48,7 +49,7 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
         public void Play(DictAudioPlayer.Key key) =>
             GetAudioPlayer()?.Play(key);
 
-        public void Play(EnumShape key) =>
+        public void Play(BloodType key) =>
             GetAudioPlayer()?.Play(key);
 
         public CreatureInterface(Creature creature) => _creature = creature;

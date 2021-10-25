@@ -52,6 +52,8 @@ namespace Test.Scene.Scripts.Main.UI
             while (true)
             {
                 LoadingUpdate(async);
+                if (async.isDone)
+                    break;
                 yield return new Update();
             }
         }
@@ -85,7 +87,7 @@ namespace Test.Scene.Scripts.Main.UI
 
                 _loadPanel.SetActive(false);
 
-                if (_coroutine != null) MonoClass.Instance.StopCoroutine(_coroutine);
+                // if (_coroutine != null) MonoClass.Instance.StopCoroutine(_coroutine);
             }
         }
     }

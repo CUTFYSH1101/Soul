@@ -1,4 +1,5 @@
-﻿using Main.Entity.Creature;
+﻿using Main.Blood;
+using Main.Entity.Creature;
 using Main.EventLib.Common;
 using Main.EventLib.Main.EventSystem.Main.Interface;
 using Main.EventLib.Sub.CreatureEvent.Life;
@@ -106,10 +107,10 @@ namespace Main.EventLib.Sub.CreatureEvent
 
         public void MoveTo(Vector2 targetPos) => _moveEvent.moveTo.Invoke(targetPos);
         public void StopMoveTo() => _moveEvent.moveTo.IsOpen = false;
-        public void NormalAttack(EnumShape shape) => _atkSkill.normal.Execute(shape); // 玩家專屬normalAttack、音效
-        public void SpurAttack(EnumShape shape) => _atkSkill.spur.Execute(shape);
-        public void JumpAttack(EnumShape shape) => _atkSkill.jump.Execute(shape);
-        public void DiveAttack(EnumShape shape) => _atkSkill.dive.Execute(shape);
+        public void NormalAttack(BloodType shape) => _atkSkill.normal.Execute(shape); // 玩家專屬normalAttack、音效
+        public void SpurAttack(BloodType shape) => _atkSkill.spur.Execute(shape);
+        public void JumpAttack(BloodType shape) => _atkSkill.jump.Execute(shape);
+        public void DiveAttack(BloodType shape) => _atkSkill.dive.Execute(shape);
         public void InvokeParryEvent()
         {
         }

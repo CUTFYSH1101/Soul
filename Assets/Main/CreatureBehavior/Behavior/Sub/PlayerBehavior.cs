@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Main.Blood;
 using Main.Entity;
 using Main.Entity.Creature;
 using Main.EventLib;
@@ -65,10 +66,10 @@ namespace Main.CreatureBehavior.Behavior.Sub
         public void MoveTo(Vector2 targetPos) => _interface.MoveTo(targetPos);
 
         // 玩家專屬，需指定攻擊符號才能造成傷害、音效 todo 怒氣值下無視符號 anim
-        public void NormalAttack(EnumShape shape) => _interface.NormalAttack(shape);
-        public void SpurAttack(EnumShape shape) => _interface.SpurAttack(shape);
-        public void JumpAttack(EnumShape shape) => _interface.JumpAttack(shape);
-        public void DiveAttack() => _interface.DiveAttack(EnumShape.Direct);
+        public void NormalAttack(BloodType shape) => _interface.NormalAttack(shape);
+        public void SpurAttack(BloodType shape) => _interface.SpurAttack(shape);
+        public void JumpAttack(BloodType shape) => _interface.JumpAttack(shape);
+        public void DiveAttack() => _interface.DiveAttack(BloodType.Direct);
 
         public ComboUIEvent RegisterComboSystem() => _comboUIEvent = UserInterface.CreateComboUI();
         public void ComboUpdate() => _comboUIEvent.Trigger();

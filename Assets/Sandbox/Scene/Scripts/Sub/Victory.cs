@@ -30,7 +30,7 @@ namespace Test.Scene.Scripts.Sub
             var players = CreatureSystem.FindCreaturesByTag(Player);
             if (players != null)
                 foreach (var player in players)
-                    ((PlayerStrategy)player.FindComponentByTag(EnumComponentTag.CreatureStrategy))?
+                    ((PlayerStrategy)player.FindByTag(EnumComponentTag.CreatureStrategy))?
                         .ChangeState(Aware);
 
             _commonInputListener = new CommonInputSystem();

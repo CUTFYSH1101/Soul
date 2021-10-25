@@ -1,4 +1,5 @@
 ﻿using System;
+using Main.Blood;
 using JetBrains.Annotations;
 using Main.Util;
 using Main.EventLib.Common;
@@ -18,7 +19,7 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill.Attribute
     public class SkillAttr
     {
         public EnumSkillTag SkillTag { get; }
-        public EnumShape Shape { get; set; }
+        public BloodType BloodType { get; set; }
         public EnumQteShape QteShape { get; set; }
         public float Duration { get; set; }
 
@@ -35,14 +36,14 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill.Attribute
 
         /// 基本資料
         /// <param name="skillTag">辨識用</param>
-        /// <param name="shape"></param>
+        /// <param name="bloodType"></param>
         /// <param name="duration">0表示沒有，技能持續時間是根據動畫時長</param>
         /// <param name="cdTime">0表示沒有</param>
-        public SkillAttr(EnumSkillTag skillTag = default, EnumShape shape = default,
+        public SkillAttr(EnumSkillTag skillTag = default, BloodType bloodType = default,
             float duration = 0, float cdTime = 0)
         {
             SkillTag = skillTag;
-            Shape = shape;
+            BloodType = bloodType;
             Duration = duration;
             CdTime = cdTime;
             QteShape = EnumQteShape.None;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Main.Blood;
 using Main.Entity;
 using Main.EventLib.Sub.CreatureEvent;
 using Main.EventLib.Sub.CreatureEvent.Skill.Attribute;
@@ -31,7 +32,7 @@ namespace Main.CreatureBehavior.Behavior.Sub
 
             AppendToSkillList(_interface.AtkSkill.normal.SkillAttr);
         }
-        public void NormalAttack() => _interface.NormalAttack(EnumShape.Direct);
+        public void NormalAttack() => _interface.NormalAttack(BloodType.Direct);
 
         public void MoveTo(Vector2 targetPos) => _interface.MoveTo(targetPos);
         public void StopMoveTo() => _interface.StopMoveTo();

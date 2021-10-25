@@ -43,29 +43,20 @@ namespace Main.EventLib.Sub.BattleSystem
             return this;
         }
 
-        private void OnTriggerEnter2D(Collider2D theInjuredCollider)
+        private void OnTriggerEnter2D(Collider2D injuredCollider)
         {
-            if (!IsCreature(theInjuredCollider)) return;
-
-            if (!IsEnemy(theInjuredCollider)) return;
-
-            // 恩賜的血條偵測是否扣血、第一個血符號
-            var blood = BattleInterface.FindComponent<BloodHandler>(theInjuredCollider.transform.root);
-            if (blood == null || !blood.DiscardBlood()) return;
-            if (blood.IsEmpty)
-            {
-                UserInterface.Killed(BattleInterface.FindCreature(theInjuredCollider.transform.root));
-                LogInfo(theInjuredCollider);
-            }
-            else
-            {
-                SetTargetHit(theInjuredCollider);
-            }
-
+            if (!IsEnemy(injuredCollider)) return;
+            var usingSkill = BattleInterface.FindInUsingSkillAttr(Creature.Transform);
+            SetTargetHit(injuredCollider, usingSkill);
+            // LogInfo(injuredCollider, "type: " + usingSkill.BloodType.ToString());
         }
 
-        private static bool IsCreature(Collider2D theInjuredCollider) => 
-            theInjuredCollider.CompareLayer("Creature");
+        private static bool IsCreature(Component injuredCollider, out Creature injured)
+        {
+            var _ = injuredCollider.CompareLayer("Creature");
+            injured = _ ? BattleInterface.FindCreature(injuredCollider.transform.root) : null;
+            return _;
+        }
 
         private bool IsEnemy(Collider2D theInjuredCollider)
         {
@@ -86,30 +77,31 @@ namespace Main.EventLib.Sub.BattleSystem
             Debug.Log(msg);
         }
 
-        private void SetTargetHit(Component injuredTrans)
+        public void SetTargetHit(Component injuredCollider, SkillAttr usingSkill)
         {
-            /*
-             * 1.
-             * CreatureList.FindCreature
-             * 透過資料庫查詢，輸入transform.root 或 creature.transform，取得self
-             * 同樣透過資料庫查詢，輸入skillObj.transform.root，取得target
-             * 
-             * 2.攻擊對方，觸發HitEvent
-             */
-            /*
-            // 確認攻擊方的狀態，必須處於正在攻擊的狀態，才會攻擊到對方，用來區分攻擊方和被攻擊方
-            if (attacker.CreatureAttr.MindState != EnumMindState.Attacking) return;
-            */
-            if (injuredTrans == null) return;
-            var injured = BattleInterface.FindCreature(injuredTrans.transform.root);
-            // var attacker = Creature;
-            var usingSkillAttr = BattleInterface.FindInUsingSkillAttr(Creature.Transform);
+            if (!IsCreature(injuredCollider, out var injured)) return;
 
-            if (injured == null || usingSkillAttr == null) return;
-            UserInterface.Hit(injured, usingSkillAttr);
+            var blood = injured.FindComponent<BloodHandler>();
+            if (blood == null) return;
+            if (!(usingSkill.BloodType == BloodType.Direct && blood.DiscardBlood() ||
+                  blood.DiscardBlood(usingSkill.BloodType))) return;
+            if (blood.IsEmpty)
+            {
+                UserInterface.Killed(injured);
+            }
+            else
+            {
+                SetTargetHit(injured, usingSkill);
+            }
+        }
+        // 注意區別攻擊方與被攻擊方
+        private void SetTargetHit(Creature injured, SkillAttr usingSkill)
+        {
+            if (injured == null) return;
+            if (usingSkill == null) return;
+            UserInterface.Hit(injured, usingSkill);
             ONHit?.Invoke();
         }
-
         public static GameObject CreateDamageBoxOnScene(Creature target, Creature attacker)
         {
             var go = new GameObject();

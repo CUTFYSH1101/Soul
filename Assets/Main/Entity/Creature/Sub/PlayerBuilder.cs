@@ -21,14 +21,14 @@ namespace Main.Entity.Creature.Sub
         public override void Init()
         {
             // 添加可以操作的行為，允許外界存取
-            var data = (PlayerBehavior)Creature.AppendData(
+            var data = (PlayerBehavior)Creature.Append(
                 new PlayerBehavior(Creature));
             // 添加玩家控制器
-            var controller = Creature.AppendComponent(
+            var controller = Creature.Append(
                 new PlayerController(data,
                     new CreatureInterface(Creature)));
             // 添加角色策略
-            Creature.AppendComponent(
+            Creature.Append(
                 new PlayerStrategy((IPlayerController)controller));
         }
 
@@ -39,10 +39,10 @@ namespace Main.Entity.Creature.Sub
         public override void SetBattleSystem()
         {
             var combo = UserInterface.CreateComboUI();
-            Creature.AppendComponent(
+            Creature.Append(
                 Spoiler.Instance(Creature, Team.Player).InitEvent(combo.Trigger));
             
-            Creature.AppendComponent(
+            Creature.Append(
                 BloodHandler.Instance(Creature.Transform));
         }
     }

@@ -1,3 +1,4 @@
+using Main.Blood;
 using Main.Res.Script;
 
 namespace Main.EventLib.Sub.UIEvent.QTE
@@ -5,8 +6,8 @@ namespace Main.EventLib.Sub.UIEvent.QTE
     public enum EnumQteShape
     {
         None,
-        Square = EnumShape.Square,
-        Cross = EnumShape.Cross,
-        Circle = EnumShape.Circle,
+        CSquare = BloodType.CSquare,
+        CCrossx = BloodType.CCrossx,
+        CCircle = BloodType.CCircle,
     }
 }

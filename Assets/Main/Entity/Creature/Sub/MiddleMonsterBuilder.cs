@@ -1,4 +1,8 @@
+using Main.CreatureAI.Sub;
 using Main.CreatureBehavior.Behavior.Sub;
+using Main.EventLib.Sub;
+using Main.EventLib.Sub.BattleSystem;
+using Main.EventLib.Sub.CreatureEvent.Skill;
 using UnityEngine;
 
 namespace Main.Entity.Creature.Sub
@@ -15,16 +19,20 @@ namespace Main.Entity.Creature.Sub
 
         public override void SetAISystem()
         {
-            if (Creature.ContainsData(EnumDataTag.Behavior))
-                Creature.RemoveDataByTag(EnumDataTag.Behavior);
-            if (Creature.ContainsComponent(EnumComponentTag.CreatureStrategy))
-                Creature.RemoveComponentByTag(EnumComponentTag.CreatureStrategy);
+            if (Creature.Contains(EnumDataTag.Behavior))
+                Creature.RemoveByTag(EnumDataTag.Behavior);
+            if (Creature.Contains(EnumComponentTag.CreatureStrategy))
+                Creature.RemoveByTag(EnumComponentTag.CreatureStrategy);
 
-            var behavior = Creature.AppendData(new MiddleMonsterBehavior(Creature));
+            var behavior = Creature.Append(new MiddleMonsterBehavior(Creature));
 
-            /*Creature.AppendComponent(new MiddleMonsterStrategy(
+            var strategy = Creature.Append(new MiddleMonsterStrategy(
                 new CreatureInterface(Creature), behavior as MiddleMonsterBehavior, Team.Enemy,
-                new Vector2(10f, 1.5f), new Vector2(3.2f, 1.5f)));*/
+                new Vector2(10f, 1.5f), new Vector2(3.2f, 1.5f)));
+            DebugMode.DoWhenOpen += () =>
+                Creature.Remove(strategy);
+            DebugMode.DoWhenClose += () =>
+                Creature.Append(strategy);
         }
 
         public override void SetBattleSystem()

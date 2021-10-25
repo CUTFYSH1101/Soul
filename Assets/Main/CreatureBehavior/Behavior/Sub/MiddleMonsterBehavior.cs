@@ -44,7 +44,7 @@ namespace Main.CreatureBehavior.Behavior.Sub
         public void QteAttack(Creature target)
         {
             if (target == null) return;
-            var random = Util.Enum.Random(EnumQteShape.Square, EnumQteShape.Circle);
+            var random = Util.Enum.Random(EnumQteShape.CSquare, EnumQteShape.CCircle);
             _qteSkill.Execute(target, random);
         }
         

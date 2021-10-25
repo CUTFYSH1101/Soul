@@ -1,4 +1,5 @@
 ﻿using System;
+using Main.Blood;
 using Main.EventLib.Main.EventSystem.Main;
 using Main.Game.Collision;
 using Main.Entity.Creature;
@@ -99,7 +100,7 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
 
         private float _originCd;
 
-        public void Execute(EnumShape shape)
+        public void Execute(BloodType shape)
         {
             if (State != EnumState.Free) return;
 
@@ -110,7 +111,7 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
             _minDuration.Reset();
             _stayDuration.Reset();
 
-            SkillAttr.Shape = shape;
+            SkillAttr.BloodType = shape;
             Director.CreateEvent();
         }
 

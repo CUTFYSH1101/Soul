@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Main.Blood;
 using Main.EventLib.Main.EventSystem.Main;
 using Main.Entity.Creature;
 using Main.EventLib.Common;
@@ -46,11 +47,11 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
             FinalAct += CreatureInterface.GetAnim().Interrupt; // 搭配interruptable
         }
 
-        public void Execute(EnumShape shape)
+        public void Execute(BloodType shape)
         {
             if (State == EnumState.Free)
             {
-                SkillAttr.Shape = shape;
+                SkillAttr.BloodType = shape;
                 _min.Reset();
                 Director.CreateEvent();
             }
@@ -59,9 +60,9 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
         public void Enter()
         {
             // 撥放音效
-            CreatureInterface.Play(SkillAttr.Shape);
+            CreatureInterface.Play(SkillAttr.BloodType);
             CreatureInterface.GetAnim().Interrupt();
-            CreatureInterface.GetAnim().AtkNormal(SkillAttr.Shape);
+            CreatureInterface.GetAnim().AtkNormal(SkillAttr.BloodType);
         }
 
         public void Exit()

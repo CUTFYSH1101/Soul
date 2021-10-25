@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Main.Blood;
 using Main.Res.Script.Util;
 using Main.Util;
 using UnityEngine;
@@ -23,7 +24,6 @@ namespace Main.Res.Script.Audio
             }
 
             [SerializeField] private Element[] clips;
-            [SerializeField] private Element[] clips2;
 
             // 注意Key值必須唯一
             private Dictionary<Key, AudioClip> Instance =>
@@ -59,20 +59,20 @@ namespace Main.Res.Script.Audio
 
         [SerializeField] protected Dictionary clips;
 
-        public void Play(EnumShape shape)
+        public void Play(BloodType shape)
         {
             switch (shape)
             {
-                case EnumShape.Direct:
+                case BloodType.Direct:
                     Play(Key.NaDirect);
                     return;
-                case EnumShape.Square:
+                case BloodType.CSquare:
                     Play(Key.NaSquare);
                     return;
-                case EnumShape.Circle:
+                case BloodType.CCircle:
                     Play(Key.NaCircle);
                     return;
-                case EnumShape.Cross:
+                case BloodType.CCrossx:
                     Play(Key.NaCross);
                     return;
                 default:

@@ -24,20 +24,20 @@ namespace Main.Entity.Creature.Sub
         public override void SetAISystem()
         {
             // 添加角色行為、角色AI策略
-            var behavior = Creature.AppendData(new MonsterBehavior(Creature));
+            var behavior = Creature.Append(new MonsterBehavior(Creature));
             
-            Creature.AppendComponent(new MonsterStrategy(
+            Creature.Append(new MonsterStrategy(
                 new CreatureInterface(Creature), behavior as MonsterBehavior, Team.Enemy,
                 new Vector2(10f, 1.5f), new Vector2(0.85f, 1.5f)));
         }
 
         public override void SetBattleSystem()
         {
-            Creature.AppendComponent(
+            Creature.Append(
                 Spoiler.Instance(Creature, Team.Enemy));
             
             // aa沒有血條
-            Creature.AppendComponent(
+            Creature.Append(
                 BloodHandler.Instance(Creature.Transform));
         }
     }

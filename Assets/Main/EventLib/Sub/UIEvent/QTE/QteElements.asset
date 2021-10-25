@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: QteElements
   m_EditorClassIdentifier: 
   images:
-  - name: 2
-    image: {fileID: 21300000, guid: c2d8b43b797e6824fbca314f7ac4f7d7, type: 3}
+  - name: 0
+    image: {fileID: 21300000, guid: e2700e51a414dfe47a9e76b195a77549, type: 3}
     size: 37.5
-  - name: 3
+  - name: 1
     image: {fileID: 21300000, guid: 70f80b091ca2d1441ba1d26583fc9932, type: 3}
     size: 37.5
-  - name: 4
-    image: {fileID: 21300000, guid: 4eb05481a63000842ba0e9bc65acc60b, type: 3}
+  - name: 2
+    image: {fileID: 21300000, guid: 734475d4fa1499e45bf30a8ac6566dc1, type: 3}
     size: 37.5

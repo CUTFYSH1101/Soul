@@ -1,4 +1,5 @@
 ﻿using System;
+using Main.Blood;
 using Main.EventLib.Main.EventSystem.Main;
 using Main.Entity.Creature;
 using Main.EventLib.Common;
@@ -57,11 +58,11 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
             };
         }
 
-        public void Execute(EnumShape shape)
+        public void Execute(BloodType shape)
         {
             if (State == EnumState.Free)
             {
-                SkillAttr.Shape = shape;
+                SkillAttr.BloodType = shape;
                 Director.CreateEvent();
             }
         }
@@ -69,7 +70,7 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
         public void Enter()
         {
             _forceDuration.Reset();
-            CreatureInterface.GetAnim().AtkSpur(SkillAttr.Shape);
+            CreatureInterface.GetAnim().AtkSpur(SkillAttr.BloodType);
             // 等於擊退的方向和速度
             var rb2D = CreatureInterface.GetRb2D();
             _originDrag = rb2D.Drag;

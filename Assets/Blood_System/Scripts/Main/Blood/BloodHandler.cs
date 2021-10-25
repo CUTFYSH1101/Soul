@@ -80,7 +80,7 @@ namespace Main.Blood
                     BloodType.CCircle => loader.bloodElements.c250Circle,
                     BloodType.CCrossx => loader.bloodElements.c250Crossx,
                     BloodType.CSquare => loader.bloodElements.c250Square,
-                    BloodType.XCricle => loader.bloodElements.x250Circle,
+                    BloodType.XCircle => loader.bloodElements.x250Circle,
                     BloodType.XCrossx => loader.bloodElements.x250Crossx,
                     BloodType.XSquare => loader.bloodElements.x250Square,
                     _ => bloodQueue[i]
@@ -92,7 +92,11 @@ namespace Main.Blood
 
             return bloodQueue;
         }
-
+        public bool DiscardBlood(BloodType bloodType)
+        {
+            if (IsEmpty || !bloodType.Equals(_bloodData[0])) return false;
+            return DiscardBlood(1);
+        }
         //Mono Blood and Multiple Blood Discard
         public bool DiscardBlood(int count = 1)
         {
@@ -164,9 +168,22 @@ namespace Main.Blood
 
         // ECS
         public EnumComponentTag Tag => EnumComponentTag.Blood;
+        private bool _facingRight = true;
 
         public void Update()
         {
+            var x = transform.root.localScale.x;
+            if (x > 0.1f && !_facingRight)
+                Flip(); //往左翻
+
+            if (x < -0.1f && _facingRight)
+                Flip(); //往右翻
+        }
+        private void Flip()
+        {
+            _facingRight = !_facingRight;
+            transform.localScale =
+                Vector3.Scale(transform.localScale, new Vector3(-1, 1, 1));
         }
     }
 }
