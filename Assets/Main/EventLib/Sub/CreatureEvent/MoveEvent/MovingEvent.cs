@@ -42,11 +42,6 @@ namespace Main.EventLib.Sub.CreatureEvent.MoveEvent
             PostWork += () => _obj.attr.MindState = EnumMindState.Idle;
             // 注意必須在其他事件觸發以前，避免重複設定
             FinalAct += StopMove;
-            /*FinalAct += () =>
-            {
-                _obj.anim.Move(false);
-                if (@interface.Grounded) _obj.rb2D.ActiveX = 0;
-            };*/
         }
 
         public void MoveUpdate()

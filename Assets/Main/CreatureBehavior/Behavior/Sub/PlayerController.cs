@@ -27,19 +27,8 @@ namespace Main.CreatureBehavior.Behavior.Sub
         {
             if (Game.GamePause.IsGamePause)
                 return;
-            /*
-            if (UnityInput.GetButton("Fire1"))
-            {
-                var mousePos = (Vector2) Camera.main.ScreenToWorldPoint(UnityInput.mousePosition);
-                // Debug.Log(mousePos.y);
-                _behavior.MoveTo(mousePos);
-                return;
-            }
-            */
-            /*
-            if (_behavior.DBAxisClick.AndCause())
-                _behavior.Dash2(_behavior.DBAxisClick.AxisRaw() * DashForce, DashForceDuration);
-            */
+            
+            
             if (_behavior.DBAxisClick.AndCause())
                 _behavior.Dash(_behavior.DBAxisClick.AxisRaw());
 

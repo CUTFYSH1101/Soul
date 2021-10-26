@@ -76,7 +76,7 @@ namespace Main.EventLib.Sub.CreatureEvent.Skill
             _originDrag = rb2D.Drag;
             rb2D.ResetX();
             rb2D.AddForce_OnActive(SkillAttr.Knockback.FinForce, ForceMode2D.Impulse);
-            rb2D.Drag = 100;
+            rb2D.Drag = 10;
         }
 
         public void Update()

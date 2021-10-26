@@ -388,6 +388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: monster_rock
       objectReference: {fileID: 0}
+    - target: {fileID: 3608815670091371795, guid: 77b96a875d5bd0842afb7c7cdfc3be39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77b96a875d5bd0842afb7c7cdfc3be39, type: 3}
 --- !u!1001 &282201921
@@ -2362,6 +2367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282937386306977508, guid: 5282dc71499e1f74f9dc801b7a03a07d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5282dc71499e1f74f9dc801b7a03a07d, type: 3}

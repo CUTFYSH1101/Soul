@@ -25,6 +25,15 @@ namespace Main.Util
             return z;
         }
 
+        public static bool Contains<T>([CanBeNull] this T[] arr, T compared) where T : class
+        {
+            for (var i = 0; i < arr.Length; i++)
+                if (compared == arr[i])
+                    return true;
+
+            return false;
+        }
+
         public static string EnumArrayToString<T>(this T[] source, bool hasBrackets = true)
             where T : struct, IConvertible
         {
@@ -128,6 +137,7 @@ namespace Main.Util
                     queue.Enqueue(t);
             return queue.ToArray();
         }
+
         public static TY[] Get<T, TY>(this T[] @in, Func<T, TY> filter)
         {
             if (@in == null || filter == null) return null;
@@ -149,7 +159,7 @@ namespace Main.Util
             if (@in == null || filter == null) return null;
             return @in.Any(filter) ? @in.Filter(filter).First() : null;
         }
-        
+
         /// 注意不會更改原本數值。
         /// 範例（√）：string[] arr; arr = arr.Remove(2);
         /// 不是（X）：string[] arr; arr.Remove(2);

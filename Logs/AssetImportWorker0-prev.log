@@ -1,0 +1,1370 @@
+Using pre-set license
+Built from '2021.2/staging' branch; Version is '2021.2.0b11 (0bffbba03cb9) revision 786363'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19042.1288; Version 2009; 64bit' Language: 'zh' Physical Memory: 16235 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\Program Files\Game Engine\Unity\Hub\Editor\2021.2.0b11\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+6692
+Successfully changed project path to: D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul
+D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Default GameObject Tag: Player already registered
+Refreshing native plugins compatible for Editor in 53.11 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.2.0b11 (0bffbba03cb9)
+[Subsystems] Discovering subsystems at path D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c8d)
+    Vendor:   NVIDIA
+    VRAM:     4021 MB
+    Driver:   27.21.14.6231
+Initialize mono
+Mono path[0] = 'D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/Managed'
+Mono path[1] = 'D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56372
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.021600 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 44.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.348 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1379ms)
+		BeginReloadAssembly (146ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (639ms)
+			LoadAssemblies (141ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (351ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (18ms)
+			SetupLoadedEditorAssemblies (184ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (45ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (88ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.093318 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 49.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.680 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1734ms)
+		BeginReloadAssembly (202ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (22ms)
+		EndReloadAssembly (1422ms)
+			LoadAssemblies (112ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (538ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (587ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (49ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (381ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Default GameObject Tag: Player already registered
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.16 seconds
+Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2938 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 50 unused Assets / (128.5 KB). Loaded Objects now: 3401.
+Memory consumption went from 134.7 MB to 134.6 MB.
+Total: 3.707800 ms (FindLiveObjects: 0.223600 ms CreateObjectMapping: 0.154100 ms MarkObjects: 3.248800 ms  DeleteObjects: 0.080200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2330.463132 seconds.
+  path: Assets/Main/Res
+  artifactKey: Guid(a6386d7969c73e24f91ac80e8cd4085c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res using Guid(a6386d7969c73e24f91ac80e8cd4085c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e63c32999b28527f60117490b275616') in 0.015554 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Main/Res/CharactersRes/Animations
+  artifactKey: Guid(700061a8059829d45bbcdc6c1db3c5e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Animations using Guid(700061a8059829d45bbcdc6c1db3c5e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2b53a8e8972a63dbbb5a096767e787b') in 0.005608 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Main/Res/CharactersRes
+  artifactKey: Guid(4bdcb43fe20be6d4d94778677aaa1196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes using Guid(4bdcb43fe20be6d4d94778677aaa1196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46ba368f0871bc3338452079d6fea051') in 0.006302 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.834363 seconds.
+  path: Assets/Main/Res/Others/0 Friction.physicsMaterial2D
+  artifactKey: Guid(8f1cb82ab3451db48b57373a54bf86c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/Others/0 Friction.physicsMaterial2D using Guid(8f1cb82ab3451db48b57373a54bf86c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f674f9f8084c741cf7109c21997977c6') in 0.045268 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.459349 seconds.
+  path: Assets/Main/Res/Resources/Loader.asset
+  artifactKey: Guid(f72c4e209ea4c49499adcac26e7b8e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/Resources/Loader.asset using Guid(f72c4e209ea4c49499adcac26e7b8e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44613f75f075f919e7f21fb342ee8d5b') in 0.362052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.062323 seconds.
+  path: Assets/Sandbox/Scene/Assets/SceneList.asset
+  artifactKey: Guid(e78ebff277b776b4399ac1307c08de60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sandbox/Scene/Assets/SceneList.asset using Guid(e78ebff277b776b4399ac1307c08de60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b6d6c4d4982ae09eb116b9fe542d888') in 0.039184 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.234491 seconds.
+  path: Assets/Main/Res/Script/Audio/NaAudioPlayer.asset
+  artifactKey: Guid(101bf6a4656540147ac2552f26787c5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/Script/Audio/NaAudioPlayer.asset using Guid(101bf6a4656540147ac2552f26787c5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f180070a1f30428becab26bf5dc8e01') in 0.007843 seconds 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.011859 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.333 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1389ms)
+		BeginReloadAssembly (169ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1108ms)
+			LoadAssemblies (115ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (352ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (451ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (301ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3403.
+Memory consumption went from 132.3 MB to 132.2 MB.
+Total: 3.735100 ms (FindLiveObjects: 0.288200 ms CreateObjectMapping: 0.166200 ms MarkObjects: 3.246400 ms  DeleteObjects: 0.033200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 110.090698 seconds.
+  path: Assets/Main/EventLib/Sub/UIEvent/QTE/QteElements.asset
+  artifactKey: Guid(874e9efdba76f1a44be94e63540183a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/EventLib/Sub/UIEvent/QTE/QteElements.asset using Guid(874e9efdba76f1a44be94e63540183a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '513a9dc37767b42ecfd8a5509843ea84') in 0.020261 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.153696 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/25X Crossx.png
+  artifactKey: Guid(3b0fb2e4cb6dd464da389dfde13d474f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/25X Crossx.png using Guid(3b0fb2e4cb6dd464da389dfde13d474f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '966dab5f810f23def52bdc5b20572500') in 0.220590 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/25X Square Ex.png
+  artifactKey: Guid(117a21c56b6709b47914a95aedf2c3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/25X Square Ex.png using Guid(117a21c56b6709b47914a95aedf2c3a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08382be746919d23ff18cf3d104033c8') in 0.013375 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/37.5X Circle.png
+  artifactKey: Guid(4eb05481a63000842ba0e9bc65acc60b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/37.5X Circle.png using Guid(4eb05481a63000842ba0e9bc65acc60b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f81e92d48ba1e32c96c8a04d4bedbb7') in 0.014608 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/37.5X Crossx Ex.png
+  artifactKey: Guid(70f80b091ca2d1441ba1d26583fc9932) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/37.5X Crossx Ex.png using Guid(70f80b091ca2d1441ba1d26583fc9932) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '883587ac7527aaf74db153410ef3c893') in 0.013322 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/37.5X Crossx.png
+  artifactKey: Guid(f7227f1fdc35a5040bacb4abe3b293b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/37.5X Crossx.png using Guid(f7227f1fdc35a5040bacb4abe3b293b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd9b656fd53c67ecb4f43fbcd4e54272') in 0.013193 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/37.5X Square.png
+  artifactKey: Guid(c2d8b43b797e6824fbca314f7ac4f7d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/37.5X Square.png using Guid(c2d8b43b797e6824fbca314f7ac4f7d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a775b63782bf9f9278fe96915f2c6c6') in 0.012781 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/37.5X Square Ex.png
+  artifactKey: Guid(e2700e51a414dfe47a9e76b195a77549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/37.5X Square Ex.png using Guid(e2700e51a414dfe47a9e76b195a77549) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84fca22905ec7d4ba7918e8bf9fccc20') in 0.013556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/25X Square.png
+  artifactKey: Guid(11a9ec40c788b534c8ee70728a0f77c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/25X Square.png using Guid(11a9ec40c788b534c8ee70728a0f77c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98b0e857e7ec87c671369f7b63c7f32d') in 0.012962 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/37.5X Circle Ex.png
+  artifactKey: Guid(734475d4fa1499e45bf30a8ac6566dc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/37.5X Circle Ex.png using Guid(734475d4fa1499e45bf30a8ac6566dc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46b1b2e2be60ec65c279dff892667c37') in 0.012940 seconds 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010591 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.374 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1442ms)
+		BeginReloadAssembly (166ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1166ms)
+			LoadAssemblies (113ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (349ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (440ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (289ms)
+				ProcessInitializeOnLoadMethodAttributes (22ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2916 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3547.
+Memory consumption went from 140.6 MB to 140.5 MB.
+Total: 3.588500 ms (FindLiveObjects: 0.256000 ms CreateObjectMapping: 0.155300 ms MarkObjects: 3.137200 ms  DeleteObjects: 0.038700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 68.596480 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/25X Circle Ex.png
+  artifactKey: Guid(a29b3e10290f8544f97ae7335d25c5a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/25X Circle Ex.png using Guid(a29b3e10290f8544f97ae7335d25c5a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ad40ffcd5e1cb0e853d7f20dfff10fd') in 0.049374 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/25X Circle.png
+  artifactKey: Guid(3b91691832ee9b348b80e9f618012044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/25X Circle.png using Guid(3b91691832ee9b348b80e9f618012044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'baa692d808d5f15b2e9e14323321a57b') in 0.019922 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Blood_System/Sprites/BloodElements/25X Crossx Ex.png
+  artifactKey: Guid(5b5e693c74a7e8f4a97133eed1ad4cb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/BloodElements/25X Crossx Ex.png using Guid(5b5e693c74a7e8f4a97133eed1ad4cb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ba7bf8eaa2a116ae3e39429b8e2531a') in 0.013859 seconds 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010545 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.406 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1476ms)
+		BeginReloadAssembly (158ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1207ms)
+			LoadAssemblies (113ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (375ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (455ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2910 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3594.
+Memory consumption went from 141.5 MB to 141.4 MB.
+Total: 3.312900 ms (FindLiveObjects: 0.239700 ms CreateObjectMapping: 0.123000 ms MarkObjects: 2.914700 ms  DeleteObjects: 0.034600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 72.964121 seconds.
+  path: Assets/Blood_System/Prefabs
+  artifactKey: Guid(06a2b1f31d5716346bc120a25a2ef75c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs using Guid(06a2b1f31d5716346bc120a25a2ef75c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e84b5c5f64d59ca6eec408ca7796290a') in 0.010457 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.485366 seconds.
+  path: Assets/Blood_System/Scenes
+  artifactKey: Guid(75ef00645f6e0d3408e942bafb953b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Scenes using Guid(75ef00645f6e0d3408e942bafb953b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cb80bee9ec9a9f7e91583304942beb3') in 0.006673 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.563607 seconds.
+  path: Assets/Blood_System/Sprites
+  artifactKey: Guid(3a8a999ad021ca1449e3c903228bca64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites using Guid(3a8a999ad021ca1449e3c903228bca64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eddc99b96f39e2195c45302c32eb0fb3') in 0.006292 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.234755 seconds.
+  path: Assets/Blood_System/Prefabs/MonsterCanvas.prefab
+  artifactKey: Guid(9542adbc2cd77b545be6ba4019dc9644) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/MonsterCanvas.prefab using Guid(9542adbc2cd77b545be6ba4019dc9644) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28d18ebe8c7fb833b39fc1e5498f9ddd') in 0.028538 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.041316 seconds.
+  path: Assets/Blood_System/Assets/BloodElementsRegistrationList.asset
+  artifactKey: Guid(178e31352ac34294294f2ff72c591709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Assets/BloodElementsRegistrationList.asset using Guid(178e31352ac34294294f2ff72c591709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d9b3832a4bd780cea5fbe224d808755') in 0.020420 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.001304 seconds.
+  path: Assets/Blood_System/Sprites/Entities/NecroRise_Chara_NecroSkull.png
+  artifactKey: Guid(f8015a4a79134684580e0dab7a34dd0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Sprites/Entities/NecroRise_Chara_NecroSkull.png using Guid(f8015a4a79134684580e0dab7a34dd0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4b05ba746c365ec45a05d756a339374') in 0.056816 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.716354 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/25C_Circle.prefab
+  artifactKey: Guid(efbbefa4b7b8a0d41b9a32ce1ab28142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/25C_Circle.prefab using Guid(efbbefa4b7b8a0d41b9a32ce1ab28142) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0fc39c2c6cab4f1afec32f1c7bc9aba') in 0.009853 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/25X_Circle.prefab
+  artifactKey: Guid(99a0f303e7a256b4daca7468939b01ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/25X_Circle.prefab using Guid(99a0f303e7a256b4daca7468939b01ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a6af508d806b7d895f625ea34edf12d') in 0.009136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/37C_Circle.prefab
+  artifactKey: Guid(ed3af398a737e494291b33031bdce56b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/37C_Circle.prefab using Guid(ed3af398a737e494291b33031bdce56b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b57ae133214698d22f59f72842a30bb9') in 0.011068 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/25C_Square.prefab
+  artifactKey: Guid(be82475bea699794b8d8ab6f48852d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/25C_Square.prefab using Guid(be82475bea699794b8d8ab6f48852d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b832893e8c0fc7135d99720c3f7a0543') in 0.009521 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/37X_Square.prefab
+  artifactKey: Guid(51f5c94b9583b9949a945808d3323499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/37X_Square.prefab using Guid(51f5c94b9583b9949a945808d3323499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9588569dce9ff916c2c9e90345a7377') in 0.010167 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/37C_Square.prefab
+  artifactKey: Guid(2b707b8a804e0e34bbcda3aea9619a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/37C_Square.prefab using Guid(2b707b8a804e0e34bbcda3aea9619a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '737f7a60a814deb802ef815ca55598d2') in 0.009005 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/37X_Circle.prefab
+  artifactKey: Guid(5fa91c4b5e138084dab854def0c31112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/37X_Circle.prefab using Guid(5fa91c4b5e138084dab854def0c31112) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cf95700376c13826d118a1fe981d333') in 0.008620 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/25X_Square.prefab
+  artifactKey: Guid(14c9fd2dc37e7c349abfa01d759151e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/25X_Square.prefab using Guid(14c9fd2dc37e7c349abfa01d759151e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ea634d8a5a5588af18aba600544cfae') in 0.009448 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/37X_Crossx.prefab
+  artifactKey: Guid(368363c46a31fd64093e383cb039a6a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/37X_Crossx.prefab using Guid(368363c46a31fd64093e383cb039a6a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bc5ce4d4fe5773e40271af7871ade7c') in 0.008746 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/25C_Crossx.prefab
+  artifactKey: Guid(5fbda68faf894cf44995e1a1e000cbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/25C_Crossx.prefab using Guid(5fbda68faf894cf44995e1a1e000cbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e9b09bf276e3a90dea7e5bcfd45c8f4') in 0.010585 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/37C_Crossx.prefab
+  artifactKey: Guid(698c1db90c1dd184b926d42faa324c44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/37C_Crossx.prefab using Guid(698c1db90c1dd184b926d42faa324c44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc5f0b42fb9e5285afd4b7daf696082d') in 0.009249 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Blood_System/Prefabs/BloodElements/25X_Crossx.prefab
+  artifactKey: Guid(a8c99e3c62fff7942831936df39bb50c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blood_System/Prefabs/BloodElements/25X_Crossx.prefab using Guid(a8c99e3c62fff7942831936df39bb50c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '684d81b92f8bf112043fb581b02bc169') in 0.010459 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.072640 seconds.
+  path: Assets/Main/CreatureBehavior/CreatureBehavior.unity
+  artifactKey: Guid(ae14f57fe7ad4224969d3fabcb85665b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/CreatureBehavior/CreatureBehavior.unity using Guid(ae14f57fe7ad4224969d3fabcb85665b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3875df4aea4c3ed8509a51bf3b25aa4a') in 0.010261 seconds 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010783 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.477 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1552ms)
+		BeginReloadAssembly (177ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1261ms)
+			LoadAssemblies (114ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (353ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (503ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (97ms)
+				ProcessInitializeOnLoadAttributes (339ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (21ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2908 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.5 KB). Loaded Objects now: 3614.
+Memory consumption went from 142.1 MB to 142.0 MB.
+Total: 3.516300 ms (FindLiveObjects: 0.247800 ms CreateObjectMapping: 0.147300 ms MarkObjects: 3.090600 ms  DeleteObjects: 0.029700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 49.408919 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/反跳.mp3
+  artifactKey: Guid(c7f8b63ac1bf1b741b9b1becd5378bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/反跳.mp3 using Guid(c7f8b63ac1bf1b741b9b1becd5378bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80c966cd8b238f996098f674574c15f2') in 0.174592 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/揮一.wav
+  artifactKey: Guid(da3ca1f08517aac438ed2b7e0a579b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/揮一.wav using Guid(da3ca1f08517aac438ed2b7e0a579b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f97e7a6e82ecf9e5644c1cb165c757f') in 0.017919 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/揮三.wav
+  artifactKey: Guid(e1341d76519af5646b2443c9e2d54be4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/揮三.wav using Guid(e1341d76519af5646b2443c9e2d54be4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f4886f12258e06e5eda91f29e5f86f') in 0.011804 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/猛擊(怪物被砍)2.wav
+  artifactKey: Guid(e2e0403173fc212439cbc9faeee158ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/猛擊(怪物被砍)2.wav using Guid(e2e0403173fc212439cbc9faeee158ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47ccd4ae701adc7a68128fdea7c62ac5') in 0.011595 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/衝刺.mp3
+  artifactKey: Guid(2c043552784a1cc43885af4d8fecbbfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/衝刺.mp3 using Guid(2c043552784a1cc43885af4d8fecbbfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '568f5d9840c311840ae5f9e4215bb361') in 0.013322 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/揮二.wav
+  artifactKey: Guid(fdd49b15c4d0703418a2f586e6e48b55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/揮二.wav using Guid(fdd49b15c4d0703418a2f586e6e48b55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80d8347e123d14e65ee5263d49190298') in 0.013987 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Main/Res/CharactersRes/Audios/猛擊(怪物被砍)1.wav
+  artifactKey: Guid(5af9363af1ff7ac4fac0cab553f6e279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Main/Res/CharactersRes/Audios/猛擊(怪物被砍)1.wav using Guid(5af9363af1ff7ac4fac0cab553f6e279) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '770e9069e45f4df5b7ea395461240aa1') in 0.014344 seconds 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010525 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.461 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1531ms)
+		BeginReloadAssembly (161ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1255ms)
+			LoadAssemblies (115ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (391ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (480ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (99ms)
+				ProcessInitializeOnLoadAttributes (318ms)
+				ProcessInitializeOnLoadMethodAttributes (24ms)
+				AfterProcessingInitializeOnLoad (23ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3621.
+Memory consumption went from 142.2 MB to 142.1 MB.
+Total: 3.354800 ms (FindLiveObjects: 0.248600 ms CreateObjectMapping: 0.144900 ms MarkObjects: 2.911900 ms  DeleteObjects: 0.048200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010568 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.316 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1377ms)
+		BeginReloadAssembly (165ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1098ms)
+			LoadAssemblies (111ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (344ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (446ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (91ms)
+				ProcessInitializeOnLoadAttributes (293ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3623.
+Memory consumption went from 142.2 MB to 142.1 MB.
+Total: 3.606200 ms (FindLiveObjects: 0.243800 ms CreateObjectMapping: 0.141000 ms MarkObjects: 3.188200 ms  DeleteObjects: 0.032100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010984 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.342 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1396ms)
+		BeginReloadAssembly (168ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (1117ms)
+			LoadAssemblies (111ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (349ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (452ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (92ms)
+				ProcessInitializeOnLoadAttributes (301ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3625.
+Memory consumption went from 142.2 MB to 142.1 MB.
+Total: 3.463200 ms (FindLiveObjects: 0.261600 ms CreateObjectMapping: 0.146000 ms MarkObjects: 3.018300 ms  DeleteObjects: 0.036500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010733 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.378 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1432ms)
+		BeginReloadAssembly (168ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1143ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (345ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (471ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (99ms)
+				ProcessInitializeOnLoadAttributes (309ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (21ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.5 KB). Loaded Objects now: 3627.
+Memory consumption went from 142.2 MB to 142.1 MB.
+Total: 3.522900 ms (FindLiveObjects: 0.262500 ms CreateObjectMapping: 0.151800 ms MarkObjects: 3.071800 ms  DeleteObjects: 0.035800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010641 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.344 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1406ms)
+		BeginReloadAssembly (170ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1119ms)
+			LoadAssemblies (111ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (342ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (464ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (310ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3629.
+Memory consumption went from 142.2 MB to 142.1 MB.
+Total: 3.598000 ms (FindLiveObjects: 0.256400 ms CreateObjectMapping: 0.166800 ms MarkObjects: 3.139500 ms  DeleteObjects: 0.034500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010530 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.317 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1371ms)
+		BeginReloadAssembly (163ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1096ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (331ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (454ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (299ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (20ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3631.
+Memory consumption went from 142.2 MB to 142.1 MB.
+Total: 3.684300 ms (FindLiveObjects: 0.255900 ms CreateObjectMapping: 0.133200 ms MarkObjects: 3.261800 ms  DeleteObjects: 0.032600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010378 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.339 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1394ms)
+		BeginReloadAssembly (172ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (1112ms)
+			LoadAssemblies (114ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (357ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (449ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (91ms)
+				ProcessInitializeOnLoadAttributes (299ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.5 KB). Loaded Objects now: 3633.
+Memory consumption went from 142.3 MB to 142.2 MB.
+Total: 3.450700 ms (FindLiveObjects: 0.255800 ms CreateObjectMapping: 0.171200 ms MarkObjects: 2.986500 ms  DeleteObjects: 0.036100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010829 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.344 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1398ms)
+		BeginReloadAssembly (163ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (1122ms)
+			LoadAssemblies (112ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (340ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (462ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (93ms)
+				ProcessInitializeOnLoadAttributes (308ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3635.
+Memory consumption went from 142.3 MB to 142.2 MB.
+Total: 3.516700 ms (FindLiveObjects: 0.262900 ms CreateObjectMapping: 0.157800 ms MarkObjects: 3.059800 ms  DeleteObjects: 0.035300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.010531 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.321 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1377ms)
+		BeginReloadAssembly (159ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1106ms)
+			LoadAssemblies (112ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (348ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (453ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (91ms)
+				ProcessInitializeOnLoadAttributes (301ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3637.
+Memory consumption went from 142.3 MB to 142.2 MB.
+Total: 3.453500 ms (FindLiveObjects: 0.256200 ms CreateObjectMapping: 0.170000 ms MarkObjects: 2.993100 ms  DeleteObjects: 0.033200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Default GameObject Tag: Player already registered
+Registering precompiled user dll's ...
+Registered in 0.011646 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[com.unity.burst] Burst is disabled entirely, either from the command line or because this is not the main Unity process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Unity.Burst.Editor.BurstLoader:.cctor () (at Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs:107)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.unity.burst@1.6.0-pre.2/Editor/BurstLoader.cs Line: 107)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.292 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1350ms)
+		BeginReloadAssembly (167ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1071ms)
+			LoadAssemblies (111ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (325ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (439ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (90ms)
+				ProcessInitializeOnLoadAttributes (291ms)
+				ProcessInitializeOnLoadMethodAttributes (24ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2907 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (102.4 KB). Loaded Objects now: 3639.
+Memory consumption went from 142.3 MB to 142.2 MB.
+Total: 3.538300 ms (FindLiveObjects: 0.251100 ms CreateObjectMapping: 0.156300 ms MarkObjects: 3.098200 ms  DeleteObjects: 0.031900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

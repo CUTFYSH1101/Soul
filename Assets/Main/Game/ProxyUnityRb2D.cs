@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Main.Res.Script.ScriptableObjectList;
+using Main.Util;
 using UnityEngine;
+using Array = Main.Util.Array;
 
 namespace Main.Game
 {
@@ -110,6 +115,9 @@ namespace Main.Game
 
             _coeffFasterMultiplier =
                 1 + Util.Time.DeltaTime;
+
+            if (_platformEffector2Ds.IsEmpty())
+                _platformEffector2Ds = FindObjectsOfType<PlatformEffector2D>().Get(platform => platform.GetComponent<Collider2D>());
         }
 
         private float _coeffFasterMultiplier;
@@ -117,7 +125,7 @@ namespace Main.Game
         private void FixedUpdate()
         {
             if (!Enable) return;
-            
+
             if (SwitchPhysicReduceSimulateX)
             {
                 _activeX.Update();
@@ -131,11 +139,18 @@ namespace Main.Game
             if (FasterByTime)
                 Velocity *= _coeffFasterMultiplier;
         }
+
         // instance.velocity += instance.velocity.normalized * Time.DeltaTime;
         // Velocity *= (1 + Time.DeltaTime);
 
+        private static Collider2D[] _platformEffector2Ds;
+
         private void OnCollisionEnter2D(Collision2D other)
         {
+            if (Enumerable.Contains(_platformEffector2Ds, other.collider) &&
+                Vector2.Angle(other.contacts[0].normal, Vector2.up) < 160)
+                return;
+
             _activeX.OnCollisionEnter(other);
             _passiveX.OnCollisionEnter(other);
             _guideX.OnCollisionEnter(other);
@@ -245,7 +260,7 @@ namespace Main.Game
                 // 停止移動
                 StopMoving();
 
-                var difference = target - (Vector2) Rb.transform.position;
+                var difference = target - (Vector2)Rb.transform.position;
                 var dir = new Vector2(Math.Sign(difference.x), Math.Sign(difference.y));
                 // var dir = difference.normalized;
                 // 當到達位置則停止移動
@@ -395,7 +410,7 @@ namespace Main.Game
 
             // 不考慮彈性碰撞、質量差
             // 末速度 = - 彈性係數 * 初速度 * Cos（速度與法向力夾角）
-            var normal = (Vector2) other.transform.position - physicsData.Position;
+            var normal = (Vector2)other.transform.position - physicsData.Position;
             var angle = Vector2.Angle(normal, physicsData.Velocity);
             subSpeedX *= bounciness * Convert.ToSingle(Math.Sin(angle));
         }
@@ -434,7 +449,7 @@ namespace Main.Game
 
         private static float GetCommonRatioByLinearDrag(float drag)
         {
-            return (float) GetCommonRatioByLinearDrag((double) drag);
+            return (float)GetCommonRatioByLinearDrag((double)drag);
         }
 
         public static void DragSimulate(float drag, ref float subSpeedX)
