@@ -18,7 +18,7 @@ MonoBehaviour:
       scene: Assets/Sandbox/Scene/Scenes/MainMenu.unity
   - key: 1
     value:
-      scene: Assets/Main/CreatureBehavior/CreatureBehavior.unity
-  - key: 3
+      scene: Assets/Sandbox/Scene/Scenes/Map1.unity
+  - key: 2
     value:
-      scene: Assets/Sandbox/Scene/Scenes/map2.unity
+      scene: Assets/Sandbox/Scene/Scenes/Map2.unity

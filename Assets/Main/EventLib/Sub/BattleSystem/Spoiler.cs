@@ -46,7 +46,7 @@ namespace Main.EventLib.Sub.BattleSystem
         private void OnTriggerEnter2D(Collider2D injuredCollider)
         {
             if (!IsEnemy(injuredCollider)) return;
-            var usingSkill = BattleInterface.FindInUsingSkillAttr(Creature.Transform);
+            var usingSkill = CreatureSystem.FindInUsingSkillAttr(Creature.Transform);
             SetTargetHit(injuredCollider, usingSkill);
             // LogInfo(injuredCollider, "type: " + usingSkill.BloodType.ToString());
         }
@@ -54,7 +54,7 @@ namespace Main.EventLib.Sub.BattleSystem
         private static bool IsCreature(Component injuredCollider, out Creature injured)
         {
             var _ = injuredCollider.CompareLayer("Creature");
-            injured = _ ? BattleInterface.FindCreature(injuredCollider.transform.root) : null;
+            injured = _ ? CreatureSystem.FindCreature(injuredCollider.transform.root) : null;
             return _;
         }
 
@@ -62,7 +62,7 @@ namespace Main.EventLib.Sub.BattleSystem
         {
             // 不要自己打自己
             if (theInjuredCollider.transform.root == Creature.Transform) return false;
-            var theInjuredSpoiler = (Spoiler)BattleInterface.FindComponent(theInjuredCollider.transform,
+            var theInjuredSpoiler = (Spoiler)CreatureSystem.FindComponent(theInjuredCollider.transform,
                 EnumComponentTag.BattleSpoilerSystem);
             // 敵對才能傷害到對方
             if (theInjuredSpoiler == null || !theInjuredSpoiler.IsEnemy(Team)) return false;

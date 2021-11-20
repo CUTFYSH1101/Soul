@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Sandbox/Scene/Scenes/MainMenu.unity
     guid: 017ac403c68e4284ad45dd6eb5303aa7
   - enabled: 1
+    path: Assets/Sandbox/Scene/Scenes/Map1.unity
+    guid: 9fb5cdca8da84d98a919e627b361184c
+  - enabled: 1
+    path: Assets/Sandbox/Scene/Scenes/Map2.unity
+    guid: 63ec9e824f4c40a889ca449d86d1023a
+  - enabled: 1
     path: Assets/Main/CreatureBehavior/CreatureBehavior.unity
     guid: ae14f57fe7ad4224969d3fabcb85665b
   m_configObjects: {}

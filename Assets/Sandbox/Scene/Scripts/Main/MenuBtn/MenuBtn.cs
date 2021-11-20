@@ -9,7 +9,7 @@ namespace Test.Scene.Scripts.Main.MenuBtn
     // 與unity畫面中的按鈕做連結
     public static class MenuBtn
     {
-        private static readonly Transform Canvas = UnityTool.GetComponentByPath<Transform>("UI/PanelMenu");
+        public static readonly Transform Canvas = UnityTool.GetComponentByPath<Transform>("UI/PanelMenu");
         public static void AddOnClickListener(this EnumButtonTag tag, [NotNull] Action e)
         {
             if (Canvas == null) return;

@@ -20,7 +20,7 @@ namespace Test.Scene.Scripts.Sub
             // 按下m可以開啟小地圖
             // 按下esc會關閉遊戲
 
-            CreatureSystem.Instance.Init();
+            CreatureSystem.Init();
             CollisionManager.ThreeLevelGroundSetting(); // 三層地板
 
             // 把主角的狀態變更為idle，使無法攻擊

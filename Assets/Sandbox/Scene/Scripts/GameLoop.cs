@@ -1,12 +1,12 @@
-﻿using Test.Scene.Scripts.Game;
-using Test.Scene.Scripts.Main.UI;
+﻿using Sandbox.Scene.Scripts.Main.GUI;
+using Test.Scene.Scripts.Game;
 using UnityEngine;
 
 namespace Test.Scene.Scripts
 {
     public class GameLoop : MonoBehaviour
     {
-        private SceneLoadingUI _ui;
+        private LoadingVFX _vfx;
         public Component test;
         public EntityData data = new(){attack_speed = 1};
         public GameCenter center;

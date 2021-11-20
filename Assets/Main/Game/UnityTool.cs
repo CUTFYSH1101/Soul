@@ -178,4 +178,15 @@ namespace Main.Game
         public static bool CompareLayer(this Component component, string layerName) =>
             component.gameObject.layer == LayerMask.NameToLayer(layerName);
     }
+
+    public static partial class UnityTool
+    {
+        public static void SetDontDestroy(Component target, bool open = true)
+        {
+            if (open)
+                Object.DontDestroyOnLoad(target.gameObject);
+            else
+                Object.Destroy(target.gameObject, 0.1f);
+        }
+    }
 }

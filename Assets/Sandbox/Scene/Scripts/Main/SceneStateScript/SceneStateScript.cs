@@ -18,7 +18,7 @@ namespace Test.Scene.Scripts.Main.SceneStateScript
         {
             SceneStateScript _ = newMap switch
             {
-                EnumMapTag.Victory => new Victory(),
+                EnumMapTag.VictoryMap1 => new Victory(),
                 EnumMapTag.MainMenu => new StartMenu(),
                 EnumMapTag.Tutorial => new Tutorial(),
                 _ => throw new ArgumentOutOfRangeException(nameof(newMap), newMap, null)

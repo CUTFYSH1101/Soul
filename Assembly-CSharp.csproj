@@ -116,7 +116,7 @@
      <Compile Include="Assets\Sandbox\Scene\Scripts\Sub\Victory.cs" />
      <Compile Include="Assets\Main\EventLib\Sub\CreatureEvent\Skill\AtkNormal.cs" />
      <Compile Include="Assets\Main\CreatureBehavior\Behavior\Sub\PlayerController.cs" />
-     <Compile Include="Assets\Sandbox\Scene\Scripts\Main\GUI\SceneLoadingUI.cs" />
+     <Compile Include="Assets\Sandbox\Scene\Scripts\Main\GUI\LoadingVFX.cs" />
      <Compile Include="Assets\Main\Game\GamePause.cs" />
      <Compile Include="Assets\Main\Entity\EnumComponentTag.cs" />
      <Compile Include="Assets\Main\CreatureAI\ICreatureStrategy.cs" />
@@ -273,6 +273,11 @@
      <Compile Include="Assets\Extensions\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\Main\Input\DataType\KeyExtra.cs" />
      <Compile Include="Assets\Main\Res\Script\Anim\MoveAnim.cs" />
+     <Compile Include="Assets\Sandbox\Scene\Scripts\Main\TeleportPoint\TransferPoint.cs" />
+     <Compile Include="Assets\Sandbox\Scene\Scripts\Sub\Victory_GameLoop.cs" />
+     <Compile Include="Assets\Sandbox\Scene\Scripts\Main\GUI\ILoadingVFX.cs" />
+     <Compile Include="Assets\Sandbox\Scene\Scripts\Main\GUI\LoadingFadeOutVFX.cs" />
+     <Compile Include="Assets\Main\Util\LogMsg.cs" />
      <None Include="Assets\Extensions\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Extensions\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Extensions\SoftMask\Samples\Materials\MaxBlend.shader" />
@@ -553,25 +558,25 @@
      <HintPath>D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Unsafe">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.Unsafe.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Rocks">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.burst@1.6.0-pre.2/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="clipper_library">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.cinemachine@2.8.0/Runtime/ThirdParty/clipper_library.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.cinemachine@2.8.0/Runtime/ThirdParty/clipper_library.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -943,106 +948,106 @@
      <HintPath>D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
      </Reference>
      <Reference Include="PsdPlugin">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Path.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InputSystem">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Cinemachine">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
      </Reference>
      <Reference Include="com.unity.cinemachine.editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Runtime">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Runtime">
-     <HintPath>D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+     <HintPath>D:/1.Project/13-1.Git/Project Soul/Soul/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

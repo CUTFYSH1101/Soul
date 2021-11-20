@@ -31,7 +31,7 @@ namespace Main.Entity.Creature
         /// </summary>
         /// <param name="tag"></param>
         /// <param name="audioPlayer"></param>
-        public static Dictionary<Transform, Creature> CreateCreatures(EnumCreatureTag tag,
+        public static void CreateCreatures(EnumCreatureTag tag,
             DictAudioPlayer audioPlayer = null)
         {
             var objs = FindObjArray(FindData(tag));
@@ -68,9 +68,8 @@ namespace Main.Entity.Creature
                 default:
                     throw new ArgumentOutOfRangeException(nameof(tag), tag, "超出範圍");
             }
-
-            return append;
         }
+        public static void Destroy() => CreatureDictionary.Clear();
 
         /// <summary>
         /// 搜索任何已經生成的物件

@@ -48,7 +48,7 @@ namespace Main.EventLib.Sub.BattleSystem
         // 抓取所有物件
         public Spoiler[] GetAll() =>
             (Spoiler[]) _dynEyePos.AnyInView(_sensingRange.x, _sensingRange.y, collider2D =>
-                    (Spoiler) BattleInterface.FindComponent(collider2D.transform,
+                    (Spoiler) CreatureSystem.FindComponent(collider2D.transform,
                         EnumComponentTag.BattleSpoilerSystem));
 
         public IMediator[] GetAll(Func<IMediator, bool> filter) =>

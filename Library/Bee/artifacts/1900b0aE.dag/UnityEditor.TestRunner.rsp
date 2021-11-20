@@ -116,7 +116,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
--r:"D:/1.Project/13-1.Git/Design Pattern/Project Soul/Soul/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"D:/1.Project/13-1.Git/Project Soul/Soul/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"D:/Program Files/Game Engine/Unity/Hub/Editor/2021.2.0b11/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"

@@ -23,7 +23,7 @@ namespace Test.Scene.Scripts.Sub
             // 如果UI全遊戲採用同一種固定的，那dont destroy: 1.database, 2.unity UGUI, 3. character
             // 當角色從右邊地圖換下一個地圖，則從左方進入，相反亦如此
 
-            CreatureSystem.Instance.Init();
+            CreatureSystem.Init();
             CollisionManager.ThreeLevelGroundSetting(); // 三層地板
 
             // 把主角的狀態變更為aware，允許攻擊

@@ -77,7 +77,7 @@ namespace Main.CreatureAI.Sub
         public void AttackEnter()
         {
         }
-        private CdCondition _attackGap = new(2f);
+        private CdCondition _attackGap = new(5f);
 
         public void AttackUpdate()
         {

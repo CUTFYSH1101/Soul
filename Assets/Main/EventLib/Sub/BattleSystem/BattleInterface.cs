@@ -34,24 +34,13 @@ namespace Main.EventLib.Sub.BattleSystem
         public static CreatureSystem CreateAndAppendCreatureSystemComponent(Creature self) =>
             (CreatureSystem)self.Append(CreatureSystem.Instance);
 
-        [CanBeNull]
-        public static Creature FindCreature(Transform obj) => CreatureSystem.FindCreatureByObj(obj);
-
-        [CanBeNull]
-        public static IComponent FindComponent(Transform creatureTrans, EnumComponentTag tag) =>
-            CreatureSystem.Instance.FindComponent(creatureTrans, tag);
-
-        [CanBeNull]
-        public static T FindComponent<T>(Transform creatureTrans) where T : class, IComponent =>
-            CreatureSystem.Instance.FindComponent<T>(creatureTrans);
-
         public static IComponent[] FindComponents(EnumComponentTag tag)
         {
             var creatureSystem = CreatureSystem.Instance;
             var queue = new Queue<IComponent>();
             IComponent component;
             foreach (var obj in Object.FindObjectsOfType<Transform>().Get(go => go.transform))
-                if ((component = creatureSystem.FindComponent(obj, tag)) != null)
+                if ((component = CreatureSystem.FindComponent(obj, tag)) != null)
                     queue.Enqueue(component);
             return queue.Any() ? queue.ToArray() : null;
         }
@@ -62,7 +51,7 @@ namespace Main.EventLib.Sub.BattleSystem
             var dict = new Dictionary<Transform, IComponent>();
             IComponent component;
             foreach (var obj in Object.FindObjectsOfType<Transform>().Get(go => go.transform))
-                if ((component = creatureSystem.FindComponent(obj, tag)) != null)
+                if ((component = CreatureSystem.FindComponent(obj, tag)) != null)
                     dict.Add(obj, component);
             return dict.Any() ? dict : null;
         }
@@ -73,20 +62,10 @@ namespace Main.EventLib.Sub.BattleSystem
             var dict = new Dictionary<Transform, T>();
             IComponent component;
             foreach (var obj in Object.FindObjectsOfType<Transform>().Get(go => go.transform))
-                if ((component = creatureSystem.FindComponent(obj, tag)) != null)
+                if ((component = CreatureSystem.FindComponent(obj, tag)) != null)
                     dict.Add(obj, (T)component);
             return dict.Any() ? dict : null;
         }
-
-        [CanBeNull]
-        public static IData FindData(Transform obj, EnumDataTag tag) =>
-            CreatureSystem.Instance.FindData(obj, tag);
-
-        public static SkillAttr FindInUsingSkillAttr(Transform obj) =>
-            CreatureSystem.Instance.FindInUsingSkillAttr(obj);
-
-        public static EnumSkillTag FindInUsingSkillTag(Transform obj) =>
-            CreatureSystem.Instance.FindInUsingSkillTag(obj);
 
         // ======
         // 傷害與受擊系統

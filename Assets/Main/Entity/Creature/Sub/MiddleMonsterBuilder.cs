@@ -26,13 +26,9 @@ namespace Main.Entity.Creature.Sub
 
             var behavior = Creature.Append(new MiddleMonsterBehavior(Creature));
 
-            var strategy = Creature.Append(new MiddleMonsterStrategy(
+            Creature.Append(new MiddleMonsterStrategy(
                 new CreatureInterface(Creature), behavior as MiddleMonsterBehavior, Team.Enemy,
                 new Vector2(10f, 1.5f), new Vector2(3.2f, 1.5f)));
-            DebugMode.DoWhenOpen += () =>
-                Creature.Remove(strategy);
-            DebugMode.DoWhenClose += () =>
-                Creature.Append(strategy);
         }
 
         public override void SetBattleSystem()

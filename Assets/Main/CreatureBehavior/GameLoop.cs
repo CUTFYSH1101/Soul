@@ -18,8 +18,8 @@ namespace Main.CreatureBehavior
         private Creature _demoPlayer2;
         public void Awake()
         {
-            CreatureSystem.Instance.Init();
-            _demoPlayer2 = BattleInterface.FindCreature(player);
+            CreatureSystem.Init();
+            _demoPlayer2 = CreatureSystem.FindCreature(player);
             CollisionManager.ThreeLevelGroundSetting(); // 三層地板
 
             _gui = new GUILog();

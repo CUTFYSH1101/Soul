@@ -13,19 +13,22 @@ namespace Test.Scene.Scripts.Sub
             BtnContinue.AddOnClickListener(() =>
             {
                 Debug.Log("載入先前進度");
-                Center.SceneHandler.ChangeScene(EnumMapTag.Victory);
+                Center.SceneHandler.ChangeScene(EnumMapTag.VictoryMap1);
                 Center.MainCharacterData.Load(); // dont destroy this
-                Center.ChangeSceneScriptState(EnumMapTag.Victory);
+                Center.ChangeSceneScriptState(EnumMapTag.VictoryMap1);
+                MenuBtn.Canvas.gameObject.SetActive(false);
             });
             BtnNewGame.AddOnClickListener(() =>
             {
                 Debug.Log("重新開始");
-                Center.SceneHandler.ChangeScene(EnumMapTag.Victory);
+                Center.SceneHandler.ChangeScene(EnumMapTag.VictoryMap1);
                 Center.MainCharacterData.Save(); // 覆蓋舊檔案
-                Center.ChangeSceneScriptState(EnumMapTag.Victory);
+                Center.ChangeSceneScriptState(EnumMapTag.VictoryMap1);
+                MenuBtn.Canvas.gameObject.SetActive(false);
             });
             BtnExit.AddOnClickListener(() =>
             {
+                MenuBtn.Canvas.gameObject.SetActive(false);
                 Application.Quit();
                 Debug.Log("退出");
             });

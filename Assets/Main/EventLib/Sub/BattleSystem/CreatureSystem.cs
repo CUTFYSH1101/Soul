@@ -18,7 +18,7 @@ namespace Main.EventLib.Sub.BattleSystem
         public static CreatureSystem Instance => new();
         public static Creature[] Creatures => Factory.CreatureDictionary.Values.ToArray();
 
-        public void Init()
+        public static void Init()
         {
             // 使用Builder.Factory
             Factory.CreateCreatures(Factory.EnumCreatureTag.Player, Loader.Find<DictAudioPlayer>(Loader.Tag.Audio));
@@ -32,20 +32,20 @@ namespace Main.EventLib.Sub.BattleSystem
         {
             foreach (var creature in Factory.CreatureDictionary.Values) creature.Update();
         }
-
-        public EnumSkillTag FindInUsingSkillTag(Transform obj) =>
-            FindCreatureByObj(obj) != null
-                ? FindCreatureByObj(obj).CreatureAttr.CurrentSkill
+        public static void Destroy() => Factory.Destroy();
+        public static EnumSkillTag FindInUsingSkillTag(Transform obj) =>
+            FindCreature(obj) != null
+                ? FindCreature(obj).CreatureAttr.CurrentSkill
                 : EnumSkillTag.None;
 
         [CanBeNull]
-        public SkillAttr FindInUsingSkillAttr(Transform obj) =>
-            FindCreatureByObj(obj) != null
-                ? FindCreatureByObj(obj).CurrentSkill
+        public static SkillAttr FindInUsingSkillAttr(Transform obj) =>
+            FindCreature(obj) != null
+                ? FindCreature(obj).CurrentSkill
                 : null;
 
         [CanBeNull]
-        public static Creature FindCreatureByObj(Transform obj) =>
+        public static Creature FindCreature(Transform obj) =>
             Factory.FindCreatureByObj(obj);
 
         [CanBeNull]
@@ -53,15 +53,15 @@ namespace Main.EventLib.Sub.BattleSystem
             Factory.FindCreaturesByTag(tag);
 
         [CanBeNull]
-        public IComponent FindComponent(Transform obj, EnumComponentTag tag) =>
-            FindCreatureByObj(obj)?.FindByTag(tag);
+        public static IComponent FindComponent(Transform obj, EnumComponentTag tag) =>
+            FindCreature(obj)?.FindByTag(tag);
 
         [CanBeNull]
-        public T FindComponent<T>(Transform obj) where T : class, IComponent => 
-            FindCreatureByObj(obj)?.FindComponent<T>();
+        public static T FindComponent<T>(Transform obj) where T : class, IComponent => 
+            FindCreature(obj)?.FindComponent<T>();
 
         [CanBeNull]
-        public IData FindData(Transform obj, EnumDataTag tag) =>
-            FindCreatureByObj(obj)?.FindByTag(tag);
+        public static IData FindData(Transform obj, EnumDataTag tag) =>
+            FindCreature(obj)?.FindByTag(tag);
     }
 }

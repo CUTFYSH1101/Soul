@@ -15,7 +15,8 @@ namespace Test.Scene.Scripts.Game
     public enum EnumMapTag
     {
         MainMenu,
-        Victory,
+        VictoryMap1,
+        VictoryMap2,
         Tutorial,
         MapTest,
     }
