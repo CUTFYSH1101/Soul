@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454c20f6bdd2421a805a9c20bfcff233, type: 3}
+  m_Name: DLGElement
+  m_EditorClassIdentifier: 
+  npcHooker: "\u5C0F\u667A"
+  dialogue:
+  - npcName: "\u5C0F\u667A"
+    diaText: "\u6211\u662F\u771F\u65B0\u93AE\u7684\u5C0F\u667A\uFF0C\u5922\u60F3\u662F\u6210\u70BA\u795E\u5947\u5BF6\u8C9D\u5927\u5E2B\u3002"
+    branchActive: 01
+    branchText:
+    - '>>'
+    branchAction:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2490715928261848920, guid: 41924eeb09b582643a10af2f507517b1,
+            type: 3}
+          m_TargetAssemblyTypeName: Main.Dialogue.DialogueHandler, Assembly-CSharp
+          m_MethodName: DlgNextTo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - npcName: "\u5C0F\u667A"
+    diaText: "\u4ECA\u5929\u662Fm\u6708d\u65E5\uFF0C\u662F\u53BB\u535A\u58EB\u5831\u5230\u7684\u4E00\u5929\u3002\uFF08\u770B\u5411\u639B\u9418\uFF09......\u6211\u5F97\u5FEB\u9EDE\u8D70\u624D\u884C\u3002"
+    branchActive: 0101
+    branchText:
+    - "\u78BA\u8A8D\u6709\u6C92\u6709\u6771\u897F\u5FD8\u8A18\u5E36\uFF08\u5728\u623F\u9593\u5F98\u5F8A\uFF09"
+    - "\u5411\u5ABD\u5ABD\u9053\u5225\uFF08\u96E2\u958B\u623F\u9593\uFF09"
+    branchAction:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2490715928261848920, guid: 41924eeb09b582643a10af2f507517b1,
+            type: 3}
+          m_TargetAssemblyTypeName: Main.Dialogue.DialogueHandler, Assembly-CSharp
+          m_MethodName: DlgNextTo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2490715928261848920, guid: 41924eeb09b582643a10af2f507517b1,
+            type: 3}
+          m_TargetAssemblyTypeName: Main.Dialogue.DialogueHandler, Assembly-CSharp
+          m_MethodName: DlgNextTo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - npcName: "\u5C0F\u667A"
+    diaText: "\u9322\u5305OK\u3001\u9470\u5319OK\uFF0C\u554A\u518D\u4E0D\u8D70\u8981\u9072\u5230\u4E86\u3002"
+    branchActive: 01
+    branchText:
+    - "\u5411\u5ABD\u5ABD\u9053\u5225\uFF08\u96E2\u958B\u623F\u9593\uFF09"
+    branchAction:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2490715928261848920, guid: 41924eeb09b582643a10af2f507517b1,
+            type: 3}
+          m_TargetAssemblyTypeName: Main.Dialogue.DialogueHandler, Assembly-CSharp
+          m_MethodName: DlgNextTo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - npcName: "\u5C0F\u667A"
+    diaText: "\u5ABD\u6211\u51FA\u9580\u4E86\u3002"
+    branchActive: 00
+    branchText:
+    - '>>'
+    branchAction:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2490715928261848920, guid: 41924eeb09b582643a10af2f507517b1,
+            type: 3}
+          m_TargetAssemblyTypeName: Main.Dialogue.DialogueHandler, Assembly-CSharp
+          m_MethodName: DlgNextTo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - npcName: "\u82B1\u5B50"
+    diaText: "\u8DEF\u4E0A\u5C0F\u5FC3\u3002"
+    branchActive: 00
+    branchText:
+    - '>>'
+    branchAction:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2490715928261848920, guid: 41924eeb09b582643a10af2f507517b1,
+            type: 3}
+          m_TargetAssemblyTypeName: Main.Dialogue.DialogueHandler, Assembly-CSharp
+          m_MethodName: DlgClose
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
