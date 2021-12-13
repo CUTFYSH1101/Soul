@@ -1,8 +1,3 @@
-{ "pid": "BuildProgram", "ph":"M", "name": "process_name", "args": {"name": "BuildProgram"} },
-{ "pid": "BuildProgram", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -1} },
-{ "pid": "BuildProgram", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": ""} },
-{ "pid": "BuildProgram", "tid": 1,"ts": 29524711446.1,"dur": 462740.3, "ph":"X", "name": "BuildProgram"},
-{ "pid": "BuildProgram", "tid": 1,"ts": 29524711632.5,"dur": 89486.3, "ph":"X", "name": "BuildProgramContextCCtor"},
-{ "pid": "BuildProgram", "tid": 1,"ts": 29525102474.4,"dur": 3053.5, "ph":"X", "name": "OutputData.Write"},
-{ "pid": "BuildProgram", "tid": 1,"ts": 29525105528.6,"dur": 68657.1, "ph":"X", "name": "Backend.Write"},
-{ "pid": "BuildProgram", "tid": 1,"ts": 29525106171.9,"dur": 46812.3, "ph":"X", "name": "JsonToString"},
+version https://git-lfs.github.com/spec/v1
+oid sha256:4738533e77ceff87f42224a84688cbbefd581002275b23d6a645e0f8ef6a10d6
+size 1117
