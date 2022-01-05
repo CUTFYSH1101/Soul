@@ -1,21 +1,3 @@
-﻿using Test.Scene.Scripts;
-using Test.Scene.Scripts.Game;
-using UnityEngine;
-
-public class GameLoop : MonoBehaviour
-{
-    // 主角、怪物戰鬥系統、生物事件系統、
-    // ECS、狀態模式
-    public GameCenter center;
-
-    private void Awake()
-    {
-        center = new GameCenter();
-        center.ChangeSceneScriptState(EnumMapTag.MainMenu);
-    }
-
-    private void Update()
-    {
-        center.Update();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a7780d52cc096d421017a68cd9b03aaa743ad9e9186339ef0d19b1642ab723c7
+size 453
